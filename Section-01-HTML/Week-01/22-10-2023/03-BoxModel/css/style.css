@@ -1,0 +1,26 @@
+.kutu {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(42, 165, 108);
+    /* margin: 10px; */
+
+    /* margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px; */
+
+    /* margin: 10px 20px 30px 40px; */
+
+    margin: 10px 40px 80px;
+
+    /* 2 deger yazınca üst alt ve sağ sol diye ayırıyor
+    4 deger yazınca saat yönünde ayrı ayrı
+    3 deger yazınca ilk deger üst ikinci değer alt 3. değer sağ sol birlikte
+    */
+
+    display: inline-block;
+}
+
+body {
+    margin: 0px;
+}

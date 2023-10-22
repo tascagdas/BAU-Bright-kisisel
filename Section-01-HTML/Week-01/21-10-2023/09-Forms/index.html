@@ -19,16 +19,87 @@
 <body>
     <form>
         <div>
-            <label>Ad Soyad:</label> <input type="text">
+            <label>Ad Soyad:</label>
+            <input type="text">
         </div>
         <div>
-            <label>Email</label> <input type="email">
+            <label>Email</label>
+            <input type="email">
+        </div>
+        <div>
+            <label>Şifre:</label>
+            <input type="password" name="" id="">
         </div>
         <div>
             <label>Profil Fotoğrafı</label> <input type="file" name="" id="">
         </div>
         <div>
-            <label>Robot Değilim</label> <input type="checkbox">
+            <h3>Hobiler</h3>
+            <div>
+                <input type="checkbox" name="" id="tiyatro">
+                <label for="tiyatro">Tiyatro</label>
+            </div>
+            <div>
+                <input type="checkbox" name="" id="sinema">
+                <label for="sinema">Sinema</label>
+            </div>
+            <div>
+                <input type="checkbox" name="" id="spor">
+                <label for="spor">Spor</label>
+            </div>
+        </div>
+        <div>
+            <h3>Cinsiyet</h3>
+            <!-- nameleri aynı yapınca gruplayıp ortak degerlendırme yapıyor yanı iki secenekten birinin cesilmesi için cinsiyet name i altında. burada sonuc olarak bu komut bana cinsiyet grubu aynı veriyi getirmeye calısıyorsunuz biriniz getirsin diyor. -->
+            <div>
+                <input type="radio" name="cinsiyet" id="kadin">
+                <label for="kadin">Kadın</label>
+            </div>
+            <div>
+                <input type="radio" name="cinsiyet" id="erkek">
+                <label for="erkek">Erkek</label>
+            </div>
+        </div>
+        <div>
+            <h3>Eğitim durumu</h3>
+
+            <div>
+                <input type="radio" name="egitim" id="lise">
+                <label for="lise">Lise</label>
+            </div>
+            <div>
+                <input type="radio" name="egitim" id="lisans">
+                <label for="lisans">Lisans</label>
+            </div>
+            <div>
+                <input type="radio" name="egitim" id="yukseklisans">
+                <label for="yukseklisans">Y. Lisans</label>
+            </div>
+        </div>
+        <div>
+            <h3>Şehir:</h3>
+            <select name="" id="">
+                <option value="">Bir Şehir Seçiniz</option>
+                <option selected>Mağara</option>
+                <option value="">Kars</option>
+                <option value="">İstanbul</option>
+                <option value="">Eskişehir</option>
+                <option value="">Ankara</option>
+                <option value="">İzmir</option>
+            </select>
+        </div>
+        <div>
+            <label for="">Doğum Tarihi</label>
+            <input type="date" name="" id="">
+        </div>
+        <div>
+            <label>Robot Değilim</label>
+            <input type="checkbox">
+        </div>
+        <div>
+            <input type="submit" value="Gönder submit">
+            <input type="button" value="Gönder buton">
+            <input type="reset" value="Temizle reset">
         </div>
     </form>
 
