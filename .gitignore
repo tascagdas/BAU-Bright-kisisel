@@ -396,5 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-Section-01-HTML/Week-01/18-10-2023/.DS_Store
-.DS_Store
+
+*.DS_Store
