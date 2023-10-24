@@ -1,0 +1,20 @@
+table,
+th,
+td {
+    color: green;
+    border: 1px solid black;
+    border-collapse: collapse
+}
+
+p {
+    border: red;
+    border-style: solid;
+}
+#paragraf1{
+    border: blue;
+
+    border-style: solid;
+}
+.ilk{
+    color: red
+}

@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+}
+
+#hero{
+    background-color: green;
+    margin:  auto;
+
+}
+
+h1,h2{
+    width: 300px;
+    margin: 20px auto;
+}

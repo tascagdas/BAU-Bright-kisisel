@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* h2{
+    width: 250px;
+    margin: 20px auto;
+    padding: 30px;
+} */
+h1{
+    width: 250px;
+    margin: 20px auto;
+}
+#content{
+    width: 1000px;
+    background-color: turquoise;
+    margin: 20px auto;
+    /* padding: 20px; */
+    /* padding: 10px 20px; */
+    /* padding: 10px 20px 30px */
+    /* padding: 10px 20px 30px 40px; */
+    padding:10px 50%;
+}
+#hero{
+    background-color: green;
+}
+#footer{
+    background-color: purple;
+}
+h3{
+    color: aliceblue;
+    /* text-align: center; */
+    /* text-align: start; */
+    text-align: right;
+}
+#other{
+    margin-left: 200px;
+}
+ul{
+    list-style-type: none;
+}
