@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#main_header{
+    background-color: rgb(49, 127, 151);
+    padding: 10px 25px;
+    height: 85px;
+}
+a{
+    text-decoration: none;
+}
+#main_header>a{
+    color: skyblue;
+    font-size: 50px;
+    font-weight: bold;
+    
+}
+#main_nav{
+    display: inline-block;
+    width: calc(100% - 275px);
+    text-align: end;
+}
+#main_nav>a{
+    background-color:brown;
+    color: white;
+    display: inline-block;
+    width: 120px;
+    /* margin-left: 150px; */
+    text-align: center;
+    padding: 7.5px;
+    border-radius: 10px;
+    /* height: auto; */
+    line-height: 1.2;
+    /* line height içerik ile yazı arasındaki yükseklik standartı 1.2 default */
+    font-size: 16px;
+}
+
+#main_nav a:hover{
+    background-color: red;
+    color: yellow;
+    font-weight: bold;
+    /* height: 40px; */
+    /* padding: 7.5px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#main_content{
+    height: calc(100vh - 85px);
+
+}
+
+#show_case{
+    height: 30%;
+    background-color: darkorange;
+}

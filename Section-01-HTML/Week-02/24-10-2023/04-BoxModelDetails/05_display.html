@@ -7,22 +7,38 @@
     <title>Document</title>
     <style>
         .box {
-            width: 60px;
+            width: 100%;
             height: 60px;
             color: bisque;
         }
 
         #box1 {
-            background-color: navy;
+            background-color: rgb(77, 77, 195);
         }
 
         #box2 {
-            background-color: rgb(51, 0, 119);
-            display: none;
+            background-color: rgb(231, 34, 90);
+            /* display: none; */
+            /* display: block; */
+            visibility: hidden;
         }
 
         #box3 {
-            background-color: rgb(3, 88, 0);
+            background-color: rgb(74, 190, 70);
+        }
+        a{
+            /* display: block; */
+            display: inline-block;
+            /* inline-block: Bir elementin, inline olmaya devam etmesini ancak bazı block özelliklerini kazanmasını sağlar.
+            inline elemente etki etmeyen özellikler:
+            1)width,height
+            2)maargin-top, margin-bottom
+            3)paddin-top, padding bottom
+            
+            Eğer bir inline elemente, yukarıdaki özelliklerin etki etmesini istiyorsak onu inline-block yapmalıyız
+            
+            Eğer bir block elementin inline olmasını ama block özelliklerini taşımaya devam etmesini istiyorsak onu yine inline block yapmalıyız.*/
+            width: 200px;
         }
     </style>
 </head>
@@ -33,6 +49,8 @@
         <div class="box" id="box1">First Box</div>
         <div class="box" id="box2">Second Box</div>
         <div class="box" id="box3">Third Box</div>
+        <a href="#">Google</a>
+        <a href="#">Microsoft</a>
     </div>
 </body>
 
