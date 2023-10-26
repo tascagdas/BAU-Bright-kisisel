@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+*{
+    font-family: ubuntu;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+main{
+    margin-left: 150px;
+}
+#main_header{
+    background-color: #3D30A2;
+    padding: 10px 25px;
+    height: 85px;
+    margin-left: 150px;
+    position: fixed;
+    z-index: 1;
+    width: calc(100% - 150px);
+}
+a{
+    text-decoration: none;
+}
+#main_header>a{
+    color: rgb(177, 94, 255);
+    font-size: 50px;
+    font-weight: 700;
+    
+}
+#main_nav{
+    display: inline-block;
+    width: calc(100% - 275px);
+    text-align: end;
+}
+#main_nav>a{
+    background-color:#B15EFF;
+    color: white;
+    display: inline-block;
+    width: 120px;
+    /* margin-left: 150px; */
+    text-align: center;
+    padding: 7.5px;
+    border-radius: 10px;
+    /* height: auto; */
+    line-height: 1.2;
+    /* line height içerik ile yazı arasındaki yükseklik standartı 1.2 default */
+    font-size: 16px;
+}
+
+#main_nav a:hover{
+    background-color: #FFA33C;
+    color: yellow;
+    font-weight: bold;
+    /* height: 40px; */
+    /* padding: 7.5px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#main_content{
+    height: calc(100vh - 85px);
+    position: absolute;
+    
+}
+
+#show_case{
+    height: 60px;
+    background-color: #FFA33C;
+    font-size: 2em;
+}
+#search{
+    /* padding-left: 100px; */
+    width: 250px;
+    min-width: 150px;
+}
+#main_header{
+
+}
+.sidenav{
+
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #3D30A2;
+    padding-top: 20px;
+}
+.sidenav a{
+    width: 130px;
+    /* içindeki yazıya göre width alması için ne yapmak lazım??? */
+    height: 20px;
+    display: block;
+    background-color: #B15EFF;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 0;
+    padding: 15px;
+}
+.sidenav a:hover{
+    background-color: green;
+    font-size: 20px;
+}
+#p1{
+    padding: 10px;}
+#p11{
+        display: inline;
+        padding-left: 80px;
+
+    }
+#p12{
+        display: inline
+    }
+#p2{
+    padding-top: 10px;
+}
+#yukseklikicin{
+    height: 85px;
+}
+p{
+    margin-left: 20px;
+}
+
+.sample{
+    background-color: blue;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.m-1{
+    margin: 4px;
+}
+.m-2{
+    margin: 8px;
+}
+.m-3 {
+    margin: 16px;
+}
+.m-4 {
+    margin: 24px;
+}
+.m-5 {
+    margin: 32px;
+}
