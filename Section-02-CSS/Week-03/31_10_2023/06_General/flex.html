@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            display: flex;
+            height: 95vh;
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+            /* flex-direction: row-reverse; */
+            background-color: aqua;
+            /* flex-direction: row; */
+            /* flex-wrap: wrap; */
+            /* flex-flow: row wrap; */
+            /* justify-content: start; */
+            /* justify-content özelliği, flex-direction'ın aldığı değere göre farklı çalışır.
+            1)flex-direction row ise yatay hizalama
+            2)flex-direction column ise dikey hizalama yapar. */
+            /* justify-content: center; */
+            /* justify-content: end; */
+            justify-content: space-between;
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-around; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+
+
+            /* evenly her elementin ARASINA ve DUVARLARA eşit dağıtım yapar
+            around ise her elementin SAĞINA VE SOLUNA eşit dağıtım yapar.
+            sonuç olarak en son ve en başta aradaki boşlukların yarısı kadar boşluk kalır. */
+
+            
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            /* align-items özelliği, flex-direction'ın aldığı değere göre farklı çalışır.
+            1)flex-direction row ise dikey hizalama
+            2)flex-direction column ise yatay hizalama yapar. */
+            /* justify-content: stretch; */
+            /* flex-direction: column; */
+            flex-flow: column wrap;
+            align-content: center;
+
+        }
+
+        .flex-item {
+            background-color: burlywood;
+            padding: 30px;
+            margin: 10px;
+            font-size: 30px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <!-- <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+        <div class="flex-item">9</div>
+        <div class="flex-item">10</div>
+        <div class="flex-item">11</div>
+        <div class="flex-item">12</div>
+        <div class="flex-item">13</div>
+        <div class="flex-item">14</div>
+        <div class="flex-item">15</div>
+        <div class="flex-item">16</div>
+        <div class="flex-item">17</div>
+        <div class="flex-item">18</div> -->
+    </div>
+</body>
+
+</html>
