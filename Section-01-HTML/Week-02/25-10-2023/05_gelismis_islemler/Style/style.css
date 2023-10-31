@@ -104,15 +104,10 @@ a{
     font-size: 20px;
 }
 #p1{
-    padding: 10px;}
-#p11{
-        display: inline;
-        padding-left: 80px;
+    padding: 10px;
+    text-indent: 20px;
+}
 
-    }
-#p12{
-        display: inline
-    }
 #p2{
     padding-top: 10px;
 }
