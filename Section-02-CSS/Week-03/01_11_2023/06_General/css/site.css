@@ -84,9 +84,10 @@ a {
 }
 
 .main-nav-item a:hover {
-    background-color: var(--cream-color);
+    background-color: var(--prime-color);
     border: 1px solid black;
     color: var(--third-color);
+    border-radius: 10px;
 }
 
 .main {
