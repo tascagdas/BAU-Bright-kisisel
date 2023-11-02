@@ -20,7 +20,7 @@
 
 a {
     text-decoration: none;
-    color: var(--lightorange-color);
+    color: var(--third-color);
 }
 
 .container {
@@ -91,7 +91,7 @@ a {
 }
 
 .main {
-    height: 1000px;
+    /* height: 1000px; */
     /* border: 1px solid black */
 }
 
@@ -138,7 +138,20 @@ a {
 .how-it-works {
     display: flex;
     gap: 50px;
-    padding: 35px;
+    margin-top: 15px;
+}
+
+.banner {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: var(--prime-color);
+}
+
+.banner h2 {
+    font-weight: 300;
 }
 
 .how-it-works-item {
@@ -147,8 +160,6 @@ a {
     border-radius: 25px;
     padding: 25px;
     text-align: center;
-
-
 }
 
 .how-it-works-item p {
@@ -156,7 +167,8 @@ a {
 
 }
 
-.fa-regular {
+.fa-regular,
+.fa-brands {
     width: 100px;
     font-size: 50px;
     color: var(--third-color);
@@ -165,14 +177,53 @@ a {
 }
 
 .how-it-works-item p {
-    text-align: start;
+    /* text-align: start; */
     font-size: 18px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .how-it-works-item h2 {
     font-size: 32px;
+    font-weight: 400;
+    color: var(--prime-color);
 }
-
+.features{
+    /* background-color: rgb(159, 148, 129); */
+    /* height: 450px; */
+}
+.features-content{
+    height: 100%;
+    display: flex;
+}
+.features-image{
+    width: 50%;
+    background-image: url(/images/features.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    background-size: cover;
+    margin-bottom: 30px;
+}
+.features-text{
+    width: 50%;
+    margin-left: 15px;
+}
+.membership-cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+.membership-card{
+    align-items: center;
+    
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 25px;
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .footer {
     background-color: yellow;
 }
