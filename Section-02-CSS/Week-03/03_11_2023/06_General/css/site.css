@@ -232,13 +232,18 @@ a {
 .membership{
     margin-bottom: 25px;
 }
+.membership button{
+    align-items: center;
+    display: flex;
+    /* justify-content: center; */
+    color: #363062;
+}
 .membership-cards{
     display: flex;
     justify-content: space-evenly;
 }
 .membership-card{
     align-items: center;
-    
     border: 1px solid rgb(0, 0, 0);
     border-radius: 25px;
     height: 400px;
@@ -252,6 +257,24 @@ a {
     font-weight: 300;
     margin-top: 25px;
     text-decoration: underline;
+}
+.membership-card #recommended{
+    text-decoration: none;
+    /* border: 1px solid black; */
+}
+#basicplan{
+    background-color: rgb(222, 218, 238);
+}
+#basicplan h3{
+    margin-top: 0;
+}
+
+#recommended{
+    margin-top: 0px;
+    color: crimson;
+    background-color: #f99417;
+    border-radius: 7px;
+    padding: 3px ;
 }
 .membership-card h4 {
     font-size: 26px;
@@ -269,8 +292,16 @@ a {
 .membership-card label{
     margin-bottom: 25px;
 }
-
+#bigbutton{
+   display: flex;
+   justify-content: center;
+}
+.btn-big{
+    
+}
 
 .footer {
-    /* background-color: yellow; */
+    background-color: wheat;
+    padding: 30px;
+    text-align: center;
 }
