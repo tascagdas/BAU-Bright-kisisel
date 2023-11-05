@@ -1,0 +1,19 @@
+:root {
+    --bg-dark: #003580;
+    --bg-light: #f2f6fa;
+    --bg-primary: #efe9e5;
+    --bg-secondary: #b9cfed;
+    --bg-success: #00af87;
+    --bg-danger: #eb2226;
+    --bg-warning: #feba02;
+    --bg-gray: #666;
+    
+    --text-dark: #003580;
+    --text-light: #f2f6fa;
+    --text-primary: #003580;
+    --text-secondary: #009fe3;
+    --text-success: #00af87;
+    --text-danger: #eb2226;
+    --text-warning: rgb(255, 187, 0);
+    --text-gray: #666;
+}

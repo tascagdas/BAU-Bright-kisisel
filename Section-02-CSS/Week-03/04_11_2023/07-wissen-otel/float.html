@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            float: right;
+            /* float: right; */
+        }
+        .container::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .container {
+            background-color: aquamarine;
+            /* overflow: auto; */
+        }
+
+        #red {
+            background-color: red;
+            float: left;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>burası container</h3>
+        <div class="box" id="red"></div>
+        <div class="box" id="blue"></div>
+        <div class="box" id="yellow"></div>
+    </div>
+    <div>
+        <h3>deneme</h3>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;1,300;1,400&display=swap');
+@import url(/css/colors.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Rubik;
+    font-size: 18px;
+    color: var(--text-primary);
+    font-weight: 300;
+    /* padding-top: 70px; */
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.main-header {
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 
+    Position özelliğinin default değeri Static ve position static olan bir element top bottom left right özelliklerinden ETKİLENMEZ!! 
+    */
+
+    /* position: static; */
+
+    /* 
+    Position Fixed kullanılırsa ilgili element artık top bottom ve left right özelliklerinden ETKİLENİR!!
+
+    ilgili elementi Akışın dışına çıkartır.
+
+     */
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    opacity: 0.85;
+    z-index: 2;
+}
+
+
+.navbar {
+    height: 100%;
+}
+
+.menu {
+    width: 100%;
+    height: 100%;
+    padding-right: 15px;
+}
+
+.menu a {
+    transition-duration: 500ms;
+}
+
+.menu a:hover {
+    border-bottom: 2px solid var(--text-dark);
+}
+
+.brand {
+    float: left;
+    width: 30%;
+    height: 100%;
+    display: table;
+    margin-left: 15px;
+    /* opacity: 1; */
+
+}
+
+.brand span,
+.brand i {
+    display: table-cell;
+    vertical-align: middle;
+    color: var(--bg-warning);
+}
+
+.navbar>a {
+    font-size: 45px;
+}
+
+.navbar::after {
+    content: " ";
+    clear: both;
+    display: table;
+}
+
+.main-header ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 10px;
+    height: 100%;
+    align-items: center;
+}
+
+main {
+    /* padding-top: 70px; */
+}
+
+.whatsapp {
+    font-size: 60px;
+    /* position: sticky;top: 100px; */
+    /* 
+    POsition sticky kullanılırsa ilgili element akışta kalarak, belirtilen top, bottom, right, left özelliklerinden etkilenir. Doğal olarak default hali akışta kalır.
+    */
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.main-hero {
+    height: 100vh;
+    background-image: url(/images/bg-main.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-hero::before {
+    content: " ";
+    /* 
+    position absolute kullanildiginda ilgili element akistan cikar, top, bottom, left, right ozelliklerinden etkilenir. bu degerler belgeye gore (sayfaya gore)calisir. ornegin top 100px dediginizde sayfanin en ust kismini referans alarak yukaridan 100px mesafe ile yerlestirir.
+    */
+    position: absolute;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+/* .main-hero-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 30%;
+    border-radius: 25px;
+    background-color: rgba(255, 187, 0, 0.3);
+    margin-top: 70px;
+} */
+.main-hero h1 {
+    color: var(--text-light);
+    z-index: 1;
+}
+
+.main-hero p {
+    font-size: 25px;
+    color: var(--bg-light);
+    z-index: 1;
+}
+
+.main-hero a {
+    z-index: 1;
+    width: 150px;
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.main-hero a i {
+    margin-right: 5px;
+}
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.main-services {
+    display: flex;
+    padding: 30px 0;
+    column-gap: 50px;
+    justify-content: space-around;
+}
+
+.service-item {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    row-gap: 25px;
+}
+
+.service-item i {
+    font-size: 75px;
+    color: var(--text-warning);
+}
+
+.service-item h2 {
+    color: var(--text-success);
+}
+
+.service-item p {
+    text-align: center;
+}
+
+.main-about {
+    display: flex;
+    padding: 50px 0;
+}
+
+.about-image {
+    width: 50vw;
+    height: 350px;
+
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text {
+    width: 50%;
+    text-indent: 25px;
+    letter-spacing: 1px;
+    word-spacing: 10px;
+    padding: 0 30px;
+}
+
+.main-rooms {}
+
+.main-rooms h3 {
+    text-align: center;
+    margin-top: 10px;
+    margin: 10px 0;
+}
+
+.rooms-cards {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 30px;
+}
+
+.room {
+    width: 25%;
+    height: 300px;
+  border: 1px solid gray;
+  border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.room ul {
+    list-style-type: none;
+
+}
+
+.room h4 {
+    font-size: 20px;
+    background-color: var(--bg-danger);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.room p {
+    background-color: var(--text-success);
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+.room p:hover {
+    background-color: crimson;
+    width: 200px;
+    height: 65px;
+}
+
+.main-contact {
+    display: flex;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#contact {
+    padding-bottom: 50px;
+}
+
+.main-contact form {
+    padding: 20px;
+    font-size: 20px;
+}
+
+.main-contact label {
+    display: inline-block;
+    width: 150px;
+}
+
+.main-contact input {
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+textarea {
+    font-size: 20px;
+}
+
+.map {
+    width: 70%;
+    padding-left: 40px;
+}
+
+.button {
+    text-align: end;
+}
+
+.main-contact button {
+    background-color: var(--text-success);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+
+}
+
+.social a {
+    color: white;
+    margin-right: 15px;
+    font-size: 30px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    height: 100px;
+    padding: 0 30px;
+}
+
+footer p {
+    color: white;
+    margin-right: 60px;
+}
+
+@media(max-width:1310px) {
+    .brand span {
+        font-size: 20px;
+    }
+}
+@media(max-width:560px) {
+    .brand span {
+        display: none;
+    }
+}
+@media(max-width:420px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .menu{
+        width: 50%;
+        font-size: 8px;
+    }
+
+}
