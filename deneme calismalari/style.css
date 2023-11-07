@@ -1,0 +1,50 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    /* Adjust the maximum width as needed */
+    margin: 0 auto;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+.carousel-slide {
+    opacity: 1;
+    z-index: 1;
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked+.carousel-controls label {
+    background-color: #ccc;
+}

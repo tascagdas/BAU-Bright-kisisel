@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;500&display=swap');
+@import url(/css/colors.css);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source sans 3';
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.top-banner {
+    width: 100vw;
+    height: 65px;
+    background-image: linear-gradient(to right, rgb(228, 76, 42) 50%, rgb(221, 63, 51) 50%);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#top-banner-image {
+    height: 65px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toplinks {
+    height: 15px;
+    column-gap: 25px;
+}
+.toplinks a{
+    margin-right: 20px;
+    color: var(--text-third);
+    font-size: 12px;
+}
