@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+
+    <button id="button" onclick="alert('butona tikladin! (1.yontem inline script yazma)')">Bana tikla</button>
+    <!-- <button id="button-1">Bana tikla</button>
+    <button id="button-2">Bana tikla</button> -->
+
+    <script>
+        document.getElementById("button").addEventListener("click", () => {
+            alert("Butona tikladin! (2.yontem internal script yazma)")
+        })
+    </script>
+
+
+    <script src="app.js">
+        //buraya js kodu YAZILMAZ!!!
+    </script>
+</body>
+
+</html>

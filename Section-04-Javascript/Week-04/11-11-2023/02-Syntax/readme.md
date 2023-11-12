@@ -1,0 +1,31 @@
+# Javascript Syntax (soz dizimi)
+- Javascript'de komut olusturabilmek icin yazdiginiz kod cumlelerine ifade / statement diyoruz.
+- ifadeler birbirinden ( ; ) isareti ile ayrilir.
+- ancak Js'te ifadelerin sonuna( ; ) koymak ZORUNLU DEGILDIR.
+- Her ne kadar zorunlu degilsede ifadelerin sonuna mutlaka ( ; ) isareti koymaya dikkat edin.
+- [ECMAScript Automatic Semicolumn Insertion](https://tc39.es/ecma262/multipage/ecmascript-language-lexical-grammar.html#sec-automatic-semicolon-insertion)
+- Tanimlayicilarin isimlandirilmesi ile ilgili hususlar:
+    - Tanimlayicilar (degisken, fonksiyon vb) adlari _ , $ ve harf ile baslayabilir. Yani _ ve $ haric ozel karakter ya da rakamla baslayamaz.
+    - tanimlayici adlari kucuk/BUYUK harf duyarlidir.
+    - ISIMLENDIRME YAPARKEN TURKCE KARAKTER KULLANMAYIN!
+    - Tanimlayici Isimlendirme Teknikleri:
+        - CamdelCase:
+        En cok kullanilan isimlendirme tekniklerinden biridir. Sozcuklarin ilk harfi buyuk, geri kalani kucuk yazilir. Iki kullanim sekli vardir:
+            - Upper Camel Case / Pascal Case de den'r. Bu yontemde gercektende sozcuklarin ilk harfi buyuk, geri kalanlar kucuktur. Or. FirstName, DogumTarihi, GirisSarti, IseBaslamaTarihi
+            - Lower Camel Case: Genellikle Camel Case denildiginde, akla bu gelir. Ilk sozcuk tamamen kucuk harflerle yazilir. Geri kalan sozcukler Upper Camel Case kurali ile yazilir. firstName, dogumTarihi, girisSarti, iseBaslamaTarihi
+        - Snake Case:
+        Sozcuklerin birbirinden _ isareti ile ayrilarak yazildigi tekniktir. Uc kullanim sekli vardir:
+            - Upper Snake Case: FIRST_NAME, DOGUM_TARIHI, GIRIS_SAATI, ISE_BASLAMA_TARIHI
+            - Lower Snake Case: first_name, dogum_tarihi, giris_saati, ise_baslama_tarihi
+            - Scream'ng Snake Case: First_Name, Dogum_Tarihi, Giris_Saati, Ise_Baslama_Tarihi
+    - Java Script'te Isimlendirme Teknikleri
+        - Degiskenler:
+            - Buyuk kucuk harfe duyarli
+            - camelCase Teknigi kullanilir
+            - Degisken, icerdigi degeri tanimlayacak sekilde bir isme sahip olmalidir.
+            - Mantiksal (boolean) degiskenlere isim verirken is, has gibi ifadelerle baslamasina dikkat edilmelidir.
+            - mumkun oldugu kadar ingilizce kavramlarla isimlandirme yapilmalidir.
+        - Fonsiyonlar:
+            - Buyuk kucuk harf duyarli
+            - camelCase teknigi kullanilir.
+            - Fonksiyonlara isim verirken get, make, apply gibi emir kipi iceren ifadelerle baslanmalidir.
