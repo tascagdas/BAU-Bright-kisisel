@@ -20,9 +20,20 @@
                         <form>
                             <div class="input-group">
                                 <input type="text" id="txt-task-description" class="form-control">
-                                <button type="submit" class="btn btn-success" id="btn-add-task"><i class="fa-solid fa-plus"></i></button>
+                                <button type="submit" class="btn btn-success" id="btn-add-task"><i
+                                        class="fa-solid fa-plus"></i></button>
                             </div>
                         </form>
+                    </div>
+                    <div class="card-header mt-1 d-flex justify-content-between">
+                        <div id="filters" class="d-flex gap-3">
+                            <span id="all" class="active">All</span>
+                            <span id="pending">Pending</span>
+                            <span id="completed">Completed</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger btn-sm" id="btn-clear-all">Clear All</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,23 +42,13 @@
             <div class="col-12">
                 <div class="card mt-3">
                     <ul class="list-group" id="task-list">
-                        <li class="task list-group-item" id="1">
-                            <div class="form-check d-flex justify-content-between align-items-center">
-                                <input type="checkbox" id="1" class="form-check-input">
-                                <div class="input-group">
-                                    <input id="1" class="form-control" type="text" value="Netflix aboneliğini iptal et."
-                                        disabled></input>
-                                    <button id="1" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    <button id="1" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </li>
+                        <!-- buraya yazilacak li kodlari app.js tarafindan buraya konulacak -->
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
