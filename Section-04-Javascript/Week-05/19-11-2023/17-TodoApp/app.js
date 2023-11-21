@@ -55,7 +55,7 @@ function displayTasks(filter) {
                 <div class="form-check d-flex justify-content-between align-items-center">
                     <input onclick="updateStatus(this);" type="checkbox" id="${task.id}" class="form-check-input" ${completed}>
                     <div class="input-group">
-                        <input id="${task.id}" class="form-control ${completed}" type="text" value="${task.taskDescription}"
+                        <input for="${task.id}" id="${task.id}"  onfocus="this.select();"  class="form-control ${completed}" type="text" value="${task.taskDescription}"
                             disabled />
                         <button onclick="editTask(this);" id="${task.id}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
                         <button onclick="deleteTask(this);" id="${task.id}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
@@ -191,3 +191,5 @@ assignSpansEvents();
 displayTasks(filterMode);
 
 // Arastirma ODEV: Gorev adina tikladigimizda da completed yada pending seklinde status degisimi yapma
+// Bunun olabilmesi icin en mantikli yol label ve for kullanilmasi. fakat inputu label a cavirince SANIRIM bootstrapten kaynakli sorun olusmakta.
+// label kullanmadan yapilacak bir yontem var ise jquery ile onclick seklinde yapmak inputun divine uygulanabiliyor.
