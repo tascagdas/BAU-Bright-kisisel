@@ -1,3 +1,4 @@
+"use strict"
 const display = document.querySelector(".calculator-input");
 const keys = document.querySelector(".calculator-keys");
 
@@ -9,8 +10,8 @@ let operator = null;
 
 function updateDisplay() {
     display.value = displayValue;
-
 };
+
 keys.addEventListener("click", function (e) {
     const element = e.target;
     const value = element.value;
@@ -39,25 +40,29 @@ keys.addEventListener("click", function (e) {
 
 function handleOperator(nextOperator) {
     let value = parseFloat(displayValue);
-
-    if (operator == null && waitingForSecondValue == true) {
+    console.log(nextOperator)
+    if (operator != null && waitingForSecondValue == true) {
         operator = nextOperator;
-
+        console.log(operator);
         return;
     }
+
     if (previousValue == null) {
         previousValue = value;
     } else {
+        
         const result = calculate(previousValue, operator, value);
         displayValue = result.toString();
         previousValue = result;
     }
     operator = nextOperator;
+    console.log(operator);
     waitingForSecondValue = true;
 
-}
+};
 
 function calculate(firstNumber, op, secondNumber) {
+   
     switch (op) {
         case "+":
             return firstNumber + secondNumber;
@@ -67,31 +72,31 @@ function calculate(firstNumber, op, secondNumber) {
             return firstNumber * secondNumber;
         case "/":
             return firstNumber / secondNumber;
-            default:
-                
-    }
-}
+        default:
+            return secondNumber;
+    };
+};
 
 function inputDecimal() {
     if (displayValue.indexOf(".") == -1) {
         displayValue += ".";
     }
 };
+
 function clearDisplay() {
     displayValue = "0";
     waitingForSecondValue = false;
     previousValue = null;
     operator = null;
-}
+};
 
 function inputNumber(num) {
     if (!waitingForSecondValue) {
         displayValue = displayValue == "0" ? num : displayValue + num;
-
     } else {
         displayValue = num;
         waitingForSecondValue = false;
-    }
+    };
+};
 
-}
 updateDisplay();
