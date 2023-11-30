@@ -1,0 +1,19 @@
+.Title{
+    font-size: 50px;
+    color: tomato;
+}
+.Text-Container{
+    display: flex;
+    justify-content: center;
+}
+.Text{
+    width: 50%;
+}
+.Btn-Detail{
+    cursor: pointer;
+    color: white;
+    background-color: green ;
+    border-radius: 5px;
+    padding: 7px 15px;
+    border: none;
+}
