@@ -1,0 +1,103 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ECF4D6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  width: 40vw;
+}
+
+h1 {
+  color: #265073;
+  margin-bottom: .5rem;
+  font-size: 1.75rem;
+}
+
+.TodoWrapper {
+  background-color: #9AD0C2;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: -12px 13px 47px -10px rgba(0, 0, 0, 0.75);
+}
+
+.TodoForm {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.TodoInput {
+  background: none;
+  color: #265073;
+  border: 1px solid grey;
+  padding: .5rem 1rem;
+  width: 90%;
+  border-radius: 5px;
+  outline: none;
+}
+
+.TodoBtn {
+  width: 25%;
+  border: none;
+  background-color: #265073;
+  color: #ECF4D6;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.Todo {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2D9596;
+  color: white;
+  padding: .74rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.Completed {
+  text-decoration: line-through;
+  color: black;
+
+}
+
+.TodoTask {
+  width: 80%;
+  text-align: start;
+}
+
+.TodoButtons {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TodoContainer {
+  margin-top: 2rem;
+}
+
+.fa-pen-to-square {
+  color: rgb(199, 172, 0);
+}
+
+.fa-trash {
+  color: #B31312;
+}
+
+.TodoButtons svg {
+  font-size: 1.25rem;
+}
