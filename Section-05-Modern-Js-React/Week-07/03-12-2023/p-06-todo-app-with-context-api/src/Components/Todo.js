@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { TodoContext } from '../Contexts/TodoContext'
-const Todo = (task) => {
+const Todo = ({ task }) => {
     const context = useContext(TodoContext);
     console.log(task.desc)
     return (
