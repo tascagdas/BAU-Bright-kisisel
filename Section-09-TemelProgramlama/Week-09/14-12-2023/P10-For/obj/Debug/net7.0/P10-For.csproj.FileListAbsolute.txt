@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/bin/Debug/net7.0/P10-For
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/bin/Debug/net7.0/P10-For.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/bin/Debug/net7.0/P10-For.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/bin/Debug/net7.0/P10-For.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/bin/Debug/net7.0/P10-For.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/refint/P10-For.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/P10-For.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P10-For/obj/Debug/net7.0/ref/P10-For.dll

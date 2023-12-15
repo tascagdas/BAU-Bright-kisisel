@@ -1,0 +1,15 @@
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/bin/Debug/net7.0/P07_DateTimeMethods
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/bin/Debug/net7.0/P07_DateTimeMethods.deps.json
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/bin/Debug/net7.0/P07_DateTimeMethods.runtimeconfig.json
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/bin/Debug/net7.0/P07_DateTimeMethods.dll
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/bin/Debug/net7.0/P07_DateTimeMethods.pdb
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.csproj.AssemblyReference.cache
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.AssemblyInfoInputs.cache
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.AssemblyInfo.cs
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.dll
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/refint/P07_DateTimeMethods.dll
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.pdb
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/P07_DateTimeMethods.genruntimeconfig.cache
+/Users/tascagdas/Projects/P07_DateTimeMethods/P07_DateTimeMethods/obj/Debug/net7.0/ref/P07_DateTimeMethods.dll

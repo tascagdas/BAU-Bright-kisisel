@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/bin/Debug/net7.0/P06-NumberMethods
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/bin/Debug/net7.0/P06-NumberMethods.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/bin/Debug/net7.0/P06-NumberMethods.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/bin/Debug/net7.0/P06-NumberMethods.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/bin/Debug/net7.0/P06-NumberMethods.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/refint/P06-NumberMethods.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/P06-NumberMethods.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P06-NumberMethods/P06-NumberMethods/obj/Debug/net7.0/ref/P06-NumberMethods.dll

@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/bin/Debug/net7.0/P08-ErrorHandling
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/bin/Debug/net7.0/P08-ErrorHandling.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/bin/Debug/net7.0/P08-ErrorHandling.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/bin/Debug/net7.0/P08-ErrorHandling.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/bin/Debug/net7.0/P08-ErrorHandling.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/refint/P08-ErrorHandling.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/P08-ErrorHandling.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P08-ErrorHandling/P08-ErrorHandling/obj/Debug/net7.0/ref/P08-ErrorHandling.dll

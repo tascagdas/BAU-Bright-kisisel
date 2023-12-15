@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{FD2DF773-AB7A-480B-891E-3CCF3CA29A0E}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="P08-ErrorHandling/Program.cs">
+    <Files>
+      <File FileName="P08-ErrorHandling/Program.cs" Line="57" Column="34" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P08-ErrorHandling" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.P08-ErrorHandling PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

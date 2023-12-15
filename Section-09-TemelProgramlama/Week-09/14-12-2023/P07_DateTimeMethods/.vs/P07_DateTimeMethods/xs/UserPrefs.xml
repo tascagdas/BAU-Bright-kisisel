@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{54C239D8-9849-4FB5-AD64-3BA462F63A87}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="P07_DateTimeMethods/Program.cs">
+    <Files>
+      <File FileName="P07_DateTimeMethods/Program.cs" Line="36" Column="69" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P07_DateTimeMethods" expanded="True">
+            <Node name="P07_DateTimeMethods" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.P07__DateTimeMethods PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

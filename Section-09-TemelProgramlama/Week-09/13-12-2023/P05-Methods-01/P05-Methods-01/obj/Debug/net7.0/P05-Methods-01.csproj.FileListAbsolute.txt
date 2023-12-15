@@ -1,0 +1,15 @@
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/bin/Debug/net7.0/P05-Methods-01
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/bin/Debug/net7.0/P05-Methods-01.deps.json
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/bin/Debug/net7.0/P05-Methods-01.runtimeconfig.json
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/bin/Debug/net7.0/P05-Methods-01.dll
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/bin/Debug/net7.0/P05-Methods-01.pdb
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.AssemblyInfoInputs.cache
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.AssemblyInfo.cs
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.dll
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/refint/P05-Methods-01.dll
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.pdb
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.genruntimeconfig.cache
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/ref/P05-Methods-01.dll
+/Users/tascagdas/Projects/P05-Methods-01/P05-Methods-01/obj/Debug/net7.0/P05-Methods-01.csproj.AssemblyReference.cache

@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/bin/Debug/net7.0/P09-Conditions
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/bin/Debug/net7.0/P09-Conditions.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/bin/Debug/net7.0/P09-Conditions.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/bin/Debug/net7.0/P09-Conditions.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/bin/Debug/net7.0/P09-Conditions.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/refint/P09-Conditions.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/P09-Conditions.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/14-12-2023/P09-Conditions/P09-Conditions/obj/Debug/net7.0/ref/P09-Conditions.dll
