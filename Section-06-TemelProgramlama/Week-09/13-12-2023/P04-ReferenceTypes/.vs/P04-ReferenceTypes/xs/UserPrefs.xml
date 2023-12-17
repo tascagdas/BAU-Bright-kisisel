@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{33BB2751-7F6D-4832-B71B-A29407BE2E0E}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="P04-ReferenceTypes/Program.cs">
+    <Files>
+      <File FileName="P04-ReferenceTypes/Program.cs" Line="14" Column="20" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P04-ReferenceTypes" expanded="True">
+            <Node name="P04-ReferenceTypes" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.P04-ReferenceTypes PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

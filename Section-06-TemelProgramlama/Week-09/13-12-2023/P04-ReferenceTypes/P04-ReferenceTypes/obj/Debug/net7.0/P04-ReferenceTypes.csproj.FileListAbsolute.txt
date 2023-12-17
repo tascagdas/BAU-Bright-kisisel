@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/bin/Debug/net7.0/P04-ReferenceTypes
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/bin/Debug/net7.0/P04-ReferenceTypes.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/bin/Debug/net7.0/P04-ReferenceTypes.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/bin/Debug/net7.0/P04-ReferenceTypes.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/bin/Debug/net7.0/P04-ReferenceTypes.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/refint/P04-ReferenceTypes.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/P04-ReferenceTypes.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/13-12-2023/P04-ReferenceTypes/P04-ReferenceTypes/obj/Debug/net7.0/ref/P04-ReferenceTypes.dll

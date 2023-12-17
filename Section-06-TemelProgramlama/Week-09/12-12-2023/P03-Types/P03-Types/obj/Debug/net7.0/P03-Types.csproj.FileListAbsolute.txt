@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/bin/Debug/net7.0/P03-Types
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/bin/Debug/net7.0/P03-Types.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/bin/Debug/net7.0/P03-Types.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/bin/Debug/net7.0/P03-Types.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/bin/Debug/net7.0/P03-Types.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/refint/P03-Types.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/P03-Types.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P03-Types/P03-Types/obj/Debug/net7.0/ref/P03-Types.dll

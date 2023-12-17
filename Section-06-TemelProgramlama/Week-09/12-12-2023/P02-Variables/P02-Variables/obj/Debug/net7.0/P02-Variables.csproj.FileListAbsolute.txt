@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/bin/Debug/net7.0/P02-Variables
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/bin/Debug/net7.0/P02-Variables.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/bin/Debug/net7.0/P02-Variables.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/bin/Debug/net7.0/P02-Variables.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/bin/Debug/net7.0/P02-Variables.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/refint/P02-Variables.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/P02-Variables.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/12-12-2023/P02-Variables/P02-Variables/obj/Debug/net7.0/ref/P02-Variables.dll
