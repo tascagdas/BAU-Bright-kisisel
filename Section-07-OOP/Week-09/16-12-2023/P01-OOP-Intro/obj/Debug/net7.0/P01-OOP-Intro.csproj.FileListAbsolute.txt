@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/bin/Debug/net7.0/P01-OOP-Intro
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/bin/Debug/net7.0/P01-OOP-Intro.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/bin/Debug/net7.0/P01-OOP-Intro.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/bin/Debug/net7.0/P01-OOP-Intro.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/bin/Debug/net7.0/P01-OOP-Intro.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/refint/P01-OOP-Intro.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/P01-OOP-Intro.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/16-12-2023/P01-OOP-Intro/obj/Debug/net7.0/ref/P01-OOP-Intro.dll

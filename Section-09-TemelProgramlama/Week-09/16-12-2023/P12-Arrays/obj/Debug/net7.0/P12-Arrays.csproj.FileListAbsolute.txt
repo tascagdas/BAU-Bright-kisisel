@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/bin/Debug/net7.0/P12-Arrays
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/bin/Debug/net7.0/P12-Arrays.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/bin/Debug/net7.0/P12-Arrays.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/bin/Debug/net7.0/P12-Arrays.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/bin/Debug/net7.0/P12-Arrays.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/refint/P12-Arrays.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/P12-Arrays.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P12-Arrays/obj/Debug/net7.0/ref/P12-Arrays.dll

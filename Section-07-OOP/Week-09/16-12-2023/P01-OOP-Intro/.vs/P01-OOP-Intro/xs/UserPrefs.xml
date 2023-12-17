@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{4E6BEED3-6D11-434A-BBC9-6E651777F755}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="77" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P01-OOP-Intro">
+            <Node name="P01-OOP-Intro">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True">
+                  <Node name="Microsoft.NETCore.App" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.P01-OOP-Intro PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "P01-OOP-Intro/1.0.0": {
+        "runtime": {
+          "P01-OOP-Intro.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "P01-OOP-Intro/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

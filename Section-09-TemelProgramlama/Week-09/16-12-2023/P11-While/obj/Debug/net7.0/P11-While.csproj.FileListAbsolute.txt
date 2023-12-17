@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/bin/Debug/net7.0/P11-While
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/bin/Debug/net7.0/P11-While.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/bin/Debug/net7.0/P11-While.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/bin/Debug/net7.0/P11-While.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/bin/Debug/net7.0/P11-While.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/refint/P11-While.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/P11-While.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P11-While/obj/Debug/net7.0/ref/P11-While.dll

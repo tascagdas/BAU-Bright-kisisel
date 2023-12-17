@@ -17,7 +17,9 @@ class Program
         //}
         #endregion
         #region Tek satır If
-        //if (true) Console.WriteLine("Doğru");
+        int temp = 18;
+        string result = (temp <= 6) ? "hava motosiklet sürmek için uygun değil." : "hava motosiklet sürmek için uygun";
+        Console.WriteLine(result);
         #endregion
         #region If ElseIf
         //int age = 45;

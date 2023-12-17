@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/bin/Debug/net7.0/P13-Mothods
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/bin/Debug/net7.0/P13-Mothods.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/bin/Debug/net7.0/P13-Mothods.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/bin/Debug/net7.0/P13-Mothods.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/bin/Debug/net7.0/P13-Mothods.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/refint/P13-Mothods.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/P13-Mothods.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-09-TemelProgramlama/Week-09/16-12-2023/P13-Mothods/obj/Debug/net7.0/ref/P13-Mothods.dll

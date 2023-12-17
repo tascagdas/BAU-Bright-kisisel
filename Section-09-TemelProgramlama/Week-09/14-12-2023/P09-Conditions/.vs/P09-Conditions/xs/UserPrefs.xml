@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{D95383DE-5395-46D4-B739-EB968B82ED0C}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="P09-Conditions/Program.cs">
+    <Files>
+      <File FileName="P09-Conditions/Program.cs" Line="21" Column="120" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="P09-Conditions" expanded="True">
+          <Node name="P09-Conditions">
             <Node name="P09-Conditions">
               <Node name="Program.cs" selected="True" />
             </Node>
