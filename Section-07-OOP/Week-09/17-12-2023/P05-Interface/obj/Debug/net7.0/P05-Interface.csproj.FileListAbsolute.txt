@@ -1,0 +1,15 @@
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/bin/Debug/net7.0/P05-Interface
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/bin/Debug/net7.0/P05-Interface.deps.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/bin/Debug/net7.0/P05-Interface.runtimeconfig.json
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/bin/Debug/net7.0/P05-Interface.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/bin/Debug/net7.0/P05-Interface.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.csproj.AssemblyReference.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.AssemblyInfoInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.AssemblyInfo.cs
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.csproj.CoreCompileInputs.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/refint/P05-Interface.dll
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.pdb
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/P05-Interface.genruntimeconfig.cache
+/Users/tascagdas/Documents/GitHub/BAU-Bright-kisisel/Section-07-OOP/Week-09/17-12-2023/P05-Interface/obj/Debug/net7.0/ref/P05-Interface.dll
