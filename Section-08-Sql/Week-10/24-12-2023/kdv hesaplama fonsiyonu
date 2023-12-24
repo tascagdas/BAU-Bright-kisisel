@@ -1,0 +1,9 @@
+USE Northwind
+GO
+
+CREATE FUNCTION fnKdvHesapla
+    (@deger money, @oran money)
+    RETURNS money
+BEGIN
+    RETURN @deger*@oran
+END

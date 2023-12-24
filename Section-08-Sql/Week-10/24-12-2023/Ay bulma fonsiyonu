@@ -1,0 +1,26 @@
+CREATE FUNCTION GetMonthName
+    (@date date)
+    RETURNS NVARCHAR(10)
+BEGIN
+    DECLARE @monthNumber SMALLINT
+    SET @monthNumber=Month(@date)
+    DECLARE @result NVARCHAR(10)
+    SET @result=(
+            case @monthNumber
+                WHEN 1 THEN 'Ocak'
+                WHEN 2 THEN 'Şubat'
+                WHEN 3 THEN 'Mart'
+                WHEN 4 THEN 'Nisan'
+                WHEN 5 THEN 'Mayıs'
+                WHEN 6 THEN 'Haziran'
+                WHEN 7 THEN 'Temmuz'
+                WHEN 8 THEN 'Ağustos'
+                WHEN 9 THEN 'Eylül'
+                WHEN 10 THEN 'Ekim'
+                WHEN 11 THEN'Kasım'
+                WHEN 12 THEN 'Aralık'
+                ELSE 'Hata'
+                END)
+
+
+END
