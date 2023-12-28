@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Nav, Navbar, NavbarBrand } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -13,6 +13,7 @@ const Header = () => {
           <Nav className='ms-auto'>
             <NavLink className="nav-link" to="/">Home</NavLink>
             <NavLink className="nav-link" to="/Search">Search</NavLink>
+            <Link className='nav-link' to="/Search">Search a element</Link>
           </Nav>
         </Container>
       </Navbar>

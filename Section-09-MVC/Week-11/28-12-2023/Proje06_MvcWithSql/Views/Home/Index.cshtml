@@ -1,0 +1,12 @@
+﻿@using Proje06_MvcWithSql.ViewModels
+@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    List<ProductViewModel> productList = Model;
+}
+
+<div class="text-center">
+    @foreach(ProductViewModel p in productList){
+        <p>@p.Name</p>
+    }
+</div>
