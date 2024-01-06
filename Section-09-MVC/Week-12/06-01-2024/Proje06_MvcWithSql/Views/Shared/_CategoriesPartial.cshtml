@@ -1,0 +1,9 @@
+@model List<CategoryViewModel>
+<div class="list-group">
+    @foreach (var c in categoryList)
+    {
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            @c.Name
+        </a>
+    }
+</div>
