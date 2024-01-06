@@ -1,8 +1,8 @@
 @model List<CategoryViewModel>
 <div class="list-group">
-    @foreach (var c in categoryList)
+    @foreach (var c in Model)
     {
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
             @c.Name
         </a>
     }

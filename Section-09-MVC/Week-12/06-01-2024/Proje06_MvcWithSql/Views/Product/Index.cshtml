@@ -1,20 +1,22 @@
-@using Proje06_MvcWithSql.ViewModels
-@model List<ProductViewModel>
+@model CategoriesProducts
 @{
-    ViewData["Title"] = "Index";
-    List<ProductViewModel> productList = Model;
+    ViewData["Title"] = "Product Page";
+    List<ProductViewModel> productList = Model.Products;
 }
 
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            @await Html.PartialAsync("_CategoriesPartial",Model)
+            @await Html.PartialAsync("_CategoriesPartial",Model.Categories)
         </div>
         <div class="col-md-10">
-            @foreach (ProductViewModel p in productList)
-            {
-                @await Html.PartialAsync("_ProductPartial", p)
-            }
+            <div class="row">
+                @foreach (ProductViewModel p in productList)
+                {
+                    @await Html.PartialAsync("_ProductPartial", p)
+                }
+            </div>
+
         </div>
 
     </div>
