@@ -1,0 +1,9 @@
+@model ProductViewModel
+<div class="card col-md-3">
+    <img src="https://picsum.photos/200/200?random=@Model.Id" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Price $</p>
+        <a href="#" class="btn btn-warning">Inspect</a>
+    </div>
+</div>
