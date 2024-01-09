@@ -1,0 +1,24 @@
+@model List<CategoryViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>@category.Description</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

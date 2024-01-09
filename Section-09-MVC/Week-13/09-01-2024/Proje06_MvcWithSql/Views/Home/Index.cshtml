@@ -1,0 +1,23 @@
+﻿@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    List<ProductViewModel> productList = Model;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            @await Component.InvokeAsync("Categories")
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                @foreach (ProductViewModel p in productList)
+                {
+                    @await Html.PartialAsync("_ProductPartial", p)
+                }
+            </div>
+
+        </div>
+
+    </div>
+</div>
