@@ -1,13 +1,15 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MiniShop.Data.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using MiniShop.Data.Abstract;
 
 namespace MiniShop.Data.Concrete
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity>
+        where TEntity : class
     {
         protected readonly DbContext _dbContext;
         public GenericRepository(DbContext dbContext)
@@ -27,7 +29,8 @@ namespace MiniShop.Data.Concrete
 
         public TEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            TEntity entity = _dbContext.Set<TEntity>().Find(id);
+            return entity;
         }
 
         public void HardDelete(TEntity entity)

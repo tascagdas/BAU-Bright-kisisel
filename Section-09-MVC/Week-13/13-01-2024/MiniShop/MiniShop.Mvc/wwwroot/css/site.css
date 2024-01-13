@@ -1,4 +1,4 @@
-﻿html {
+html {
   font-size: 14px;
 }
 
@@ -19,4 +19,10 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.product-image{
+    height:275px;
+    width:135px;
+    margin: 0 auto;
 }

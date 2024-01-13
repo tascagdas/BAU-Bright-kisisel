@@ -1,6 +1,8 @@
+﻿using MiniShop.Data.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MiniShop.Data.Abstract
@@ -14,6 +16,7 @@ namespace MiniShop.Data.Abstract
         void Update(TEntity entity);
         void HardDelete(TEntity entity);
         void SoftDelete(TEntity entity);
-
     }
 }
+
+
