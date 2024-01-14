@@ -1,0 +1,248 @@
+{
+    "info": "_TOTAL_ kayÄ±ttan _START_ - _END_ arasÄ±ndaki kayÄ±tlar gÃ¶steriliyor",
+    "infoEmpty": "KayÄ±t yok",
+    "infoFiltered": "(_MAX_ kayÄ±t iÃ§erisinden bulunan)",
+    "infoThousands": ".",
+    "lengthMenu": "Sayfada _MENU_ kayÄ±t gÃ¶ster",
+    "loadingRecords": "YÃ¼kleniyor...",
+    "processing": "Ä°ÅŸleniyor...",
+    "search": "Ara:",
+    "zeroRecords": "EÅŸleÅŸen kayÄ±t bulunamadÄ±",
+    "paginate": {
+        "first": "Ä°lk",
+        "last": "Son",
+        "next": "Sonraki",
+        "previous": "Ã–nceki"
+    },
+    "aria": {
+        "sortAscending": ": artan sÃ¼tun sÄ±ralamasÄ±nÄ± aktifleÅŸtir",
+        "sortDescending": ": azalan sÃ¼tun sÄ±ralamasÄ±nÄ± aktifleÅŸtir"
+    },
+    "select": {
+        "rows": {
+            "_": "%d kayÄ±t seÃ§ildi",
+            "1": "1 kayÄ±t seÃ§ildi"
+        },
+        "cells": {
+            "1": "1 hÃ¼cre seÃ§ildi",
+            "_": "%d hÃ¼cre seÃ§ildi"
+        },
+        "columns": {
+            "1": "1 sÃ¼tun seÃ§ildi",
+            "_": "%d sÃ¼tun seÃ§ildi"
+        }
+    },
+    "autoFill": {
+        "cancel": "Ä°ptal",
+        "fillHorizontal": "HÃ¼creleri yatay olarak doldur",
+        "fillVertical": "HÃ¼creleri dikey olarak doldur",
+        "fill": "BÃ¼tÃ¼n hÃ¼creleri <i>%d<\/i> ile doldur",
+        "info": "DetayÄ±"
+    },
+    "buttons": {
+        "collection": "Koleksiyon <span class=\"ui-button-icon-primary ui-icon ui-icon-triangle-1-s\"><\/span>",
+        "colvis": "SÃ¼tun gÃ¶rÃ¼nÃ¼rlÃ¼ÄŸÃ¼",
+        "colvisRestore": "GÃ¶rÃ¼nÃ¼rlÃ¼ÄŸÃ¼ eski haline getir",
+        "copySuccess": {
+            "1": "1 satÄ±r panoya kopyalandÄ±",
+            "_": "%ds satÄ±r panoya kopyalandÄ±"
+        },
+        "copyTitle": "Panoya kopyala",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pageLength": {
+            "-1": "BÃ¼tÃ¼n satÄ±rlarÄ± gÃ¶ster",
+            "_": "%d satÄ±r gÃ¶ster",
+            "1": "1 SatÄ±r GÃ¶ster"
+        },
+        "pdf": "PDF",
+        "print": "YazdÄ±r",
+        "copy": "Kopyala",
+        "copyKeys": "Tablodaki veriyi kopyalamak iÃ§in CTRL veya u2318 + C tuÅŸlarÄ±na basÄ±nÄ±z. Ä°ptal etmek iÃ§in bu mesaja tÄ±klayÄ±n veya escape tuÅŸuna basÄ±n.",
+        "createState": "Åžuanki GÃ¶rÃ¼nÃ¼mÃ¼ Kaydet",
+        "removeAllStates": "TÃ¼m GÃ¶rÃ¼nÃ¼mleri Sil",
+        "removeState": "Aktif GÃ¶rÃ¼nÃ¼mÃ¼ Sil",
+        "renameState": "Aktif GÃ¶rÃ¼nÃ¼mÃ¼n AdÄ±nÄ± DeÄŸiÅŸtir",
+        "savedStates": "KaydedilmiÅŸ GÃ¶rÃ¼nÃ¼mler",
+        "stateRestore": "GÃ¶rÃ¼nÃ¼m -&gt; %d",
+        "updateState": "Aktif GÃ¶rÃ¼nÃ¼mÃ¼n GÃ¼ncelle"
+    },
+    "searchBuilder": {
+        "add": "KoÅŸul Ekle",
+        "button": {
+            "0": "Arama OluÅŸturucu",
+            "_": "Arama OluÅŸturucu (%d)"
+        },
+        "condition": "KoÅŸul",
+        "conditions": {
+            "date": {
+                "after": "Sonra",
+                "before": "Ã–nce",
+                "between": "ArasÄ±nda",
+                "empty": "BoÅŸ",
+                "equals": "EÅŸittir",
+                "not": "DeÄŸildir",
+                "notBetween": "DÄ±ÅŸÄ±nda",
+                "notEmpty": "Dolu"
+            },
+            "number": {
+                "between": "ArasÄ±nda",
+                "empty": "BoÅŸ",
+                "equals": "EÅŸittir",
+                "gt": "BÃ¼yÃ¼ktÃ¼r",
+                "gte": "BÃ¼yÃ¼k eÅŸittir",
+                "lt": "KÃ¼Ã§Ã¼ktÃ¼r",
+                "lte": "KÃ¼Ã§Ã¼k eÅŸittir",
+                "not": "DeÄŸildir",
+                "notBetween": "DÄ±ÅŸÄ±nda",
+                "notEmpty": "Dolu"
+            },
+            "string": {
+                "contains": "Ä°Ã§erir",
+                "empty": "BoÅŸ",
+                "endsWith": "Ä°le biter",
+                "equals": "EÅŸittir",
+                "not": "DeÄŸildir",
+                "notEmpty": "Dolu",
+                "startsWith": "Ä°le baÅŸlar",
+                "notContains": "Ä°Ã§ermeyen",
+                "notStartsWith": "BaÅŸlamayan",
+                "notEndsWith": "Bitmeyen"
+            },
+            "array": {
+                "contains": "Ä°Ã§erir",
+                "empty": "BoÅŸ",
+                "equals": "EÅŸittir",
+                "not": "DeÄŸildir",
+                "notEmpty": "Dolu",
+                "without": "HariÃ§"
+            }
+        },
+        "data": "Veri",
+        "deleteTitle": "Filtreleme kuralÄ±nÄ± silin",
+        "leftTitle": "Kriteri dÄ±ÅŸarÄ± Ã§Ä±kart",
+        "logicAnd": "ve",
+        "logicOr": "veya",
+        "rightTitle": "Kriteri iÃ§eri al",
+        "title": {
+            "0": "Arama OluÅŸturucu",
+            "_": "Arama OluÅŸturucu (%d)"
+        },
+        "value": "DeÄŸer",
+        "clearAll": "Filtreleri Temizle"
+    },
+    "searchPanes": {
+        "clearMessage": "Hepsini Temizle",
+        "collapse": {
+            "0": "Arama BÃ¶lmesi",
+            "_": "Arama BÃ¶lmesi (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown}\/{total}",
+        "emptyPanes": "Arama BÃ¶lmesi yok",
+        "loadMessage": "Arama BÃ¶lmeleri yÃ¼kleniyor ...",
+        "title": "Etkin filtreler - %d",
+        "showMessage": "TÃ¼mÃ¼nÃ¼ GÃ¶ster",
+        "collapseMessage": "TÃ¼mÃ¼nÃ¼ Gizle"
+    },
+    "thousands": ".",
+    "datetime": {
+        "amPm": [
+            "Ã¶Ã¶",
+            "Ã¶s"
+        ],
+        "hours": "Saat",
+        "minutes": "Dakika",
+        "next": "Sonraki",
+        "previous": "Ã–nceki",
+        "seconds": "Saniye",
+        "unknown": "Bilinmeyen",
+        "weekdays": {
+            "6": "Paz",
+            "5": "Cmt",
+            "4": "Cum",
+            "3": "Per",
+            "2": "Ã‡ar",
+            "1": "Sal",
+            "0": "Pzt"
+        },
+        "months": {
+            "9": "Ekim",
+            "8": "EylÃ¼l",
+            "7": "AÄŸustos",
+            "6": "Temmuz",
+            "5": "Haziran",
+            "4": "MayÄ±s",
+            "3": "Nisan",
+            "2": "Mart",
+            "11": "AralÄ±k",
+            "10": "KasÄ±m",
+            "1": "Åžubat",
+            "0": "Ocak"
+        }
+    },
+    "decimal": ",",
+    "editor": {
+        "close": "Kapat",
+        "create": {
+            "button": "Yeni",
+            "submit": "Kaydet",
+            "title": "Yeni kayÄ±t oluÅŸtur"
+        },
+        "edit": {
+            "button": "DÃ¼zenle",
+            "submit": "GÃ¼ncelle",
+            "title": "KaydÄ± dÃ¼zenle"
+        },
+        "error": {
+            "system": "Bir sistem hatasÄ± oluÅŸtu (AyrÄ±ntÄ±lÄ± bilgi)"
+        },
+        "multi": {
+            "info": "SeÃ§ili kayÄ±tlar bu alanda farklÄ± deÄŸerler iÃ§eriyor. SeÃ§ili kayÄ±tlarÄ±n hepsinde bu alana aynÄ± deÄŸeri atamak iÃ§in buraya tÄ±klayÄ±n; aksi halde her kayÄ±t bu alanda kendi deÄŸerini koruyacak.",
+            "noMulti": "Bu alan bir grup olarak deÄŸil ancak tekil olarak dÃ¼zenlenebilir.",
+            "restore": "DeÄŸiÅŸiklikleri geri al",
+            "title": "Ã‡oklu deÄŸer"
+        },
+        "remove": {
+            "button": "Sil",
+            "confirm": {
+                "_": "%d adet kaydÄ± silmek istediÄŸinize emin misiniz?",
+                "1": "Bu kaydÄ± silmek istediÄŸinizden emin misiniz?"
+            },
+            "submit": "Sil",
+            "title": "KayÄ±tlarÄ± sil"
+        }
+    },
+    "stateRestore": {
+        "creationModal": {
+            "button": "Kaydet",
+            "columns": {
+                "search": "Kolon AramasÄ±",
+                "visible": "Kolon GÃ¶rÃ¼nÃ¼mÃ¼"
+            },
+            "name": "GÃ¶rÃ¼nÃ¼m Ä°smi",
+            "order": "SÄ±ralama",
+            "paging": "Sayfalama",
+            "scroller": "KaydÄ±rma (Scrool)",
+            "search": "Arama",
+            "searchBuilder": "Arama OluÅŸturucu",
+            "select": "SeÃ§imler",
+            "title": "Yeni GÃ¶rÃ¼nÃ¼m OluÅŸtur",
+            "toggleLabel": "Kaydedilecek Olanlar"
+        },
+        "duplicateError": "Bu GÃ¶rÃ¼nÃ¼m Daha Ã–nce TanÄ±mlanmÄ±ÅŸ",
+        "emptyError": "GÃ¶rÃ¼nÃ¼m BoÅŸ Olamaz",
+        "emptyStates": "Herhangi Bir GÃ¶rÃ¼nÃ¼m Yok",
+        "removeJoiner": "ve",
+        "removeSubmit": "Sil",
+        "removeTitle": "GÃ¶rÃ¼nÃ¼m Sil",
+        "renameButton": "DeÄŸiÅŸtir",
+        "renameLabel": "GÃ¶rÃ¼nÃ¼me Yeni Ä°sim Ver -&gt; %s:",
+        "renameTitle": "GÃ¶rÃ¼nÃ¼m Ä°smini DeÄŸiÅŸtir",
+        "removeConfirm": "GÃ¶rÃ¼nÃ¼mÃ¼ silmek istediÄŸinize emin misiniz?",
+        "removeError": "GÃ¶rÃ¼nÃ¼m silinemedi"
+    },
+    "emptyTable": "Tabloda veri bulunmuyor",
+    "infoPostFix": "_TOTAL_ kayÄ±ttan _START_ - _END_ arasÄ±ndaki kayÄ±tlar gÃ¶steriliyor",
+    "searchPlaceholder": "ArayÄ±n..."
+}
