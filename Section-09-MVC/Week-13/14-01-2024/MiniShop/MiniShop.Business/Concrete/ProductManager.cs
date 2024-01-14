@@ -37,25 +37,26 @@ namespace MiniShop.Business.Concrete
             _productRepository.Create(product);
         }
 
-        public List<ProductViewModel> GetAll(bool? isHome=null, bool? isActive=null, bool? isDelete = null)
+        public List<ProductViewModel> GetAll(bool? isHome = null, bool? isActive = null, bool? isDelete = null)
         {
             List<Product> products;
-            if(isHome==null)
+            if (isHome == null)
             {
                 products = _productRepository.GetAll();
-            }else 
+            }
+            else
             {
-                 products = _productRepository.GetHomePageProducts(isHome);
+                products = _productRepository.GetHomePageProducts(isHome);
             }
             List<ProductViewModel> productViewModels = products
                 .Select(p => new ProductViewModel
                 {
-                    Id=p.Id,
-                    Name=p.Name,
-                    Price=p.Price,
-                    Url=p.Url,
-                    ImageUrl=p.ImageUrl,
-                    Properties=p.Properties
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = p.Price,
+                    Url = p.Url,
+                    ImageUrl = p.ImageUrl,
+                    Properties = p.Properties
                 }).ToList();
             return productViewModels;
         }
@@ -85,24 +86,35 @@ namespace MiniShop.Business.Concrete
                 Price = product.Price,
                 Url = product.Url,
                 ImageUrl = product.ImageUrl,
-                Properties = product.Properties
+                Properties = product.Properties,
+                IsHome = product.IsHome
             };
             return productViewModel;
         }
 
         public void HardDelete(int id)
         {
-            throw new NotImplementedException();
+            Product deletedProduct = _productRepository.GetById(id);
+            _productRepository.HardDelete(deletedProduct);
         }
 
         public void SoftDelete(int id)
         {
-            throw new NotImplementedException();
+            Product deletedProduct = _productRepository.GetById(id);
+            deletedProduct.IsDelete = !deletedProduct.IsDelete;
+            _productRepository.SoftDelete(deletedProduct);
         }
 
         public void Update(ProductViewModel model)
         {
-            throw new NotImplementedException();
+            Product editedProduct = _productRepository.GetById(model.Id);
+            editedProduct.Name = model.Name;
+            editedProduct.Price = model.Price;
+            editedProduct.Url = model.Url;
+            editedProduct.ImageUrl = model.ImageUrl;
+            editedProduct.Properties = model.Properties;
+            editedProduct.IsHome = model.IsHome;
+            _productRepository.Update(editedProduct);
         }
     }
 }

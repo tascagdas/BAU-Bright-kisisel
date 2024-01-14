@@ -1,8 +1,8 @@
 @model ProductViewModel
 <div class="container w-50">
-    <h1 class="display-6 text-primary">Ürün Ekle</h1>
+    <h1 class="display-6 text-primary">Ürün Editle</h1>
     <hr>
-    <form asp-area="Admin" asp-controller="Product" asp-action="Create" method="post">
+    <form asp-area="Admin" asp-controller="Product" asp-action="Edit" method="post">
         <div class="row">
 
             <div class="col-md-6 mb-3">
@@ -17,7 +17,7 @@
 
             <div class="col-md-4 mb-3 d-flex align-items-center gap-2">
                 <input asp-for="IsHome" class="form-check-input" type="checkbox">
-                <label class="form-check-label" for="">Anasayfa Ürünü</label>
+                <label class="form-check-label">Anasayfa Ürünü</label>
             </div>
 
             <div class="col-md-6 mb-3">
@@ -36,7 +36,7 @@
             </div>
 
             <div class="col-md-12">
-                <button class="btn btn-success float-end" type="submit">Kaydet</button>
+                <button class="btn btn-success float-end" type="submit">Güncelle</button>
             </div>
 
         </div>

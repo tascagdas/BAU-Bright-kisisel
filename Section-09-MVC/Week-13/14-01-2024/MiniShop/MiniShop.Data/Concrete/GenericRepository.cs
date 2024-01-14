@@ -36,17 +36,20 @@ namespace MiniShop.Data.Concrete
 
         public void HardDelete(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public void SoftDelete(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

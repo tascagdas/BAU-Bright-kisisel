@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using MiniShop.Business.Abstract;
 using MiniShop.Business.Concrete;
 using MiniShop.Core.ViewModels;
+using MiniShop.Entity;
 
 namespace MiniShop.Mvc.Areas.Admin.Controllers
 {
@@ -36,6 +37,35 @@ namespace MiniShop.Mvc.Areas.Admin.Controllers
         public IActionResult Create(ProductViewModel productViewModel)
         {
             _productManager.Create(productViewModel);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            ProductViewModel editedProduct = _productManager.GetById(Id);
+            return View(editedProduct);
+        }
+        [HttpPost]
+        public IActionResult Edit(ProductViewModel editedProduct)
+        {
+            _productManager.Update(editedProduct);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            ProductViewModel deletedProduct = _productManager.GetById(id);
+            return View(deletedProduct);
+        }
+        public IActionResult HardDelete(int id)
+        {
+            _productManager.HardDelete(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult SoftDelete(int id)
+        {
+            _productManager.SoftDelete(id);
             return RedirectToAction("Index");
         }
 
