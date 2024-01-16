@@ -98,6 +98,7 @@ namespace MiniShop.Business.Concrete
             _productRepository.HardDelete(deletedProduct);
         }
 
+
         public void SoftDelete(int id)
         {
             Product deletedProduct = _productRepository.GetById(id);

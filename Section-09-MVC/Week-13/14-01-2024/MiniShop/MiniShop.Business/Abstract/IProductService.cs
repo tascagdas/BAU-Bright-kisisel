@@ -12,7 +12,7 @@ namespace MiniShop.Business.Abstract
     {
         //CRUD işlemlerini gerçekleştirecek metot imzalarımızı yazacağız.
         void Create(ProductViewModel model);                                    // (C)reate
-        List<ProductViewModel> GetAll(bool? isHome = null, bool? isActive= null, bool? isDelete=null);  // (R)ead
+        List<ProductViewModel> GetAll(bool? isHome = null, bool? isActive = null, bool? isDelete = null);  // (R)ead
         ProductViewModel GetById(int id);
         void Update(ProductViewModel model);                                     // (U)pdate
         void HardDelete(int id);                                                  // (D)elete
