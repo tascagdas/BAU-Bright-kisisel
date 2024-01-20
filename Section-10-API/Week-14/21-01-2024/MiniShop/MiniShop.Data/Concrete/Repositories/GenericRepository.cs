@@ -3,6 +3,7 @@ using MiniShop.Data.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,16 @@ namespace MiniShop.Data.Concrete.Repositories
                 .Set<TEntity>()
                 .ToListAsync();
             return entities;
+        }
+
+        public async Task<List<TEntity>> GetAllAsyncNew(Expression<Func<TEntity, bool>> options = null)
+        {
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>();
+            if(options != null)
+            {
+                query = query.Where(options);
+            }
+            return await query.ToListAsync();
         }
 
         public async Task<TEntity> GetByIdAsync(int id)

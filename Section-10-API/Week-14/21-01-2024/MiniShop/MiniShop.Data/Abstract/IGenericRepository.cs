@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace MiniShop.Data.Abstract
         Task<TEntity> CreateAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);
         Task HardDeleteAsync(TEntity entity);
-
+        Task<List<TEntity>> GetAllAsyncNew(Expression<Func<TEntity, bool>> options = null);
+        //GetAllAsyncNew(c=>!c.IsDeleted && c.IsActive)
     }
 }
