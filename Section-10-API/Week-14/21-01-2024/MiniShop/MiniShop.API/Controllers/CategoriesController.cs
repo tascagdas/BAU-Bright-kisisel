@@ -76,10 +76,17 @@ namespace MiniShop.API.Controllers
         }
 
 
-        [HttpGet("getnondeleted")]
-        public async Task<IActionResult> GetNonDeleted()
+        [HttpGet("getnondeleted/{isDeleted?}")]
+        public async Task<IActionResult> GetNonDeleted(bool isDeleted = false)
         {
-            var response = await _categoryManager.GetNonDeletedCategories();
+            var response = await _categoryManager.GetIsDeletedCategories(isDeleted);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
+        [HttpGet("getactives/{isActive?}")]
+        public async Task<IActionResult> GetActives(bool isActive = true)
+        {
+            var response = await _categoryManager.GetIsActiveCategories(isActive);
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
