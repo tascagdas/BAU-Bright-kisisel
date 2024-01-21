@@ -11,7 +11,7 @@ using MiniShop.Data.Concrete.Contexts;
 namespace MiniShop.Data.Migrations
 {
     [DbContext(typeof(MiniShopDbContext))]
-    [Migration("20240116183759_InitialDb")]
+    [Migration("20240121101434_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -61,55 +61,55 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5572),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(930),
                             Description = "TV kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5589),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(980),
                             Name = "Televizyon",
                             Url = "televizyon"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5593),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(980),
                             Description = "Bilgisayar kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5593),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(980),
                             Name = "Bilgisayar",
                             Url = "bilgisayar"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5594),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(980),
                             Description = "Elektronik Eşya kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5594),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(990),
                             Name = "Elektronik Eşya",
                             Url = "elektronik-esya"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5596),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(990),
                             Description = "Beyaz Eşya kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5596),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(990),
                             Name = "Beyaz Eşya",
                             Url = "beyaz-esya"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5597),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(990),
                             Description = "Telefon kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 271, DateTimeKind.Local).AddTicks(5597),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(990),
                             Name = "Telefon",
                             Url = "telefon"
                         });
@@ -171,12 +171,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(589),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3570),
                             ImageUrl = "1.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(592),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3570),
                             Name = "IPhone 14",
                             Price = 59000m,
                             Properties = "Harika bir telefon",
@@ -185,12 +185,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(597),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3580),
                             ImageUrl = "2.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(597),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3580),
                             Name = "IPhone 14 Pro",
                             Price = 69000m,
                             Properties = "Bu da harika bir telefon",
@@ -199,12 +199,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(598),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3580),
                             ImageUrl = "3.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(598),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3580),
                             Name = "Samsung S23",
                             Price = 49000m,
                             Properties = "İdare eder",
@@ -213,12 +213,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(600),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             ImageUrl = "4.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(600),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             Name = "Xaomi Note 4",
                             Price = 39000m,
                             Properties = "Harika bir telefon",
@@ -227,12 +227,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(601),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             ImageUrl = "5.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(601),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             Name = "MacBook Air M2",
                             Price = 52000m,
                             Properties = "M2nin gücü",
@@ -241,12 +241,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(603),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             ImageUrl = "6.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(603),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             Name = "MacBook Pro M3",
                             Price = 79000m,
                             Properties = "16 Gb ram",
@@ -255,12 +255,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(604),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3590),
                             ImageUrl = "7.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(604),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             Name = "Vestel Çamaşır Makinesi X65",
                             Price = 19000m,
                             Properties = "Akıllı makine",
@@ -269,12 +269,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(606),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             ImageUrl = "8.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = false,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(606),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             Name = "Arçelik Çamaşır Makinesi A-4",
                             Price = 21000m,
                             Properties = "Süper hızlı makine",
@@ -283,12 +283,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(607),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             ImageUrl = "9.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(607),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             Name = "Hoop Dijital Radyo X96",
                             Price = 1250m,
                             Properties = "Klasik radyo keyfi",
@@ -297,12 +297,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(609),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             ImageUrl = "10.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(609),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3600),
                             Name = "Xaomi Dijital Baskül",
                             Price = 2100m,
                             Properties = "Kilonuzu kontrol edin",
@@ -311,12 +311,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(611),
+                            CreatedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3610),
                             ImageUrl = "11.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 1, 16, 21, 37, 59, 272, DateTimeKind.Local).AddTicks(611),
+                            ModifiedDate = new DateTime(2024, 1, 21, 13, 14, 34, 931, DateTimeKind.Local).AddTicks(3610),
                             Name = "Blaupunkt AC69 Led TV",
                             Price = 9800m,
                             Properties = "Android tv",

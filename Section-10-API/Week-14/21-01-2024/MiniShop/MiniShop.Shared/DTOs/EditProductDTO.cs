@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Shared.DTOs
 {
-    public class ProductDTO
+    public class EditProductDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,6 +14,9 @@ namespace MiniShop.Shared.DTOs
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public string Url { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime ModifiedDate { get; set; }
         public List<CategoryDTO> CategoryList { get; set; }
 
     }

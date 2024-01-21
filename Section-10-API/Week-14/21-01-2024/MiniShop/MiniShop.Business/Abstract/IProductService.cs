@@ -1,5 +1,6 @@
 ﻿using MiniShop.Entity.Concrete;
 using MiniShop.Shared.DTOs;
+using MiniShop.Shared.ResponseDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,17 @@ namespace MiniShop.Business.Abstract
     public interface IProductService
     {
         #region Generic
-        Task<ProductDTO> GetByIdAsync(int id);
-        Task<List<ProductDTO>> GetAllAsync();
-        Task<ProductDTO> CreateAsync(ProductDTO productDTO);
-        Task<ProductDTO> UpdateAsync(ProductDTO productDTO);
-        Task HardDeleteAsync(int id);
-        Task SoftDeleteAsync(int id);
+        Task<Response<ProductDTO>> GetByIdAsync(int id);
+        Task<Response<List<ProductDTO>>> GetAllAsync();
+        Task<Response<ProductDTO>> CreateAsync(AddProductDTO addProductDTO);
+        Task<Response<ProductDTO>> UpdateAsync(EditProductDTO editProductDTO);
+        Task<Response<NoContent>> HardDeleteAsync(int id);
+        Task<Response<NoContent>> SoftDeleteAsync(int id);
         #endregion
         #region Product
-        Task<List<ProductDTO>> GetAllProductsWithCategoriesAsync();
-        Task<List<ProductDTO>> GetProductsByCategoryIdAsync(int categoryId);
-        Task<ProductDTO> GetProductWithCategoriesAsync(int id);
+        Task<Response<List<ProductDTO>>> GetAllProductsWithCategoriesAsync();
+        Task<Response<List<ProductDTO>>> GetProductsByCategoryIdAsync(int categoryId);
+        Task<Response<ProductDTO>> GetProductWithCategoriesAsync(int id);
         #endregion
     }
 }
