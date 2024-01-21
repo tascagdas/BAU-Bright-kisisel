@@ -53,12 +53,44 @@ namespace MiniShop.API.Controllers
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
-        [HttpPost("create")]
-        public async Task<IActionResult> Create(int categoryId)
+        
+		[HttpPost("create")]
+        public async Task<IActionResult> Create(AddProductDTO addProductDTO)
         {
-            var response = await _productManager.GetProductsByCategoryIdAsync(categoryId);
+            var response = await _productManager.CreateAsync(addProductDTO);
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
