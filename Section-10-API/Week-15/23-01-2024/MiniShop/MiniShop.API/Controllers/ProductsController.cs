@@ -29,11 +29,12 @@ namespace MiniShop.API.Controllers
         public async Task<IActionResult> GetWithCategories()
         {
             var response = await _productManager.GetAllProductsWithCategoriesAsync();
-            var options = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.IgnoreCycles
-            };
-            var jsonResponse = JsonSerializer.Serialize(response, options);
+            //var options = new JsonSerializerOptions
+            //{
+            //    ReferenceHandler = ReferenceHandler.IgnoreCycles
+            //};
+            //var jsonResponse = JsonSerializer.Serialize(response, options);
+            var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
 
@@ -49,11 +50,7 @@ namespace MiniShop.API.Controllers
         public async Task<IActionResult> GetProductWithCategories(int id)
         {
             var response = await _productManager.GetProductWithCategoriesAsync(id);
-            var options = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.IgnoreCycles
-            };
-            var jsonResponse = JsonSerializer.Serialize(response, options);
+            var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
 
@@ -69,6 +66,16 @@ namespace MiniShop.API.Controllers
         public async Task<IActionResult> Create(AddProductDTO addProductDTO)
         {
             var response = await _productManager.CreateAsync(addProductDTO);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> Update(EditProductDTO editProductDTO)
+        {
+            //Ürünün kategori bilgilerinin güncellenmesi gerçekleşmiyor.
+            //MVC tarafını geliştirirken, bu meseleyi çözeceğiz.
+            var response = await _productManager.UpdateAsync(editProductDTO);
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }

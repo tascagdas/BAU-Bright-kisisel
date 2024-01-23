@@ -107,9 +107,17 @@ namespace MiniShop.Business.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<Response<ProductDTO>> UpdateAsync(EditProductDTO editProductDTO)
+        public async Task<Response<ProductDTO>> UpdateAsync(EditProductDTO editProductDTO)
         {
-            throw new NotImplementedException();
+            var editedProduct = _mapper.Map<Product>(editProductDTO);
+            if (editedProduct == null)
+            {
+                return Response<ProductDTO>.Fail("İlgili ürün bulunamadı.", 404);
+            }
+            editedProduct.ModifiedDate = DateTime.Now;
+            await _repository.UpdateAsync(editedProduct);
+            var resultProduct = _mapper.Map<ProductDTO>(editedProduct);
+            return Response<ProductDTO>.Success(resultProduct, 200);
         }
     }
 }

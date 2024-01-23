@@ -32,11 +32,7 @@ namespace MiniShop.API.Controllers
         public async Task<IActionResult> GetWithProducts()
         {
             var response = await _categoryManager.GetAllCategoriesWithProductsAsync();
-            var options = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.IgnoreCycles
-            };
-            var jsonResponse = JsonSerializer.Serialize(response, options);
+            var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
 
@@ -82,7 +78,7 @@ namespace MiniShop.API.Controllers
 
 
         [HttpGet("getnondeleted/{isDeleted?}")]
-        public async Task<IActionResult> GetNonDeleted(bool isDeleted = false)
+        public async Task<IActionResult> GetNonDeleted(bool isDeleted=false)
         {
             var response = await _categoryManager.GetIsDeletedCategories(isDeleted);
             var jsonResponse = JsonSerializer.Serialize(response);
@@ -90,7 +86,7 @@ namespace MiniShop.API.Controllers
         }
 
         [HttpGet("getactives/{isActive?}")]
-        public async Task<IActionResult> GetActives(bool isActive = true)
+        public async Task<IActionResult> GetActives(bool isActive=true)
         {
             var response = await _categoryManager.GetIsActiveCategories(isActive);
             var jsonResponse = JsonSerializer.Serialize(response);
