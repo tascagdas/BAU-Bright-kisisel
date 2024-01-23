@@ -75,7 +75,6 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-
         [HttpGet("getnondeleted/{isDeleted?}")]
         public async Task<IActionResult> GetNonDeleted(bool isDeleted = false)
         {
