@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+    @await Html.PartialAsync("_Styles")
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        @await Component.InvokeAsync("Preloader")
+        @await Component.InvokeAsync("Navbar")
+        @await Component.InvokeAsync("MainSidebar")
+        @RenderBody()
+        @await Component.InvokeAsync("Footer")
+    </div>
+    <!-- ./wrapper -->
+    @await Html.PartialAsync("_Scripts")
+</body>
+
+</html>
+
+

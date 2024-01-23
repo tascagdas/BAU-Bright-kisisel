@@ -16,6 +16,6 @@ namespace MiniShop.Shared.DTOs
         public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
-        public List<CategoryDTO> CategoryList { get; set; }
+        public List<InCategoryDTO> CategoryList { get; set; }
     }
 }

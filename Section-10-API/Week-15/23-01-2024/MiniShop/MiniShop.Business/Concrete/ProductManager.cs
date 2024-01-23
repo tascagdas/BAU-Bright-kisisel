@@ -26,16 +26,19 @@ namespace MiniShop.Business.Concrete
         public async Task<Response<ProductDTO>> CreateAsync(AddProductDTO addProductDTO)
         {
             var product = _mapper.Map<Product>(addProductDTO);
+            product.CreatedDate = DateTime.Now;
+            product.ModifiedDate = DateTime.Now;
             var createdProduct = await _repository.CreateAsync(product);
             if (createdProduct == null)
             {
-                return Response<ProductDTO>.Fail("Bir hata oluştu",404);
+                return Response<ProductDTO>.Fail("Bir hata oluştu", 404);
             }
             createdProduct.ProductCategories = addProductDTO
                 .CategoryList
                 .Select(c => new ProductCategory
                 {
-                    ProductId=createdProduct.Id, CategoryId=c.Id
+                    ProductId = createdProduct.Id,
+                    CategoryId = c.Id
                 }).ToList();
             await _repository.UpdateAsync(createdProduct);
             var resultProductDto = _mapper.Map<ProductDTO>(createdProduct);
@@ -67,7 +70,7 @@ namespace MiniShop.Business.Concrete
         public async Task<Response<ProductDTO>> GetByIdAsync(int id)
         {
             var product = await _repository.GetByIdAsync(id);
-            if(product == null)
+            if (product == null)
             {
                 return Response<ProductDTO>.Fail("İlgili ürün bulunamadı.", 404);
             }
@@ -97,14 +100,33 @@ namespace MiniShop.Business.Concrete
             return Response<ProductDTO>.Success(productDto, 200);
         }
 
-        public Task<Response<NoContent>> HardDeleteAsync(int id)
+        public async Task<Response<NoContent>> HardDeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = await _repository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return Response<NoContent>.Fail("İlgili ürün bulunamadı.", 404);
+            }
+            await _repository.HardDeleteAsync(product);
+            return Response<NoContent>.Success(200);
         }
 
-        public Task<Response<NoContent>> SoftDeleteAsync(int id)
+        public async Task<Response<NoContent>> SoftDeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = await _repository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return Response<NoContent>.Fail("İlgili ürün bulunamadı.", 404);
+            }
+            if (product.IsDeleted == true)
+            {
+                return Response<NoContent>.Fail("Bu urun zaten silinmis", 404);
+            }
+            product.IsDeleted = !product.IsDeleted;
+            product.IsActive = false;
+            product.ModifiedDate = DateTime.Now;
+            await _repository.UpdateAsync(product);
+            return Response<NoContent>.Success(200);
         }
 
         public async Task<Response<ProductDTO>> UpdateAsync(EditProductDTO editProductDTO)
