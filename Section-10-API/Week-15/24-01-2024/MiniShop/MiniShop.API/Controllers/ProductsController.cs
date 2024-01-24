@@ -79,6 +79,7 @@ namespace MiniShop.API.Controllers
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
+
         [HttpDelete("harddelete/{id}")]
         public async Task<IActionResult> HardDelete(int id)
         {
@@ -86,6 +87,7 @@ namespace MiniShop.API.Controllers
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
+
         [HttpDelete("softdelete/{id}")]
         public async Task<IActionResult> SoftDelete(int id)
         {

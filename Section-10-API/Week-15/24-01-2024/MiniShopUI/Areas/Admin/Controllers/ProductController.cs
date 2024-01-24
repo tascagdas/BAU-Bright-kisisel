@@ -1,13 +1,14 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using MiniShopUI.Areas.Admin.Models;
 
 namespace MiniShop.MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
         public IActionResult Index()
         {
+            
             return View();
         }
     }

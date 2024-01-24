@@ -31,14 +31,13 @@ namespace MiniShop.Business.Concrete
             var createdProduct = await _repository.CreateAsync(product);
             if (createdProduct == null)
             {
-                return Response<ProductDTO>.Fail("Bir hata oluştu", 404);
+                return Response<ProductDTO>.Fail("Bir hata oluştu",404);
             }
             createdProduct.ProductCategories = addProductDTO
                 .CategoryList
                 .Select(c => new ProductCategory
                 {
-                    ProductId = createdProduct.Id,
-                    CategoryId = c.Id
+                    ProductId=createdProduct.Id, CategoryId=c.Id
                 }).ToList();
             await _repository.UpdateAsync(createdProduct);
             var resultProductDto = _mapper.Map<ProductDTO>(createdProduct);
@@ -70,7 +69,7 @@ namespace MiniShop.Business.Concrete
         public async Task<Response<ProductDTO>> GetByIdAsync(int id)
         {
             var product = await _repository.GetByIdAsync(id);
-            if (product == null)
+            if(product == null)
             {
                 return Response<ProductDTO>.Fail("İlgili ürün bulunamadı.", 404);
             }
@@ -118,9 +117,9 @@ namespace MiniShop.Business.Concrete
             {
                 return Response<NoContent>.Fail("İlgili ürün bulunamadı.", 404);
             }
-            if (product.IsDeleted == true)
+            if(product.IsDeleted)
             {
-                return Response<NoContent>.Fail("Bu urun zaten silinmis", 404);
+                return Response<NoContent>.Fail("Bu ürün zaten silinmiş", 404);
             }
             product.IsDeleted = !product.IsDeleted;
             product.IsActive = false;
