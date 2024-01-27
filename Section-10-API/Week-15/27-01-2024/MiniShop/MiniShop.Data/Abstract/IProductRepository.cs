@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Data.Abstract
 {
-    public interface IProductRepository:IGenericRepository<Product>
+    public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<List<Product>> GetAllProductsWithCategoriesAsync();
         Task<List<Product>> GetProductsByCategoryIdAsync(int categoryId);
-        Task<Product> GetProductWithCategoriesAsync(int id);
+        Task ClearProductCategory(int productId, int[] categoryIds);
     }
 }

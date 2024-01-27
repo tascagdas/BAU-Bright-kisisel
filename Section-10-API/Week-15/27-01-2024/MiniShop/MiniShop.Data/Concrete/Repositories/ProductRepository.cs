@@ -12,44 +12,34 @@ namespace MiniShop.Data.Concrete.Repositories
 {
     public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
-        public ProductRepository(MiniShopDbContext _context):base(_context)
+        public ProductRepository(MiniShopDbContext _context) : base(_context)
         {
-            
+
         }
         private MiniShopDbContext MiniShopDbContext
         {
             get { return _dbContext as MiniShopDbContext; }
-        }
-        public async Task<List<Product>> GetAllProductsWithCategoriesAsync()
-        {
-            List<Product> products = await MiniShopDbContext
-                .Products
-                .Include(p=>p.ProductCategories)
-                .ThenInclude(pc=>pc.Category)
-                .ToListAsync();
-            return products;
         }
 
         public async Task<List<Product>> GetProductsByCategoryIdAsync(int categoryId)
         {
             List<Product> products = await MiniShopDbContext
                 .Products
-                .Include(p=>p.ProductCategories)
-                .ThenInclude(pc=>pc.Category)
-                .Where(p=>p.ProductCategories.Any(pc=>pc.CategoryId==categoryId))
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .Where(p => p.ProductCategories.Any(pc => pc.CategoryId == categoryId))
                 .ToListAsync();
             return products;
         }
 
-        public async Task<Product> GetProductWithCategoriesAsync(int id)
+        public async Task ClearProductCategory(int productId, int[] categoryIds)
         {
-            Product product = await MiniShopDbContext
-                .Products
-                .Where(p => p.Id == id)
-                .Include(p => p.ProductCategories)
-                .ThenInclude(pc => pc.Category)
-                .SingleOrDefaultAsync();
-            return product;
+            List<ProductCategory> productCategories = await MiniShopDbContext
+                .ProductCategories
+                .Where(pc => pc.ProductId == productId)
+                .ToListAsync();
+            MiniShopDbContext.ProductCategories.RemoveRange(productCategories);
+            await MiniShopDbContext.SaveChangesAsync();
         }
     }
 }

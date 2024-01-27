@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Business.Mappings
 {
-    public class GeneralMappingProfile:Profile
+    public class GeneralMappingProfile : Profile
     {
         public GeneralMappingProfile()
         {
@@ -18,10 +18,8 @@ namespace MiniShop.Business.Mappings
             CreateMap<Category, InCategoryDTO>().ReverseMap();
 
             CreateMap<Product, AddProductDTO>().ReverseMap();
-            CreateMap<Product, EditProductDTO>()
-                 .ForMember(pdto => pdto.CategoryList, options =>
-                    options.MapFrom(p => p.ProductCategories.Select(pc => pc.Category)))
-                .ReverseMap();
+            CreateMap<Product, EditProductDTO>().ReverseMap();
+
             CreateMap<Product, InProductDTO>().ReverseMap();
 
             CreateMap<Product, ProductDTO>()
@@ -30,8 +28,8 @@ namespace MiniShop.Business.Mappings
                 .ReverseMap();
 
             CreateMap<Category, CategoryDTO>()
-                .ForMember(cdto=>cdto.ProductList, options=>
-                    options.MapFrom(c=>c.ProductCategories.Select(pc=>pc.Product)))
+                .ForMember(cdto => cdto.ProductList, options =>
+                    options.MapFrom(c => c.ProductCategories.Select(pc => pc.Product)))
                 .ReverseMap();
         }
     }

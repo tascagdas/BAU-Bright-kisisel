@@ -26,12 +26,11 @@ namespace MiniShop.MVC.Areas.Admin.Models
         [JsonPropertyName("Url")]
         public string Url { get; set; }
 
-        [JsonPropertyName("IsHome")]
-        public bool IsHome { get; set; }
-
         [JsonPropertyName("IsActive")]
         public bool IsActive { get; set; }
 
+        [JsonPropertyName("IsHome")]
+        public bool IsHome { get; set; }
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿@model List<ProductViewModel>
-<!-- Content Wrapper. Contains page content -->
+ <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -31,52 +31,48 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Ürün</th>
-                                        <th>Fiyatı</th>
-                                        <th>Ana sayfa</th>
+                                        <th>Fiyat</th>
+                                        <th>Ana Sayfa</th>
                                         <th>Aktif</th>
                                         <th>İşlemler</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @foreach (var p in Model)
                                     {
                                         <tr>
-
                                             <td>@p.Id</td>
-                                            <td>
-                                                @p.Name
-                                            </td>
+                                            <td>@p.Name</td>
                                             <td>@p.Price</td>
                                             <td>
                                                 <form 
-                                                id="isHomeForm_@p.Id"
-                                                asp-area="Admin"
-                                                asp-controller="Product"
-                                                asp-action="UpdateIsHome"
-                                                asp-route-id="@p.Id"
-                                                method="post"
+                                                    id="isHomeForm_@p.Id"
+                                                    asp-area="Admin"
+                                                    asp-controller="Product"
+                                                    asp-action="UpdateIsHome"
+                                                    asp-route-id="@p.Id"
+                                                    method="post"
                                                 >
-
-                                                <div class="custom-control custom-switch">
-                                                    <input onchange="document.getElementById('isHomeForm_@p.Id').submit();"
-                                                     type="checkbox" class="custom-control-input" id="isHome_@p.Id"
-                                                    @(p.IsHome == true ? "checked" : "") />
-                                                    <label class="custom-control-label" for="isHome_@p.Id"></label>
-                                                </div>
+                                                    <div class="custom-control custom-switch">
+                                                        <input onchange="document.getElementById('isHomeForm_@p.Id').submit();"
+                                                            
+                                                            type="checkbox" class="custom-control-input" id="isHome_@p.Id"
+                                                        @(p.IsHome ? "checked" : "") />
+                                                        <label class="custom-control-label" for="isHome_@p.Id"></label>
+                                                    </div>
                                                 </form>
+
                                             </td>
                                             <td>
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="isActive_@p.Id"
-                                                    @(p.IsActive == true ? "checked" : "") />
+                                                    @(p.IsActive ? "checked" : "") />
                                                     <label class="custom-control-label" for="isActive_@p.Id"></label>
                                                 </div>
                                             </td>
                                             <td>#</td>
                                         </tr>
                                     }
-
 
                                 </tbody>
                             </table>
@@ -96,10 +92,10 @@
 <!-- /.content-wrapper -->
 
 
-@section Styles {
+@section Styles{
     @await Html.PartialAsync("_DataTablesCssPartial")
 }
 
-@section Scripts {
+@section Scripts{
     @await Html.PartialAsync("_DataTablesJsPartial")
 }

@@ -8,6 +8,7 @@ namespace MiniShop.Shared.DTOs
 {
     public class EditProductDTO
     {
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Properties { get; set; }
@@ -16,8 +17,8 @@ namespace MiniShop.Shared.DTOs
         public string Url { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime ModifiedDate { get; set; }
-        public List<InCategoryDTO> CategoryList { get; set; }
+        public bool IsHome { get; set; }
+        public int[] CategoryIds { get; set; }
 
     }
 }

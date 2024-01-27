@@ -12,21 +12,21 @@ namespace MiniShop.Business.Abstract
     public interface ICategoryService
     {
         #region Generic
-        Task<Response<CategoryDTO>> GetByIdAsync(int id);
-        Task<Response<List<CategoryDTO>>> GetAllAsync();
         Task<Response<CategoryDTO>> CreateAsync(AddCategoryDTO addCategoryDTO);
         Task<Response<CategoryDTO>> UpdateAsync(EditCategoryDTO editCategoryDTO);
         Task<Response<NoContent>> HardDeleteAsync(int id);
         Task<Response<NoContent>> SoftDeleteAsync(int id);
-        
+        Task<Response<List<CategoryDTO>>> GetAllAsync();
+        Task<Response<CategoryDTO>> GetByIdAsync(int id);
+        Task<Response<List<CategoryDTO>>> GetActiveCategories(bool isActive = true);
+        Task<Response<List<CategoryDTO>>> GetNonDeletedCategories(bool isDeleted = false);
+        Task<int> GetActiveCategoryCount();
+        Task<int> GetCategoryCount();
+
         #endregion
 
         #region Category
-        Task<Response<List<CategoryDTO>>> GetAllCategoriesWithProductsAsync();
-        Task<Response<List<CategoryDTO>>> GetIsDeletedCategories(bool isDeleted = false);
-        //Admin panelde kullanabileceğimiz bir metoda ihtiyacımız var.
-        //Bu metot istenildiğinde aktif, istenildiğinde pasif kayıtları getirsin.
-        Task<Response<List<CategoryDTO>>> GetIsActiveCategories(bool isActive = true);
+
         #endregion
     }
 }

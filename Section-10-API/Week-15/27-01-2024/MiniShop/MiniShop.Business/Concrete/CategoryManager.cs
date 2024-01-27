@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MiniShop.Business.Abstract;
 using MiniShop.Data.Abstract;
 using MiniShop.Entity.Concrete;
@@ -35,65 +36,23 @@ namespace MiniShop.Business.Concrete
             return Response<CategoryDTO>.Success(createdCategoryDto, 200);
         }
 
-        public async Task<Response<List<CategoryDTO>>> GetAllAsync()
+        public async Task<Response<CategoryDTO>> UpdateAsync(EditCategoryDTO editCategoryDTO)
         {
-            var categoryList = await _repository.GetAllAsync();
-            if(categoryList == null)
-            {
-                return Response<List<CategoryDTO>>.Fail("Hiç kategori bulunamadı", 301);
-            }
-            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
-            return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
-        }
+            var editedCategory = _mapper.Map<Category>(editCategoryDTO);
 
-        public async Task<Response<List<CategoryDTO>>> GetAllCategoriesWithProductsAsync()
-        {
-            var categoryList = await _repository.GetAllCategoriesWithProductsAsync();
-            if (categoryList == null)
-            {
-                return Response<List<CategoryDTO>>.Fail("Hiç kategori bulunamadı", 301);
-            }
-            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
-            return Response<List<CategoryDTO>>.Success(categoryDtoList,200);
-        }
-        public async Task<Response<CategoryDTO>> GetByIdAsync(int id)
-        {
-            var category = await _repository.GetByIdAsync(id);
-            if(category == null) 
+            if (editedCategory == null)
             {
                 return Response<CategoryDTO>.Fail("Böyle bir kategori bulunamadı", 404);
             }
-            var categoryDto = _mapper.Map<CategoryDTO>(category);
-            return Response<CategoryDTO>.Success(categoryDto, 200);
-        }
-
-        public async Task<Response<List<CategoryDTO>>> GetIsActiveCategories(bool isActive = true)
-        {
-            var categoryList = await _repository.GetAllAsync(c => c.IsActive == isActive);
-            string status = isActive ? "aktif" : "aktif olmayan";
-            if (categoryList == null)
-            {
-                return Response<List<CategoryDTO>>.Fail($"Hiç {status} kategori bulunamadı", 301);
-            }
-            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
-            return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
-        }
-
-        public async Task<Response<List<CategoryDTO>>> GetIsDeletedCategories(bool isDeleted = false)
-        {
-            var categoryList = await _repository.GetAllAsync(c=>c.IsDeleted == isDeleted);
-            string status = isDeleted ? "silinmiş" : "silinmemiş";
-            if (categoryList == null)
-            {
-                return Response<List<CategoryDTO>>.Fail($"Hiç {status} kategori bulunamadı", 301);
-            }
-            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
-            return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
+            editedCategory.ModifiedDate = DateTime.Now;
+            await _repository.UpdateAsync(editedCategory);
+            var resultCategoryDto = _mapper.Map<CategoryDTO>(editedCategory);
+            return Response<CategoryDTO>.Success(resultCategoryDto, 200);
         }
 
         public async Task<Response<NoContent>> HardDeleteAsync(int id)
         {
-            var category = await _repository.GetByIdAsync(id);
+            var category = await _repository.GetByIdAsync(c => c.Id == id);
             if (category == null)
             {
                 return Response<NoContent>.Fail("Böyle bir kategori bulunamadı", 404);
@@ -104,7 +63,7 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<NoContent>> SoftDeleteAsync(int id)
         {
-            var deletedCategory = await _repository.GetByIdAsync(id);
+            var deletedCategory = await _repository.GetByIdAsync(c => c.Id == id);
             if (deletedCategory == null)
             {
                 return Response<NoContent>.Fail("Böyle bir kategori bulunamadı", 404);
@@ -120,18 +79,62 @@ namespace MiniShop.Business.Concrete
             return Response<NoContent>.Success(200);
         }
 
-        public async Task<Response<CategoryDTO>> UpdateAsync(EditCategoryDTO editCategoryDTO)
+        public async Task<Response<List<CategoryDTO>>> GetAllAsync()
         {
-            var editedCategory = _mapper.Map<Category>(editCategoryDTO);
+            var categoryList = await _repository.GetAllAsync();
+            if (categoryList == null)
+            {
+                return Response<List<CategoryDTO>>.Fail("Hiç kategori bulunamadı", 301);
+            }
+            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
+            return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
+        }
 
-            if (editedCategory == null)
+        public async Task<Response<CategoryDTO>> GetByIdAsync(int id)
+        {
+            var category = await _repository.GetByIdAsync(c => c.Id == id, source => source
+                .Include(x => x.ProductCategories)
+                .ThenInclude(y => y.Product));
+            if (category == null)
             {
                 return Response<CategoryDTO>.Fail("Böyle bir kategori bulunamadı", 404);
             }
-            editedCategory.ModifiedDate = DateTime.Now;
-            await _repository.UpdateAsync(editedCategory);
-            var resultCategoryDto = _mapper.Map<CategoryDTO>(editedCategory);
-            return Response<CategoryDTO>.Success(resultCategoryDto, 200);
+            var categoryDto = _mapper.Map<CategoryDTO>(category);
+            return Response<CategoryDTO>.Success(categoryDto, 200);
+        }
+
+        public async Task<Response<List<CategoryDTO>>> GetActiveCategories(bool isActive = true)
+        {
+            var categoryList = await _repository.GetAllAsync(c => c.IsActive == isActive);
+            string status = isActive ? "aktif" : "aktif olmayan";
+            if (categoryList.Count == 0)
+            {
+                return Response<List<CategoryDTO>>.Fail($"Hiç {status} kategori bulunamadı", 301);
+            }
+            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
+            return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
+        }
+
+        public async Task<Response<List<CategoryDTO>>> GetNonDeletedCategories(bool isDeleted = false)
+        {
+            var categoryList = await _repository.GetAllAsync(c => c.IsDeleted == isDeleted);
+            string status = isDeleted ? "silinmiş" : "silinmemiş";
+            if (categoryList.Count == 0)
+            {
+                return Response<List<CategoryDTO>>.Fail($"Hiç {status} kategori bulunamadı", 301);
+            }
+            var categoryDtoList = _mapper.Map<List<CategoryDTO>>(categoryList);
+            return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
+        }
+
+        public async Task<int> GetActiveCategoryCount()
+        {
+            return await _repository.GetCount(c => c.IsActive && !c.IsDeleted);
+        }
+
+        public async Task<int> GetCategoryCount()
+        {
+            return await _repository.GetCount(c => !c.IsDeleted);
         }
     }
 }

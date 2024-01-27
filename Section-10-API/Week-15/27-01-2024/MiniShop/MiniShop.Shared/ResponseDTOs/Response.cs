@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MiniShop.Shared.ResponseDTOs
@@ -10,6 +11,7 @@ namespace MiniShop.Shared.ResponseDTOs
     {
         public T Data { get; set; }
         public List<string> Errors { get; set; }
+        [JsonIgnore]
         public int StatusCode { get; set; }
         public bool IsSucceeded { get; set; }
 

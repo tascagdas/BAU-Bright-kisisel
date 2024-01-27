@@ -17,7 +17,6 @@ namespace MiniShop.API.Controllers
         {
             _productManager = productManager;
         }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -26,8 +25,8 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpGet("getwithcategories")]
-        public async Task<IActionResult> GetWithCategories()
+        [HttpGet("GetAllWithCategories")]
+        public async Task<IActionResult> GetAllWithCategories()
         {
             var response = await _productManager.GetAllProductsWithCategoriesAsync();
             //var options = new JsonSerializerOptions
@@ -39,7 +38,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpGet("getbyid/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var response = await _productManager.GetByIdAsync(id);
@@ -47,15 +46,15 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpGet("getproductwithcategories/{id}")]
-        public async Task<IActionResult> GetProductWithCategories(int id)
+        [HttpGet("GetWithCategories/{id}")]
+        public async Task<IActionResult> GetWithCategories(int id)
         {
             var response = await _productManager.GetProductWithCategoriesAsync(id);
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
 
-        [HttpGet("getbycategoryid/{categoryId}")]
+        [HttpGet("GetByCategoryId/{categoryId}")]
         public async Task<IActionResult> GetByCategoryId(int categoryId)
         {
             var response = await _productManager.GetProductsByCategoryIdAsync(categoryId);
@@ -63,7 +62,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpPost("create")]
+        [HttpPost("Create")]
         public async Task<IActionResult> Create(AddProductDTO addProductDTO)
         {
             var response = await _productManager.CreateAsync(addProductDTO);
@@ -71,7 +70,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpPut("update")]
+        [HttpPut("Update")]
         public async Task<IActionResult> Update(EditProductDTO editProductDTO)
         {
             //Ürünün kategori bilgilerinin güncellenmesi gerçekleşmiyor.
@@ -81,7 +80,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpPost("updateishome/{id}")]
+        [HttpPost("UpdateIsHome/{id}")]
         public async Task<IActionResult> UpdateIsHome(int id)
         {
             var response = await _productManager.UpdateIsHomeAsync(id);
@@ -89,7 +88,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpDelete("harddelete/{id}")]
+        [HttpDelete("HardDelete/{id}")]
         public async Task<IActionResult> HardDelete(int id)
         {
             var response = await _productManager.HardDeleteAsync(id);
@@ -97,8 +96,16 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpDelete("softdelete/{id}")]
+        [HttpDelete("SoftDelete/{id}")]
         public async Task<IActionResult> SoftDelete(int id)
+        {
+            var response = await _productManager.SoftDeleteAsync(id);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
+
+        [HttpDelete("ActiveCount/{id}")]
+        public async Task<IActionResult> GetActiveCount(int id)
         {
             var response = await _productManager.SoftDeleteAsync(id);
             var jsonResponse = JsonSerializer.Serialize(response);

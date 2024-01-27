@@ -14,6 +14,5 @@ namespace MiniShop.Shared.DTOs
         public string Url { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime ModifiedDate { get; set; }
     }
 }
