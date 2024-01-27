@@ -82,7 +82,7 @@ namespace MiniShop.Business.Concrete
         public async Task<Response<List<CategoryDTO>>> GetAllAsync()
         {
             var categoryList = await _repository.GetAllAsync();
-            if (categoryList == null)
+            if (categoryList.Count == 0)
             {
                 return Response<List<CategoryDTO>>.Fail("Hiç kategori bulunamadı", 301);
             }
@@ -105,7 +105,7 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<List<CategoryDTO>>> GetActiveCategories(bool isActive = true)
         {
-            var categoryList = await _repository.GetAllAsync(c => c.IsActive == isActive);
+            var categoryList = await _repository.GetAllAsync(c => c.IsActive == isActive && c.IsDeleted==!isActive);
             string status = isActive ? "aktif" : "aktif olmayan";
             if (categoryList.Count == 0)
             {
@@ -127,14 +127,16 @@ namespace MiniShop.Business.Concrete
             return Response<List<CategoryDTO>>.Success(categoryDtoList, 200);
         }
 
-        public async Task<int> GetActiveCategoryCount()
+        public async Task<Response<int>> GetActiveCategoryCount()
         {
-            return await _repository.GetCount(c => c.IsActive && !c.IsDeleted);
+            var count= await _repository.GetCount(c => c.IsActive && !c.IsDeleted);
+            return Response<int>.Success(count, 200);
         }
 
-        public async Task<int> GetCategoryCount()
+        public async Task<Response<int>> GetCategoryCount()
         {
-            return await _repository.GetCount(c => !c.IsDeleted);
+            var count= await _repository.GetCount(c => !c.IsDeleted);
+            return Response<int>.Success(count, 200);
         }
     }
 }

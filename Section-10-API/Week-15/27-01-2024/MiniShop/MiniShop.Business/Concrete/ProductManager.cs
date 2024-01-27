@@ -53,7 +53,6 @@ namespace MiniShop.Business.Concrete
             {
                 return Response<ProductDTO>.Fail("İlgili ürün bulunamadı.", 404);
             }
-
             editedProduct.ModifiedDate = DateTime.Now;
             await _repository.UpdateAsync(editedProduct);
             await _repository.ClearProductCategory(editedProduct.Id, editProductDTO.CategoryIds);

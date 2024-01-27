@@ -44,7 +44,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-        [HttpPut("Update")] //Bu metot güncelleme işlemlerinde kullanılır
+        [HttpPut("Update")]
         public async Task<IActionResult> Update(EditCategoryDTO editCategoryDto)
         {
             var response = await _categoryManager.UpdateAsync(editCategoryDto);
@@ -68,8 +68,7 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
-
-        [HttpGet("GetNonDeleteds/{isDeleted?}")]
+        [HttpGet("NonDeleteds/{isDeleted?}")]
         public async Task<IActionResult> GetNonDeleted(bool isDeleted = false)
         {
             var response = await _categoryManager.GetNonDeletedCategories(isDeleted);

@@ -20,8 +20,8 @@ namespace MiniShop.Business.Abstract
         Task<Response<CategoryDTO>> GetByIdAsync(int id);
         Task<Response<List<CategoryDTO>>> GetActiveCategories(bool isActive = true);
         Task<Response<List<CategoryDTO>>> GetNonDeletedCategories(bool isDeleted = false);
-        Task<int> GetActiveCategoryCount();
-        Task<int> GetCategoryCount();
+        Task<Response<int>> GetActiveCategoryCount();
+        Task<Response<int>> GetCategoryCount();
 
         #endregion
 
