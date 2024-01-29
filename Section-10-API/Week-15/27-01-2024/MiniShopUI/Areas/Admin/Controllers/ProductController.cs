@@ -13,7 +13,7 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             Response<List<ProductViewModel>> response = new Response<List<ProductViewModel>>();
             using (HttpClient httpClient = new HttpClient())
             {
-                HttpResponseMessage responseApi = await httpClient.GetAsync("http://localhost:7700/products");
+                HttpResponseMessage responseApi = await httpClient.GetAsync("http://localhost:7700/Products");
                 string contentResponseApi = await responseApi.Content.ReadAsStringAsync();
                 response = JsonSerializer.Deserialize<Response<List<ProductViewModel>>>(contentResponseApi);
             }
@@ -27,12 +27,48 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             HttpRequestMessage request = new HttpRequestMessage()
             {
                 Method = HttpMethod.Post,
-                RequestUri= new Uri($"http://localhost:7700/products/updateishome/{id}"),
+                RequestUri= new Uri($"http://localhost:7700/Products/UpdateIsHome/{id}"),
                 Content=new StringContent("",Encoding.UTF8,"application/json")
             };
             HttpResponseMessage response = await httpClient.SendAsync(request);
 
             return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> UpdateIsActive(int id)
+        {
+            HttpClient httpClient = new HttpClient();
+
+            HttpRequestMessage request = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri($"http://localhost:7700/Products/UpdateIsActive/{id}"),
+                Content = new StringContent("", Encoding.UTF8, "application/json")
+            };
+            HttpResponseMessage response = await httpClient.SendAsync(request);
+
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            Response<List<CategoryViewModel>> response = new Response<List<CategoryViewModel>>();
+            using (HttpClient httpClient = new HttpClient())
+            {
+                HttpResponseMessage responseApi = await httpClient.GetAsync("http://localhost:7700/Categories");
+                string contentResponseApi = await responseApi.Content.ReadAsStringAsync();
+                response = JsonSerializer.Deserialize<Response<List<CategoryViewModel>>>(contentResponseApi);
+            }
+            AddProductViewModel model = new AddProductViewModel
+            {
+                Categories = response.Data
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(AddProductViewModel model)
+        {
+            return View();
         }
     }
 }
