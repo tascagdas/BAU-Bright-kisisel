@@ -124,5 +124,12 @@ namespace MiniShop.API.Controllers
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
+        [HttpGet("GetAllNonDeleted/{isDeleted?}")]
+        public async Task<IActionResult> GetAllNonDeleted(bool isDeleted = false)
+        {
+            var response = await _productManager.GetAllNonDeletedAsync(isDeleted);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
     }
 }

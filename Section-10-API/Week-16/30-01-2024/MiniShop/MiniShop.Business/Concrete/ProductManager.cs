@@ -172,7 +172,7 @@ namespace MiniShop.Business.Concrete
 
         public async Task<Response<int>> GetActiveProductCount()
         {
-            var count= await _repository.GetCount(p => p.IsActive && !p.IsDeleted);
+            var count = await _repository.GetCount(p => p.IsActive && !p.IsDeleted);
             return Response<int>.Success(count, 200);
         }
 
@@ -193,6 +193,17 @@ namespace MiniShop.Business.Concrete
             product.ModifiedDate = DateTime.Now;
             await _repository.UpdateAsync(product);
             return Response<NoContent>.Success(200);
+        }
+
+        public async Task<Response<List<ProductDTO>>> GetAllNonDeletedAsync(bool isDeleted = false)
+        {
+            var productList = await _repository.GetAllAsync(p => p.IsDeleted == isDeleted);
+            if (productList == null)
+            {
+                return Response<List<ProductDTO>>.Fail("Hiç ürün bulunamadı", 301);
+            }
+            var productDtoList = _mapper.Map<List<ProductDTO>>(productList);
+            return Response<List<ProductDTO>>.Success(productDtoList, 200);
         }
     }
 }

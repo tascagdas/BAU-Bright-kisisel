@@ -9,16 +9,16 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
     [Area("Admin")]
     public class ProductController : Controller
     {
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(bool id = false)
         {
             Response<List<ProductViewModel>> response = new Response<List<ProductViewModel>>();
             using (HttpClient httpClient = new HttpClient())
             {
-                HttpResponseMessage responseApi = await httpClient.GetAsync("http://localhost:7700/Products");
+                HttpResponseMessage responseApi = await httpClient.GetAsync($"http://localhost:7700/Products/GetAllNonDeleted/{id}");
                 string contentResponseApi = await responseApi.Content.ReadAsStringAsync();
                 response = JsonSerializer.Deserialize<Response<List<ProductViewModel>>>(contentResponseApi);
             }
-            
+
             return View(response.Data);
         }
         public async Task<IActionResult> UpdateIsHome(int id)
@@ -28,8 +28,8 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             HttpRequestMessage request = new HttpRequestMessage()
             {
                 Method = HttpMethod.Post,
-                RequestUri= new Uri($"http://localhost:7700/Products/UpdateIsHome/{id}"),
-                Content=new StringContent("",Encoding.UTF8,"application/json")
+                RequestUri = new Uri($"http://localhost:7700/Products/UpdateIsHome/{id}"),
+                Content = new StringContent("", Encoding.UTF8, "application/json")
             };
             HttpResponseMessage response = await httpClient.SendAsync(request);
 
@@ -78,7 +78,7 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
         {
             model.Properties = "Geçici olarak otomatik metin üretiliyor.";
             model.Url = Jobs.GetUrl(model.Name);
-            if(ModelState.IsValid && model.CategoryIds.Count>0)
+            if (ModelState.IsValid && model.CategoryIds.Count > 0)
             {
                 using (var httpClient = new HttpClient())
                 {
@@ -92,7 +92,7 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
                 }
             }
             ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
-            model.Categories= await GetCategoriesAsync();
+            model.Categories = await GetCategoriesAsync();
             return View(model);
         }
 
@@ -123,8 +123,8 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
                 Price = productViewModel.Price,
                 Properties = productViewModel.Properties,
                 Url = productViewModel.Url,
-                CategoryIds= productViewModel.Categories.Select(c=>c.Id).ToList(),
-                Categories= await GetCategoriesAsync()
+                CategoryIds = productViewModel.Categories.Select(c => c.Id).ToList(),
+                Categories = await GetCategoriesAsync()
             };
             return View(model);
         }
@@ -166,6 +166,27 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
                 IsDeleted = productViewModel.IsDeleted,
             };
             return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> HardDelete(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+
+                HttpResponseMessage responseApi = await httpClient.DeleteAsync($"http://localhost:7700/Products/HardDelete/{id}");
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SoftDelete(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+
+                HttpResponseMessage responseApi = await httpClient.DeleteAsync($"http://localhost:7700/Products/HardDelete/{id}");
+            }
+            return RedirectToAction("Index");
         }
     }
 }
