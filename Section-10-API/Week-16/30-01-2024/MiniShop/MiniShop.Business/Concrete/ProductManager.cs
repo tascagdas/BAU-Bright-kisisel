@@ -85,10 +85,10 @@ namespace MiniShop.Business.Concrete
             {
                 return Response<NoContent>.Fail("İlgili ürün bulunamadı.", 404);
             }
-            if (product.IsDeleted)
-            {
-                return Response<NoContent>.Fail("Bu ürün zaten silinmiş", 404);
-            }
+            // if (product.IsDeleted)
+            // {
+            //     return Response<NoContent>.Fail("Bu ürün zaten silinmiş", 404);
+            // }
             product.IsDeleted = !product.IsDeleted;
             product.IsActive = false;
             product.ModifiedDate = DateTime.Now;

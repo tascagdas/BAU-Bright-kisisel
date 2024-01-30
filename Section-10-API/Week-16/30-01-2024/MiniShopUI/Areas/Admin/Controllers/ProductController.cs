@@ -18,7 +18,7 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
                 string contentResponseApi = await responseApi.Content.ReadAsStringAsync();
                 response = JsonSerializer.Deserialize<Response<List<ProductViewModel>>>(contentResponseApi);
             }
-
+            ViewBag.ShowDeleted = id;
             return View(response.Data);
         }
         public async Task<IActionResult> UpdateIsHome(int id)
@@ -108,6 +108,18 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             }
             return response.Data;
         }
+        [NonAction]
+        public async Task<ProductViewModel> GetByIdAsync(int id)
+        {
+            Response<ProductViewModel> response = new Response<ProductViewModel>();
+            using (HttpClient httpClient = new HttpClient())
+            {
+                HttpResponseMessage responseApi = await httpClient.GetAsync($"http://localhost:7700/Products/{id}");
+                string contentResponseApi = await responseApi.Content.ReadAsStringAsync();
+                response = JsonSerializer.Deserialize<Response<ProductViewModel>>(contentResponseApi);
+            }
+            return response.Data;
+        }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
@@ -167,26 +179,28 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             };
             return View(model);
         }
+
         [HttpGet]
         public async Task<IActionResult> HardDelete(int id)
         {
             using (var httpClient = new HttpClient())
             {
-
                 HttpResponseMessage responseApi = await httpClient.DeleteAsync($"http://localhost:7700/Products/HardDelete/{id}");
             }
             return RedirectToAction("Index");
         }
-
         [HttpGet]
         public async Task<IActionResult> SoftDelete(int id)
         {
             using (var httpClient = new HttpClient())
             {
-
-                HttpResponseMessage responseApi = await httpClient.DeleteAsync($"http://localhost:7700/Products/HardDelete/{id}");
+                HttpResponseMessage responseApi = await httpClient.DeleteAsync($"http://localhost:7700/Products/SoftDelete/{id}");
             }
-            return RedirectToAction("Index");
+            var productViewModel = await GetByIdAsync(id);
+            // return RedirectToAction("Index");
+            // redirecttoaction farklı overloadlarını araştır.
+            //tempdata isimli veri taşıma yöntemini araştır. viewbag ile temel farkını anla.
+            return Redirect($"/Admin/Product/Index/{!productViewModel.IsDeleted}");
         }
     }
 }

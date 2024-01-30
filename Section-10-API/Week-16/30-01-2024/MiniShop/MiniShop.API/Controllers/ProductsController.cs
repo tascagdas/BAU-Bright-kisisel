@@ -25,6 +25,14 @@ namespace MiniShop.API.Controllers
             return Ok(jsonResponse);
         }
 
+        [HttpGet("GetAllNonDeleted/{isDeleted?}")]
+        public async Task<IActionResult> GetAllNonDeleted(bool isDeleted = false)
+        {
+            var response = await _productManager.GetAllNonDeletedAsync(isDeleted);
+            var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
+
         [HttpGet("GetAllWithCategories")]
         public async Task<IActionResult> GetAllWithCategories()
         {
@@ -121,13 +129,6 @@ namespace MiniShop.API.Controllers
         public async Task<IActionResult> GetCount()
         {
             var response = await _productManager.GetProductCount();
-            var jsonResponse = JsonSerializer.Serialize(response);
-            return Ok(jsonResponse);
-        }
-        [HttpGet("GetAllNonDeleted/{isDeleted?}")]
-        public async Task<IActionResult> GetAllNonDeleted(bool isDeleted = false)
-        {
-            var response = await _productManager.GetAllNonDeletedAsync(isDeleted);
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }

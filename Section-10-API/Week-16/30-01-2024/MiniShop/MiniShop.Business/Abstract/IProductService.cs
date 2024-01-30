@@ -25,6 +25,7 @@ namespace MiniShop.Business.Abstract
         Task<Response<NoContent>> UpdateIsActiveAsync(int id);
         Task<Response<int>> GetActiveProductCount();
         Task<Response<int>> GetProductCount();
+
         #endregion
 
 
