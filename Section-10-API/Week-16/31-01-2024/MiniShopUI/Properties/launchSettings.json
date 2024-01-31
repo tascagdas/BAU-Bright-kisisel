@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MiniShop.MVC": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:59079;http://localhost:59080"
+    }
+  }
+}
