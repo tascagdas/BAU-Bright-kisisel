@@ -4,15 +4,17 @@ using MiniShop.Business.Concrete;
 using MiniShop.Data.Abstract;
 using MiniShop.Data.Concrete.Contexts;
 using MiniShop.Data.Concrete.Repositories;
+using MiniShop.Shared.Helpers.Abstract;
+using MiniShop.Shared.Helpers.Concrete;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-    //.AddJsonOptions(options=>
-    //    options.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.IgnoreCycles);
+//.AddJsonOptions(options=>
+//    options.JsonSerializerOptions.ReferenceHandler=ReferenceHandler.IgnoreCycles);
 
-builder.Services.AddDbContext<MiniShopDbContext>(options=>
+builder.Services.AddDbContext<MiniShopDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"))
 );
 
@@ -24,9 +26,7 @@ builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-
-
-
+builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -41,6 +41,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
 
 app.UseAuthorization();
 

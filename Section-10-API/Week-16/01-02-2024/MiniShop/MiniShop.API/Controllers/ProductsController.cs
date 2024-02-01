@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Business.Abstract;
 using MiniShop.Shared.DTOs;
+using MiniShop.Shared.Helpers.Abstract;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -12,10 +13,12 @@ namespace MiniShop.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productManager;
+        private readonly IImageHelper _imageHelper;
 
-        public ProductsController(IProductService productManager)
+        public ProductsController(IProductService productManager, IImageHelper imageHelper)
         {
             _productManager = productManager;
+            _imageHelper = imageHelper;
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -69,6 +72,15 @@ namespace MiniShop.API.Controllers
             var jsonResponse = JsonSerializer.Serialize(response);
             return Ok(jsonResponse);
         }
+
+        // [HttpPost("Create")]
+        // public async Task<IActionResult> Create([FromForm] AddProductDTO addProductDTO)
+        // {
+        //     addProductDTO.ImageUrl = await _imageHelper.UploadImage(addProductDTO.Image, "products");
+        //     var response = await _productManager.CreateAsync(addProductDTO);
+        //     var jsonResponse = JsonSerializer.Serialize(response);
+        //     return Ok(jsonResponse);
+        // }
 
         [HttpPost("Create")]
         public async Task<IActionResult> Create(AddProductDTO addProductDTO)
@@ -130,6 +142,15 @@ namespace MiniShop.API.Controllers
         {
             var response = await _productManager.GetProductCount();
             var jsonResponse = JsonSerializer.Serialize(response);
+            return Ok(jsonResponse);
+        }
+
+        [HttpPost("ImageUpload")]
+        public async Task<IActionResult> UploadImage(IFormFile image)
+        {
+            var response = await _imageHelper.UploadImage(image, "general");
+            var jsonResponse = JsonSerializer.Serialize(response);
+
             return Ok(jsonResponse);
         }
     }
