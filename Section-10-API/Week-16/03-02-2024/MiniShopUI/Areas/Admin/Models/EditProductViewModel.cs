@@ -13,24 +13,24 @@ namespace MiniShop.MVC.Areas.Admin.Models
         public int Id { get; set; }
 
         [JsonPropertyName("Name")]
-        [DisplayName("Ürün")]
-        [Required(ErrorMessage ="{0} alaný boþ býrakýlamaz.")]
-        [MinLength(5,ErrorMessage ="{0} alanýna uzunluðu {1} karakterden küçük deðer girilemez.")]
-        [MaxLength(100,ErrorMessage ="{0} alanýna uzunluðu {1} karakterden büyük deðer girilemez.")]
+        [DisplayName("ï¿½rï¿½n")]
+        [Required(ErrorMessage = "{0} alanï¿½ boï¿½ bï¿½rakï¿½lamaz.")]
+        [MinLength(5, ErrorMessage = "{0} alanï¿½na uzunluï¿½u {1} karakterden kï¿½ï¿½ï¿½k deï¿½er girilemez.")]
+        [MaxLength(100, ErrorMessage = "{0} alanï¿½na uzunluï¿½u {1} karakterden bï¿½yï¿½k deï¿½er girilemez.")]
         public string Name { get; set; }
 
 
         [JsonPropertyName("Properties")]
-        [DisplayName("Ürün Özellikleri")]
+        [DisplayName("ï¿½rï¿½n ï¿½zellikleri")]
         public string Properties { get; set; }
 
-        
+
         [JsonPropertyName("Price")]
-        [DisplayName("Ürün Fiyatý")]
-        [Required(ErrorMessage = "{0} alaný boþ býrakýlamaz.")]
+        [DisplayName("ï¿½rï¿½n Fiyatï¿½")]
+        [Required(ErrorMessage = "{0} alanï¿½ boï¿½ bï¿½rakï¿½lamaz.")]
         public decimal? Price { get; set; }
 
-        
+
         [JsonPropertyName("ImageUrl")]
         [DisplayName("Resim")]
         public string ImageUrl { get; set; }
@@ -39,19 +39,19 @@ namespace MiniShop.MVC.Areas.Admin.Models
         [JsonPropertyName("Url")]
         public string Url { get; set; }
 
-        
+
         [JsonPropertyName("IsActive")]
-        [DisplayName("Aktif Ürün")]
+        [DisplayName("Aktif ï¿½rï¿½n")]
         public bool IsActive { get; set; }
 
-        
+
         [JsonPropertyName("IsHome")]
-        [DisplayName("Ana Sayfa Ürünü")]
+        [DisplayName("Ana Sayfa ï¿½rï¿½nï¿½")]
         public bool IsHome { get; set; }
 
 
         [JsonPropertyName("CategoryIds")]
-        public List<int> CategoryIds { get; set; } 
+        public List<int> CategoryIds { get; set; }
 
 
         [DisplayName("Kategoriler")]

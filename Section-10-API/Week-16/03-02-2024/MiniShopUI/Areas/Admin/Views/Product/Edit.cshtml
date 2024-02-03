@@ -16,26 +16,28 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <form asp-area="Admin" asp-controller="Product" asp-action="Edit" method="post">
+                    <form asp-area="Admin" asp-controller="Product" asp-action="Edit" method="post"
+                        enctype="multipart/form-data">
+                        <input type="hidden" asp-for="ImageUrl" />
+                        @* <input type="hidden" name="oldImageUrl" value="@Model.ImageUrl" /> *@
                         <!--Ürün Bilgileri-->
                         <div class="card card-success">
                             <div class="card-header">
+
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                    <h3 class="card-title">Ürün Bilgileri</h3>
+                                    <div class="">
+                                        <h3 class="card-title">Ürün Bilgileri</h3>
                                     </div>
                                     <div>
-                                        <a asp-area="Admin" asp-controller="Product" asp-action="SoftDelete" asp-route-id="@Model.Id"
-                                    class="btn btn-warning">Çöp Kutusuna Gönder</a>
+                                        <a asp-area="Admin" asp-controller="Product" asp-action="SoftDelete"
+                                            asp-route-id="@Model.Id" class="btn btn-warning">Çöp Kutusuna Taşı</a>
                                     </div>
                                 </div>
 
                             </div>
-
                             <div class="card-body">
-
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label asp-for="Name"></label>
                                             <input asp-for="Name" type="text" class="form-control"
@@ -43,19 +45,12 @@
                                             <span asp-validation-for="Name" class="text-danger"></span>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label asp-for="Price"></label>
                                             <input asp-for="Price" type="text" class="form-control"
                                                 placeholder="Ürün fiyatını giriniz...">
                                             <span asp-validation-for="Price" class="text-danger"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="form-group">
-                                            <label asp-for="ImageUrl"></label>
-                                            <input asp-for="ImageUrl" type="text" class="form-control"
-                                                placeholder="Ürün resminin urlini giriniz...">
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -71,10 +66,24 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-9">
                                         <label asp-for="Properties"></label>
                                         <textarea asp-for="Properties"></textarea>
                                         <span asp-validation-for="Properties" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Ürün Resmi</label>
+                                            <input type="hidden" value="@Model.ImageUrl" id="oldImageUrl"></input>
+                                            <input id="image" name="image" type="file" class="d-none"
+                                                accept="image/png, image/jpg, image/jpeg" />
+                                            <div class="mt-2">
+                                                <label class="btn btn-success" for="image">Ürün Resmini Değiştir</label>
+                                            </div>
+                                            <span class="text-danger">@ViewBag.ImageErrorMessage</span>
+                                            <img src="http://localhost:7700/images/products/@Model.ImageUrl"
+                                                id="image-viewer" class="img-fluid" style="height: 200px;" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -98,8 +107,7 @@
 
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Değişiklikleri
-                                Kaydet</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Kaydet</button>
                         </div>
                     </form>
                 </div>
@@ -117,5 +125,18 @@
 }
 
 @section Scripts {
-@await Html.PartialAsync("_SummerNotePartial")
+    @await Html.PartialAsync("_SummerNotePartial")
+    <script>
+
+        $("#image").on("change", function (e) {
+            const selectedFiles = e.target.files;
+            if (selectedFiles.length > 0) {
+                $("#image-viewer").attr("src", window.URL.createObjectURL(selectedFiles[0]));
+
+            }
+            else {
+                $("#image-viewer").attr("src", "http://localhost:7700/images/products/" + $("#oldImageUrl").val());
+            }
+        })
+    </script>
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniShop.MVC.Areas.Admin.Models;
 using MiniShop.MVC.Helpers;
+using MiniShopUI.Extensions;
 using System.Text;
 using System.Text.Json;
 
@@ -74,23 +75,38 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(AddProductViewModel model)
+        public async Task<IActionResult> Create(AddProductViewModel model, IFormFile image)
         {
             model.Url = Jobs.GetUrl(model.Name);
-            if (ModelState.IsValid && model.CategoryIds.Count > 0)
+            if (ModelState.IsValid && model.CategoryIds.Count > 0 && image != null)
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var serializeModel = JsonSerializer.Serialize(model);
-                    StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
-                    var result = await httpClient.PostAsync("http://localhost:7700/Products/Create", stringContent);
-                    if (result.IsSuccessStatusCode)
+                    //Resim Yükleme işlemi
+                    using (var stream = image.OpenReadStream())
                     {
-                        return RedirectToAction("Index");
+                        var imageContent = new MultipartFormDataContent();
+                        byte[] bytes = stream.ToByteArray();
+                        imageContent.Add(new ByteArrayContent(bytes), "image", image.FileName);
+                        HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/ImageUpload", imageContent);
+                        string httpResponseMessageImageUrl = await httpResponseMessage.Content.ReadAsStringAsync();
+                        if (httpResponseMessageImageUrl != null && httpResponseMessageImageUrl != "")
+                        {
+                            model.ImageUrl = httpResponseMessageImageUrl;
+                            //Product Kayıt işlemi 
+                            var serializeModel = JsonSerializer.Serialize(model);
+                            StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
+                            var result = await httpClient.PostAsync("http://localhost:7700/Products/Create", stringContent);
+                            if (result.IsSuccessStatusCode)
+                            {
+                                return RedirectToAction("Index");
+                            }
+                        }
                     }
                 }
             }
             ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
+            ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim hatalı!" : null;
             model.Categories = await GetCategoriesAsync();
             return View(model);
         }
@@ -140,20 +156,46 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             return View(model);
         }
 
+
+
         [HttpPost]
-        public async Task<IActionResult> Edit(EditProductViewModel model)
+        public async Task<IActionResult> Edit(EditProductViewModel model, IFormFile image, string oldImageUrl)
         {
+
             model.Url = Jobs.GetUrl(model.Name);
+
             if (ModelState.IsValid && model.CategoryIds.Count > 0)
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var serializeModel = JsonSerializer.Serialize(model);
-                    StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
-                    var result = await httpClient.PutAsync("http://localhost:7700/Products/Update", stringContent);
-                    if (result.IsSuccessStatusCode)
+
+                    //Resim Yükleme İşlemi
+                    using (var stream = image != null ? image.OpenReadStream() : null)
                     {
-                        return RedirectToAction("Index");
+                        if (image != null)
+                        {
+                            var imageContent = new MultipartFormDataContent();
+                            byte[] bytes = stream.ToByteArray();
+                            imageContent.Add(new ByteArrayContent(bytes), "image", image.FileName);
+                            HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/ImageUpload", imageContent);
+                            string httpResponseMessageImageUrl = await httpResponseMessage.Content.ReadAsStringAsync();
+                            if (httpResponseMessageImageUrl != null && httpResponseMessageImageUrl != "")
+                            {
+                                model.ImageUrl = httpResponseMessageImageUrl;
+
+                            }
+                        }
+                        //Product Kayıt İşlemi
+                        //model.ImageUrl = model.ImageUrl==null ? oldImageUrl : model.ImageUrl;
+                        var serializeModel = JsonSerializer.Serialize(model);
+                        StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
+                        var result = await httpClient.PutAsync("http://localhost:7700/Products/Update", stringContent);
+                        if (result.IsSuccessStatusCode)
+                        {
+                            return RedirectToAction("Index");
+                        }
+
+
                     }
                 }
             }
@@ -161,6 +203,47 @@ namespace MiniShop.MVC.Areas.Admin.Controllers
             model.Categories = await GetCategoriesAsync();
             return View(model);
         }
+
+
+
+
+        // [HttpPost]
+        // public async Task<IActionResult> Edit(EditProductViewModel model, IFormFile image, string oldImageUrl)
+        // {
+        //     model.Url = Jobs.GetUrl(model.Name);
+        //     // if (ModelState.IsValid && model.CategoryIds.Count > 0 && image != null)
+        //     if (ModelState.IsValid && model.CategoryIds.Count > 0)
+        //     {
+        //         using (var httpClient = new HttpClient())
+        //         {
+        //             //Resim Yükleme işlemi
+        //             using (var stream = image.OpenReadStream())
+        //             {
+        //                 var imageContent = new MultipartFormDataContent();
+        //                 byte[] bytes = stream.ToByteArray();
+        //                 imageContent.Add(new ByteArrayContent(bytes), "image", image.FileName);
+        //                 HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/ImageUpload", imageContent);
+        //                 string httpResponseMessageImageUrl = await httpResponseMessage.Content.ReadAsStringAsync();
+        //                 if (httpResponseMessageImageUrl != null && httpResponseMessageImageUrl != "")
+        //                 {
+        //                     model.ImageUrl = httpResponseMessageImageUrl;
+        //                     //Product Kayıt işlemi 
+        //                     var serializeModel = JsonSerializer.Serialize(model);
+        //                     StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
+        //                     var result = await httpClient.PutAsync("http://localhost:7700/Products/Update", stringContent);
+        //                     if (result.IsSuccessStatusCode)
+        //                     {
+        //                         return RedirectToAction("Index");
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
+        //     ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim hatalı!" : null;
+        //     model.Categories = await GetCategoriesAsync();
+        //     return View(model);
+        // }
 
         [HttpGet]
         public async Task<IActionResult> Delete(int id)

@@ -148,10 +148,10 @@ namespace MiniShop.API.Controllers
         [HttpPost("ImageUpload")]
         public async Task<IActionResult> UploadImage(IFormFile image)
         {
-            var response = await _imageHelper.UploadImage(image, "general");
-            var jsonResponse = JsonSerializer.Serialize(response);
+            var response = await _imageHelper.UploadImage(image, "products");
+            // var jsonResponse = JsonSerializer.Serialize(response);
 
-            return Ok(jsonResponse);
+            return Ok(response);
         }
     }
 }

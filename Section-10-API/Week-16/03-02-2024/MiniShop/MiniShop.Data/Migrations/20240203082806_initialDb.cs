@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MiniShop.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDb : Migration
+    public partial class initialDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -83,11 +83,11 @@ namespace MiniShop.Data.Migrations
                 columns: new[] { "Id", "CreatedDate", "Description", "IsActive", "IsDeleted", "ModifiedDate", "Name", "Url" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(596), "TV kategorisi", true, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(614), "Televizyon", "televizyon" },
-                    { 2, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(618), "Bilgisayar kategorisi", true, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(618), "Bilgisayar", "bilgisayar" },
-                    { 3, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(619), "Elektronik Eşya kategorisi", true, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(620), "Elektronik Eşya", "elektronik-esya" },
-                    { 4, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(621), "Beyaz Eşya kategorisi", true, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(621), "Beyaz Eşya", "beyaz-esya" },
-                    { 5, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(622), "Telefon kategorisi", true, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(622), "Telefon", "telefon" }
+                    { 1, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(260), "TV kategorisi", true, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(300), "Televizyon", "televizyon" },
+                    { 2, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(300), "Bilgisayar kategorisi", true, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(300), "Bilgisayar", "bilgisayar" },
+                    { 3, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(310), "Elektronik Eşya kategorisi", true, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(310), "Elektronik Eşya", "elektronik-esya" },
+                    { 4, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(310), "Beyaz Eşya kategorisi", true, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(310), "Beyaz Eşya", "beyaz-esya" },
+                    { 5, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(310), "Telefon kategorisi", true, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(310), "Telefon", "telefon" }
                 });
 
             migrationBuilder.InsertData(
@@ -95,17 +95,17 @@ namespace MiniShop.Data.Migrations
                 columns: new[] { "Id", "CreatedDate", "ImageUrl", "IsActive", "IsDeleted", "IsHome", "ModifiedDate", "Name", "Price", "Properties", "Url" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6497), "1.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6501), "IPhone 14", 59000m, "Harika bir telefon", "iphone-14" },
-                    { 2, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6506), "2.png", true, false, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6506), "IPhone 14 Pro", 69000m, "Bu da harika bir telefon", "iphone-14-pro" },
-                    { 3, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6508), "3.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6509), "Samsung S23", 49000m, "İdare eder", "samsung-s23" },
-                    { 4, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6510), "4.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6511), "Xaomi Note 4", 39000m, "Harika bir telefon", "xaomi-note-4" },
-                    { 5, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6512), "5.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6512), "MacBook Air M2", 52000m, "M2nin gücü", "macbook-air-m2" },
-                    { 6, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6514), "6.png", true, false, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6514), "MacBook Pro M3", 79000m, "16 Gb ram", "macbook-pro-m3" },
-                    { 7, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6515), "7.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6516), "Vestel Çamaşır Makinesi X65", 19000m, "Akıllı makine", "vestel-camasir-makinesi-x65" },
-                    { 8, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6517), "8.png", true, false, false, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6517), "Arçelik Çamaşır Makinesi A-4", 21000m, "Süper hızlı makine", "arcelik-camasir-makinesi-a-4" },
-                    { 9, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6518), "9.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6519), "Hoop Dijital Radyo X96", 1250m, "Klasik radyo keyfi", "hoop-dijital-radyo-x96" },
-                    { 10, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6520), "10.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6520), "Xaomi Dijital Baskül", 2100m, "Kilonuzu kontrol edin", "xaomi-dijital-baskul" },
-                    { 11, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6522), "11.png", true, false, true, new DateTime(2024, 1, 27, 10, 59, 41, 162, DateTimeKind.Local).AddTicks(6522), "Blaupunkt AC69 Led TV", 9800m, "Android tv", "blaupunkt-ac69-led-tv" }
+                    { 1, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2930), "1.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2940), "IPhone 14", 59000m, "Harika bir telefon", "iphone-14" },
+                    { 2, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "2.png", true, false, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "IPhone 14 Pro", 69000m, "Bu da harika bir telefon", "iphone-14-pro" },
+                    { 3, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "3.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "Samsung S23", 49000m, "İdare eder", "samsung-s23" },
+                    { 4, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "4.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "Xaomi Note 4", 39000m, "Harika bir telefon", "xaomi-note-4" },
+                    { 5, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2950), "5.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "MacBook Air M2", 52000m, "M2nin gücü", "macbook-air-m2" },
+                    { 6, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "6.png", true, false, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "MacBook Pro M3", 79000m, "16 Gb ram", "macbook-pro-m3" },
+                    { 7, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "7.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "Vestel Çamaşır Makinesi X65", 19000m, "Akıllı makine", "vestel-camasir-makinesi-x65" },
+                    { 8, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "8.png", true, false, false, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2960), "Arçelik Çamaşır Makinesi A-4", 21000m, "Süper hızlı makine", "arcelik-camasir-makinesi-a-4" },
+                    { 9, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2970), "9.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2970), "Hoop Dijital Radyo X96", 1250m, "Klasik radyo keyfi", "hoop-dijital-radyo-x96" },
+                    { 10, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2970), "10.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2970), "Xaomi Dijital Baskül", 2100m, "Kilonuzu kontrol edin", "xaomi-dijital-baskul" },
+                    { 11, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2970), "11.png", true, false, true, new DateTime(2024, 2, 3, 11, 28, 5, 988, DateTimeKind.Local).AddTicks(2970), "Blaupunkt AC69 Led TV", 9800m, "Android tv", "blaupunkt-ac69-led-tv" }
                 });
 
             migrationBuilder.InsertData(

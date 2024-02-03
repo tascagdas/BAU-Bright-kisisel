@@ -39,6 +39,7 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
+                                        <th>Resim</th>
                                         <th>Ürün</th>
                                         <th>Fiyat</th>
                                         <th>Ana Sayfa</th>
@@ -51,6 +52,10 @@
                                     {
                                         <tr>
                                             <td>@p.Id</td>
+                                            <td>
+                                                <img src="http://localhost:7700/images/products/@p.ImageUrl" alt="@p.Name image"
+                                                    style="width: 50px;">
+                                            </td>
                                             <td>
                                                 <a asp-area="Admin" asp-controller="Product" asp-action="Edit"
                                                     asp-route-id="@p.Id" class="btn btn-link">@p.Name</a>

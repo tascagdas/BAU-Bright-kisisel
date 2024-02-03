@@ -32,12 +32,12 @@ namespace MiniShop.Shared.Helpers.Concrete
         {
             if (image == null)
             {
-                return "Bir Hata Oluştu.";
+                return null;
             }
             var fileExtension = Path.GetExtension(image.FileName);
             if (!ImageIsValid(fileExtension))
             {
-                return "Hatalı resim dosyası.";
+                return "";
             }
             var targetFolder = Path.Combine(_imagesFolder, folderName);
             if (!Directory.Exists(targetFolder))
