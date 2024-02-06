@@ -11,14 +11,15 @@
                 <div>
                     @if (ViewBag.ShowDeleted)
                     {
-                        <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-id="false"
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Index" asp-route-id="false"
                             class="btn btn-primary btn-sm">Kategori Listesi</a>
                     }
                     else
                     {
-                        <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-success btn-sm">Yeni
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Create"
+                            class="btn btn-success btn-sm">Yeni
                             Kategori Ekle</a>
-                        <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-id="true"
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Index" asp-route-id="true"
                             class="btn btn-danger btn-sm">Çöp Kutusu</a>
 
                     }
@@ -51,12 +52,12 @@
                                         <tr>
                                             <td>@c.Id</td>
                                             <td>
-                                                <a asp-area="Admin" asp-controller="Product" asp-action="Edit"
+                                                <a asp-area="Admin" asp-controller="Category" asp-action="Edit"
                                                     asp-route-id="@c.Id" class="btn btn-link">@c.Name</a>
                                             </td>
 
                                             <td>
-                                                <form id="isActiveForm_@c.Id" asp-area="Admin" asp-controller="Product"
+                                                <form id="isActiveForm_@c.Id" asp-area="Admin" asp-controller="Category"
                                                     asp-action="UpdateIsActive" asp-route-id="@c.Id" method="post">
                                                     <div class="custom-control custom-switch">
                                                         <input
@@ -71,19 +72,19 @@
                                             <td class="text-center">
                                                 @if (!ViewBag.ShowDeleted)
                                                 {
-                                                    <a asp-area="Admin" asp-controller="Product" asp-action="Edit"
+                                                    <a asp-area="Admin" asp-controller="Category" asp-action="Edit"
                                                         asp-route-id="@c.Id" class="btn btn-warning btn-sm"><i
                                                             class="far fa-edit"></i></a>
-                                                    <a asp-area="Admin" asp-controller="Product" asp-action="Delete"
+                                                    <a asp-area="Admin" asp-controller="Category" asp-action="Delete"
                                                         asp-route-id="@c.Id" class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash"></i></a>
                                                 }
                                                 else
                                                 {
-                                                    <a asp-area="Admin" asp-controller="Product" asp-action="SoftDelete"
+                                                    <a asp-area="Admin" asp-controller="Category" asp-action="SoftDelete"
                                                         asp-route-id="@c.Id" class="btn btn-success btn-sm"><i
                                                             class="fas fa-undo-alt"></i></a>
-                                                    <a asp-area="Admin" asp-controller="Product" asp-action="HardDelete"
+                                                    <a asp-area="Admin" asp-controller="Category" asp-action="HardDelete"
                                                         asp-route-id="@c.Id" class="btn btn-danger btn-sm"><i
                                                             class="fas fa-trash"></i></a>
                                                 }
