@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MiniShop.Business.Abstract;
 using MiniShop.Business.Concrete;
 using MiniShop.Data.Abstract;
 using MiniShop.Data.Concrete.Contexts;
 using MiniShop.Data.Concrete.Repositories;
+using MiniShop.Entity.Concrete.Identity;
 using MiniShop.Shared.Helpers.Abstract;
 using MiniShop.Shared.Helpers.Concrete;
 
@@ -14,6 +16,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MiniShopDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection"))
 );
+
+builder.Services.AddIdentity<User, Role>().AddEntityFrameworkStores<MiniShopDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

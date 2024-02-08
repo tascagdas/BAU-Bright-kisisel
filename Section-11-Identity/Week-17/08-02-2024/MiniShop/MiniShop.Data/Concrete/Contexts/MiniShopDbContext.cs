@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MiniShop.Data.Extensions;
 
 namespace MiniShop.Data.Concrete.Contexts
 {
@@ -27,6 +28,7 @@ namespace MiniShop.Data.Concrete.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.SeedData();
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryConfig).Assembly);
             base.OnModelCreating(modelBuilder);
         }
