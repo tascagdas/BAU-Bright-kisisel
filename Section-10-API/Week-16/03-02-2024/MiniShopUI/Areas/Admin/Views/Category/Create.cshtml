@@ -56,22 +56,6 @@
                                         <textarea asp-for="Description"></textarea>
                                         <span asp-validation-for="Description" class="text-danger"></span>
                                     </div>
-
-
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Kategori Resmi</label>
-                                            <input id="image" name="image" type="file" class="d-none"
-                                                accept="image/png, image/jpg, image/jpeg" />
-                                            <div class="mt-2">
-                                                <label class="btn btn-success" for="image">Kategori Resmi Yükle</label>
-                                            </div>
-                                            <span class="text-danger">@ViewBag.ImageErrorMessage</span>
-                                            <img id="image-viewer" class="img-fluid" style="height: 200px;" />
-                                        </div>
-                                    </div>
-
-
                                 </div>
                             </div>
                         </div>

@@ -43,37 +43,24 @@ namespace MiniShopUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(AddCategoryViewModel model, IFormFile image)
+        public async Task<IActionResult> Create(AddCategoryViewModel model)
         {
             model.Url = Jobs.GetUrl(model.Name);
-            if (ModelState.IsValid && image != null)
+            if (ModelState.IsValid)
             {
                 using (var httpClient = new HttpClient())
                 {
-                    //Resim Yükleme işlemi
-                    using (var stream = image.OpenReadStream())
+                    //Product Kayıt işlemi 
+                    var serializeModel = JsonSerializer.Serialize(model);
+                    StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
+                    var result = await httpClient.PostAsync("http://localhost:7700/Categories/Add", stringContent);
+                    if (result.IsSuccessStatusCode)
                     {
-                        var imageContent = new MultipartFormDataContent();
-                        byte[] bytes = stream.ToByteArray();
-                        imageContent.Add(new ByteArrayContent(bytes), "image", image.FileName);
-                        HttpResponseMessage httpResponseMessage = await httpClient.PostAsync("http://localhost:7700/Products/ImageUpload", imageContent);
-                        string httpResponseMessageImageUrl = await httpResponseMessage.Content.ReadAsStringAsync();
-                        if (httpResponseMessageImageUrl != null && httpResponseMessageImageUrl != "")
-                        {
-                            model.ImageUrl = httpResponseMessageImageUrl;
-                            //Product Kayıt işlemi 
-                            var serializeModel = JsonSerializer.Serialize(model);
-                            StringContent stringContent = new StringContent(serializeModel, Encoding.UTF8, "application/json");
-                            var result = await httpClient.PostAsync("http://localhost:7700/Categories/Add", stringContent);
-                            if (result.IsSuccessStatusCode)
-                            {
-                                return RedirectToAction("Index");
-                            }
-                        }
+                        return RedirectToAction("Index");
                     }
                 }
+
             }
-            ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim hatalı!" : null;
             return View(model);
         }
 
