@@ -1,0 +1,141 @@
+﻿<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link text-center">
+@*         <img src="~/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8"> *@
+        <span class="brand-text font-weight-light">MiniShop Yönetim Paneli</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        @await Component.InvokeAsync("SidebarUserPanel")
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a href="pages/widgets.html" class="nav-link">
+                        <i class="nav-icon fas fa-house-user"></i>
+                        <p>
+                            Ayarlar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Ürünler
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-id="false" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ürün Listesi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Yeni Ürün</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-id="true" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Çöp Kutusu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Kategoriler
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori Listesi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Yeni Kategori</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/inline.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Çöp Kutusu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Kullanıcılar
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages/UI/general.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Yeni Kullanıcılar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/icons.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Yöneticiler</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/buttons.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Müşteriler</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/UI/sliders.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Rol Atama</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/widgets.html" class="nav-link">
+                        <i class="nav-icon fas fa-house-user"></i>
+                        <p>
+                            Mesajlar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/widgets.html" class="nav-link">
+                        <i class="nav-icon fas fa-house-user"></i>
+                        <p>
+                            Çıkış Yap
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
