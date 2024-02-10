@@ -18,6 +18,46 @@ builder.Services.AddDbContext<MiniShopDbContext>(options =>
 );
 
 builder.Services.AddIdentity<User, Role>().AddEntityFrameworkStores<MiniShopDbContext>().AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    #region Parola ayarları
+
+    options.Password.RequiredLength = 6; //Parola 6 karakter olmalı
+    options.Password.RequireDigit = true; //Parola sayısal değer içermeli
+    options.Password.RequireNonAlphanumeric = true; // Parola ozel karakter icermeli
+    options.Password.RequireUppercase = true; // Parola buyuk harf icermeli
+    options.Password.RequireLowercase = true; // parola kucuk harf icermeli
+    // options.Password.RequiredUniqueChars // Parola Tekrar etmemesi istenen karakterleri bu ozellik ile verilir.
+    #endregion
+
+    #region Hesap Kilitleme Ayarları
+    options.Lockout.MaxFailedAccessAttempts = 3;
+    options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromSeconds(15);
+    options.Lockout.AllowedForNewUsers = true;//yeniuden kayit olmaya imkan ver
+    #endregion
+
+    #region user ve signin ayarlari
+
+    options.User.RequireUniqueEmail = true; // her email sadece 1 kez kayit olabilir.
+    options.SignIn.RequireConfirmedEmail = false;
+
+    #endregion
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.ExpireTimeSpan=TimeSpan.FromSeconds(45);
+    options.SlidingExpiration = true;//true ile sure her istekte sifirlanir.
+    options.Cookie = new CookieBuilder
+    {
+        Name = "MiniShop.Security.Cookie",
+        HttpOnly = true,
+        SameSite = SameSiteMode.Strict
+    };
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

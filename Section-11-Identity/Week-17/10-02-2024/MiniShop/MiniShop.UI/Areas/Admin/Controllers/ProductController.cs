@@ -9,6 +9,7 @@ using MiniShop.UI.Helpers;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
@@ -46,6 +47,9 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             var result = await _productManager.UpdateIsActiveAsync(id);
             return RedirectToAction("Index");
         }
+
+        
+        [Authorize(Roles = "SuperAdmin")]
 
         [HttpGet]
         public async Task<IActionResult> Create()

@@ -21,5 +21,11 @@ namespace MiniShop.Data.Concrete.Repositories
         {
             get { return _dbContext as MiniShopDbContext; }
         }
+
+        public async Task<List<Category>> GetTopCategories(int n)
+        {
+            List<Category> categories = await MiniShopDbContext.Categories.Where(c=>c.IsActive&&!c.IsDeleted).Take(n).ToListAsync();
+            return categories;
+        }
     }
 }

@@ -27,6 +27,8 @@ namespace MiniShop.Business.Abstract
 
         #region Category
 
+        Task<Response<List<CategoryViewModel>>> GetTopCategories(int n);
+
         #endregion
     }
 }
