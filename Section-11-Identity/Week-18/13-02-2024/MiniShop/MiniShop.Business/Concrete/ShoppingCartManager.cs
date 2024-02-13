@@ -23,7 +23,7 @@ public class ShoppingCartManager:IShoppingCartService
         throw new NotImplementedException();
     }
 
-    public Task<Response<ShoppingCartViewModel>> GetShoppingCartByUserIdAsync(string userId)
+    public async Task<Response<ShoppingCartViewModel>> GetShoppingCartByUserIdAsync(string userId)
     {
         var shoppingCart = await _shoppingCartRepository.GetShoppingCartByUserIdAsync(userId);
         if (shoppingCart==null)
@@ -31,7 +31,9 @@ public class ShoppingCartManager:IShoppingCartService
             return Response<ShoppingCartViewModel>.Fail(
                 "ilgili kullanıcının sepetinde sorun var, yöneticiyle görüşünüz.");
         }
-        
+
+        var result = _mapper.Map<ShoppingCartViewModel>(shoppingCart);
+        return Response<ShoppingCartViewModel>.Success(result);
     }
 
     public Task<Response<NoContent>> AddToCartAsync(string userId, string shoppingCartId)
