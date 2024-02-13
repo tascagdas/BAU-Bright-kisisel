@@ -1,0 +1,160 @@
+﻿@model List<ProductViewModel>
+ <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-2">
+                <div>
+                    <h1>Ürün Listesi @(ViewBag.ShowDeleted ? "Çöp Kutusu": "")</h1>
+                </div>
+                <div>
+                    <a asp-area="Admin"
+                       asp-controller="Product"
+                       asp-action="Index"
+                       asp-route-id="@(!ViewBag.ShowDeleted)"
+                    class="btn btn-sm @(ViewBag.ShowDeleted ? "btn-info" : "btn-danger")">@(ViewBag.ShowDeleted ? "Ürün Listesine Geri Dön" : "Çöp Kutusu" )</a>
+
+                    <a asp-area="Admin"
+                       asp-controller="Product"
+                       asp-action="Create"
+                       class="btn btn-success btn-sm">Yeni Ürün</a>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="myDataTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Resim</th>
+                                        <th>Ürün</th>
+                                        <th>Fiyat</th>
+                                        <th>Ana Sayfa</th>
+                                        <th>Aktif</th>
+                                        <th width="55">#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var p in Model)
+                                    {
+                                        <tr>
+                                            <td>@p.Id</td>
+                                            <td>
+                                                <img src="/images/products/@p.ImageUrl" style="width:50px;" />
+                                            </td>
+                                            <td>
+                                                <a asp-area="Admin"
+                                                   asp-controller="Product"
+                                                   asp-action="Edit"
+                                                   asp-route-id="@p.Id"
+                                                   class="btn btn-link">@p.Name</a>
+                                            </td>
+                                            <td>@p.Price</td>
+                                            <td>
+                                                <form 
+                                                    id="isHomeForm_@p.Id"
+                                                    asp-area="Admin"
+                                                    asp-controller="Product"
+                                                    asp-action="UpdateIsHome"
+                                                    asp-route-id="@p.Id"
+                                                    method="post"
+                                                >
+                                                    <div class="custom-control custom-switch">
+                                                        <input onchange="document.getElementById('isHomeForm_@p.Id').submit();"
+                                                            type="checkbox" class="custom-control-input" id="isHome_@p.Id"
+                                                        @(p.IsHome ? "checked" : "") />
+                                                        <label class="custom-control-label" for="isHome_@p.Id"></label>
+                                                    </div>
+                                                </form>
+
+                                            </td>
+                                            <td>
+                                                <form
+                                                    id="isActiveForm_@p.Id"
+                                                    asp-area="Admin"
+                                                    asp-controller="Product"
+                                                    asp-action="UpdateIsActive"
+                                                    asp-route-id="@p.Id"
+                                                    method="post"
+                                                >
+                                                    <div class="custom-control custom-switch">
+                                                        <input
+                                                            onchange="document.getElementById('isActiveForm_@p.Id').submit();"
+                                                            type="checkbox" class="custom-control-input" id="isActive_@p.Id"
+                                                        @(p.IsActive ? "checked" : "") />
+                                                        <label class="custom-control-label" for="isActive_@p.Id"></label>
+                                                    </div>
+                                                </form>
+
+                                            </td>
+                                            <td class="text-center">
+                                                @if (!ViewBag.ShowDeleted)
+                                                {
+                                                    <a asp-area="Admin"
+                                                       asp-controller="Product"
+                                                       asp-action="Edit"
+                                                       asp-route-id="@p.Id"
+                                                       class="btn btn-warning btn-sm">
+                                                       <i class="far fa-edit"></i></a>
+                                                    <a asp-area="Admin"
+                                                       asp-controller="Product"
+                                                       asp-action="Delete"
+                                                       asp-route-id="@p.Id"
+                                                       class="btn btn-danger btn-sm">
+                                                       <i class="fas fa-trash"></i></a>
+                                                }else{
+                                                    <a asp-area="Admin"
+                                                       asp-controller="Product"
+                                                       asp-action="SoftDelete"
+                                                       asp-route-id="@p.Id"
+                                                       class="btn btn-success btn-sm">
+                                                        <i class="fas fa-undo-alt"></i>
+                                                    </a>
+                                                    <a asp-area="Admin"
+                                                       asp-controller="Product"
+                                                       asp-action="HardDelete"
+                                                       asp-route-id="@p.Id"
+                                                       class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                }
+ 
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+@section Styles{
+    @await Html.PartialAsync("_DataTablesCssPartial")
+}
+
+@section Scripts{
+    @await Html.PartialAsync("_DataTablesJsPartial")
+}
