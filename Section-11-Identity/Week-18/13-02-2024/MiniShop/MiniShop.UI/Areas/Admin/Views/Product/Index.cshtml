@@ -53,11 +53,18 @@
                                                 <img src="/images/products/@p.ImageUrl" style="width:50px;" />
                                             </td>
                                             <td>
-                                                <a asp-area="Admin"
-                                                   asp-controller="Product"
-                                                   asp-action="Edit"
-                                                   asp-route-id="@p.Id"
-                                                   class="btn btn-link">@p.Name</a>
+                                                @if (ViewBag.ShowDeleted)
+                                                {
+                                                    @p.Name
+                                                }
+                                                else
+                                                {
+                                                    <a asp-area="Admin"
+                                                       asp-controller="Product"
+                                                       asp-action="Edit"
+                                                       asp-route-id="@p.Id"
+                                                       class="btn btn-link">@p.Name</a>
+                                                }
                                             </td>
                                             <td>@p.Price</td>
                                             <td>

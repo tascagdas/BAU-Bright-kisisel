@@ -134,7 +134,12 @@ ol {
 
 .set-bg {
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: auto;
+	background-position: top center;
+}
+.set-bg-2 {
+	background-repeat: no-repeat;
+	background-size: contain;
 	background-position: top center;
 }
 
@@ -1159,7 +1164,7 @@ ol {
 }
 
 .product__item__pic {
-	height: 360px;
+	height: 275px;
 	position: relative;
 	overflow: hidden;
 }

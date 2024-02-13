@@ -1,13 +1,23 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using MiniShop.Business.Abstract;
 
 namespace MiniShop.UI.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _productManager;
+
+        public HomeController(IProductService productManager)
         {
-            return View();
+            _productManager = productManager;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var products = await _productManager.GetAllNonDeletedAsync();
+            
+            return View(products.Data);
         }
     }
 }

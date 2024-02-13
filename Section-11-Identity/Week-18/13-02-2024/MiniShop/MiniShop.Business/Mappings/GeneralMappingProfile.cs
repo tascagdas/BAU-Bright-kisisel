@@ -31,6 +31,12 @@ namespace MiniShop.Business.Mappings
                 .ForMember(cViewModel => cViewModel.ProductList, options =>
                     options.MapFrom(c => c.ProductCategories.Select(pc => pc.Product)))
                 .ReverseMap();
+
+            CreateMap<ShoppingCartItemViewModel, ShoppingCartItem>().ForMember(e => e.Product,
+                options => options.MapFrom(v => new Product
+                    { Price = v.ProductPrice, Name = v.ProductName, ImageUrl = v.ProductImageUrl })).ReverseMap();
+            
+            CreateMap<ShoppingCart, ShoppingCartViewModel>().ReverseMap();
         }
     }
 }
