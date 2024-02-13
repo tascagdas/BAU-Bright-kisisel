@@ -9,7 +9,7 @@
                     <div class="categories__text">
                         <h1>@Model[0].Name</h1>
                         <p>@Model[0].Description</p>
-                        <a href="#">Alışveriş Yap</a>
+                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@Model[0].Id">Alışveriş Yap</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                                 <div class="categories__text">
                                     <h4>@Model[i].Name</h4>
                                     <p>@Model[i].Description</p>
-                                    <a href="#">Alışveriş Yap</a>
+                                    <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@Model[i].Id">Alışveriş Yap</a>
                                 </div>
                             </div>
                         </div>

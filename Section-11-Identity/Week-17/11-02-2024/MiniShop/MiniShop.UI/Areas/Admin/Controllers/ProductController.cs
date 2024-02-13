@@ -14,6 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "SuperAdmin")]
     [Area("Admin")]
     public class ProductController : Controller
     {
@@ -28,6 +29,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             _imageHelper = imageHelper;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index(bool id = false)
         {
             Response<List<ProductViewModel>> result = await _productManager.GetAllNonDeletedAsync(id);
@@ -49,8 +51,6 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         }
 
         
-        [Authorize(Roles = "SuperAdmin")]
-
         [HttpGet]
         public async Task<IActionResult> Create()
         {

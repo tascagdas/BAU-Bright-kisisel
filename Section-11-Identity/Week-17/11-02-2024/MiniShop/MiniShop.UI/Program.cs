@@ -49,7 +49,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Account/Login";
     options.LogoutPath = "/";
     options.AccessDeniedPath = "/Account/AccessDenied";
-    options.ExpireTimeSpan=TimeSpan.FromSeconds(45);
+    options.ExpireTimeSpan=TimeSpan.FromDays(45);
     options.SlidingExpiration = true;//true ile sure her istekte sifirlanir.
     options.Cookie = new CookieBuilder
     {

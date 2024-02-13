@@ -46,8 +46,12 @@ public class AccountController : Controller
     }
 
     [HttpGet]
-    public IActionResult Login()
+    public IActionResult Login(string returnUrl=null)
     {
+        if (returnUrl!=null)
+        {
+            TempData["ReturnUrl"] = returnUrl;
+        }
         return View();
     }
     [HttpPost]
@@ -71,6 +75,12 @@ public class AccountController : Controller
             ModelState.AddModelError("","şifre hatalı");
             return View(loginViewModel);
         }
+
+        var returnUrl = TempData["ReturnUrl"]?.ToString();
+        if (!string.IsNullOrEmpty(returnUrl))
+        {
+            return Redirect(returnUrl);
+        }
         return RedirectToAction("Index","Home");
         
     }
@@ -78,6 +88,12 @@ public class AccountController : Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
+        TempData["ReturnUrl"] = null;
         return Redirect("~/");
+    }
+
+    public async Task<IActionResult> AccessDenied()
+    {
+        return View();
     }
 }
