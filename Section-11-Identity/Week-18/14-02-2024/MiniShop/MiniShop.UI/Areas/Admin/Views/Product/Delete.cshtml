@@ -1,0 +1,67 @@
+﻿@model DeleteProductViewModel
+ <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-2">
+                <div>
+                    <h1>Ürün Silme</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <label>Id:</label>
+                        <span>@Model.Id</span>
+                    </div>
+                    <div>
+                        <label>Ürün:</label>
+                        <span>@Model.Name</span>
+                    </div>
+                    <div>
+                        <label>Fiyat:</label>
+                        <span>@($"{Model.Price:C0}")</span>
+                    </div>
+                    <div>
+                        <label>Oluşturulma Tarihi:</label>
+                        <span>@Model.CreatedDate</span>
+                    </div>
+                    <div>
+                        <label>Son Güncelleme Tarihi:</label>
+                        <span>@Model.ModifiedDate</span>
+                    </div>
+                    <div>
+                        <img src="/images/products/@Model.ImageUrl" style="width:50px;" />
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-info">Vazgeç</a>
+                        <a asp-area="Admin" asp-controller="Product" asp-action="HardDelete" asp-route-id="@Model.Id" class="btn btn-danger">Kalıcı Olarak Sil</a>
+                        <a asp-area="Admin" asp-controller="Product" asp-action="SoftDelete" asp-route-id="@Model.Id" class="btn btn-warning">Çöp Kutusuna Gönder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+@section Styles{
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
+}
+
+@section Scripts{
+    <!-- Summernote -->
+    <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
+    <script>
+        $('#Properties').summernote()
+    </script>
+}
