@@ -38,7 +38,20 @@
                                     <td class="cart__price">@($"{item.ProductPrice:C0}")</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="@item.Quantity">
+                                            <form id="form_qty_@item.Id"
+                                                  asp-controller="ShoppingCart"
+                                                  asp-action="ChangeQuantity"
+                                                  method="post">
+                                                <input type="hidden" name="Id" value="@item.Id">
+                                                <span onclick="decrement(quantity_@item.Id);document.getElementById('form_qty_@item.Id').submit()" id="dec_@item.Id" class="dec qtybtn">-</span>
+                                                <input type="text" name="quantity" id="quantity_@item.Id" value="@item.Quantity">
+                                                <span onclick="increment(quantity_@item.Id);document.getElementById('form_qty_@item.Id').submit()" id="inc_@item.Id" class="inc qtybtn">+</span>
+                                            </form>
+                                            
+
+                                            @* <span onclick="decrement(quantity_@item.Quantity);" class="dec qtybtn">-</span> *@
+                                            @* <input id="quantity_@item.Quantity" type="text" value="@item.Quantity"> *@
+                                            @* <span onclick="increment(quantity_@item.Quantity);" class="inc qtybtn">+</span> *@
                                         </div>
                                     </td>
                                     @{
@@ -93,3 +106,22 @@
         </div>
     </section>
     <!-- Shop Cart Section End -->
+@section Scripts
+{
+    <script >
+        function decrement(element) {
+          let qty=element.value;
+          if (qty>1){
+              qty-=1
+          }else {
+              qty=1
+              }
+          element.value =qty;
+        }
+        function increment(element) {
+          let qty=Number(element.value);
+          qty+=1;
+          element.value =qty;
+        }
+    </script>
+}
