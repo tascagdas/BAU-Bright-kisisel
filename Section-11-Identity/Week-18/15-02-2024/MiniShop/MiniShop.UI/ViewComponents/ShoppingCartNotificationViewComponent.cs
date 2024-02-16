@@ -26,10 +26,15 @@ namespace MiniShop.UI.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(string userName)
         {
-            var user = userName != null ? await _userManager.FindByNameAsync(userName) : null;
-            var shoppingCart = user != null ? await _shoppingCartManager.GetShoppingCartByUserIdAsync(user.Id) : null;
-            var count = shoppingCart != null ? await _shoppingCartItemManager.CountAsync(shoppingCart.Data.Id) : 0;
-            return View(count);
+            if (userName != null)
+            {
+                var user = await _userManager.FindByNameAsync(userName);
+                var shoppingCart = await _shoppingCartManager.GetShoppingCartByUserIdAsync(user.Id);
+                var count = await _shoppingCartItemManager.CountAsync(shoppingCart.Data.Id);
+                return View(count);
+            }
+            
+            return View(0);
         }
     }
 }
