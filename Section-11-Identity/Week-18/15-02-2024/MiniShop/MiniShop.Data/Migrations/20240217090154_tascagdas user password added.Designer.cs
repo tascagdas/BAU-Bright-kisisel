@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniShop.Data.Concrete.Contexts;
 
@@ -10,9 +11,11 @@ using MiniShop.Data.Concrete.Contexts;
 namespace MiniShop.Data.Migrations
 {
     [DbContext(typeof(MiniShopDbContext))]
-    partial class MiniShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240217090154_tascagdas user password added")]
+    partial class tascagdasuserpasswordadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.15");

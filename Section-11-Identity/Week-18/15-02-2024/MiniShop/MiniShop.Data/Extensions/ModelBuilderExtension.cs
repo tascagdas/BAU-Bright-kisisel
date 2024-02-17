@@ -88,6 +88,21 @@ namespace MiniShop.Data.Extensions
                   City = "İstanbul",
                   PhoneNumber = "538996655",
                   EmailConfirmed = true
+              },
+              new User
+              {
+                  FirstName = "Çağdaş",
+                  LastName = "Taş",
+                  UserName = "tascagdas",
+                  NormalizedUserName = "TASCAGDAS",
+                  Email = "tascagdas@gmail.com",
+                  NormalizedEmail = "TASCAGDAS@GMAIL.COM",
+                  Gender = "Erkek",
+                  DateOfBirth = new DateTime(1995,4,16),
+                  Address = "Sevda Caddesi Çırçır Sokak No:4 D:2 Eyüp",
+                  City = "İstanbul",
+                  PhoneNumber = "5397166827",
+                  EmailConfirmed = true
               }
 
             };
@@ -101,6 +116,7 @@ namespace MiniShop.Data.Extensions
             users[1].PasswordHash = passwordHasher.HashPassword(users[1], "Qwe123.");
             users[2].PasswordHash = passwordHasher.HashPassword(users[2], "Qwe123.");
             users[3].PasswordHash = passwordHasher.HashPassword(users[3], "Qwe123.");
+            users[3].PasswordHash = passwordHasher.HashPassword(users[4], "Qwe123.");
 
             #endregion
 
@@ -128,6 +144,12 @@ namespace MiniShop.Data.Extensions
                 {
                     UserId = users[3].Id,
                     RoleId = roles[2].Id
+                }
+                ,
+                new IdentityUserRole<string>
+                {
+                    UserId = users[4].Id,
+                    RoleId = roles[0].Id
                 }
             };
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles);

@@ -25,21 +25,21 @@ namespace MiniShop.Data.Concrete.Configs
                     {
                         Id = 1,
                         Name = "Televizyon",
-                        Description = "TV kategorisi",
+                        Description = "Son model TV'leirn bulunduğu kategorisi",
                         Url = "televizyon"
                     },
                     new Category
                     {
                         Id = 2,
                         Name = "Bilgisayar",
-                        Description = "Bilgisayar kategorisi",
+                        Description = "Süper hızlı Bilgisayarı bulabileceğiniz kategori",
                         Url = "bilgisayar"
                     },
                     new Category
                     {
                         Id = 3,
                         Name = "Elektronik Eşya",
-                        Description = "Elektronik Eşya kategorisi",
+                        Description = "Elektronik Eşyaların bulunduğu kategorisi",
                         Url = "elektronik-esya"
                     },
                     new Category
