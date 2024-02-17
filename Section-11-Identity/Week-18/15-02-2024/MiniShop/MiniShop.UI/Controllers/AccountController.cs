@@ -96,4 +96,9 @@ public class AccountController : Controller
     {
         return View();
     }
+    [HttpGet]
+    public IActionResult Profile()
+    {
+        return View();
+    }
 }

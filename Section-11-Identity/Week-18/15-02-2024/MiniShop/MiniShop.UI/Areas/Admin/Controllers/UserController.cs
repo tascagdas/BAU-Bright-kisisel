@@ -78,4 +78,21 @@ public class UserController : Controller
         }
         return View(userRolesViewModel);
     }
+
+    public IActionResult GetAdminUsers()
+    {
+        return View();
+    }
+    public IActionResult GetCustomerUsers()
+    {
+        return View();
+    }
+    public IActionResult Create()
+    {
+        return View();
+    }
+    public IActionResult Delete()
+    {
+        return View();
+    }
 }

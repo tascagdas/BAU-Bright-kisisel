@@ -116,7 +116,7 @@ namespace MiniShop.Data.Extensions
             users[1].PasswordHash = passwordHasher.HashPassword(users[1], "Qwe123.");
             users[2].PasswordHash = passwordHasher.HashPassword(users[2], "Qwe123.");
             users[3].PasswordHash = passwordHasher.HashPassword(users[3], "Qwe123.");
-            users[3].PasswordHash = passwordHasher.HashPassword(users[4], "Qwe123.");
+            users[4].PasswordHash = passwordHasher.HashPassword(users[4], "Qwe123.");
 
             #endregion
 
@@ -162,7 +162,9 @@ namespace MiniShop.Data.Extensions
                 new ShoppingCart{Id=1, UserId=users[0].Id},
                 new ShoppingCart{Id=2, UserId=users[1].Id},
                 new ShoppingCart{Id=3, UserId=users[2].Id},
-                new ShoppingCart{Id=4, UserId=users[3].Id}
+                new ShoppingCart{Id=4, UserId=users[3].Id},                
+                new ShoppingCart{Id=5, UserId=users[4].Id}
+
             };
             modelBuilder.Entity<ShoppingCart>().HasData(shoppingCarts);
             #endregion
