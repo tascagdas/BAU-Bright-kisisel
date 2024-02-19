@@ -20,7 +20,7 @@ namespace MiniShop.UI.Areas.Admin.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var user = _userManager.GetUserAsync(UserClaimsPrincipal);
-
+// username verisini çağırıldığı yerden metotun içine gönderip daha sonrada user bilgilerini çekip, isim soy isim yazdırılabilir. hangi yöntem daha hızlı bilmiyorum.
             ViewBag.firstName = user.Result.FirstName;
             ViewBag.lastName = user.Result.LastName;
             return View();
