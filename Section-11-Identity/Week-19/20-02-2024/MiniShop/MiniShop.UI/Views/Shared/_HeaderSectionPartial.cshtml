@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-3 col-lg-2">
-                <div class="header__logo">
-                    <a href="./index.html"><img src="/ui/img/logo.png" alt=""></a>
+                <div class="header__menu">
+                    <a class="text-dark font-weight-bold" href="/">Tascagdas shop</a>
                 </div>
             </div>
             <div class="col-xl-6 col-lg-7">
@@ -56,13 +56,15 @@
                     </div>
                     <ul class="header__right__widget">
                         <li><span class="icon_search search-switch"></span></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <li>
-                            
                             <a href="#"><span class="icon_heart_alt"></span>
                                 <div class="tip">2</div>
                             </a>
                         </li>
-@await Component.InvokeAsync("ShoppingCartNotification",User.Identity.Name??null)
+                            @await Component.InvokeAsync("ShoppingCartNotification",User.Identity.Name??null)
+                        }
                     </ul>
                 </div>
             </div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniShop.Entity.Concrete
 {
-    public class OrderItem
+    public class OrderDetail
     {
         public int Id { get; set; }
         public int OrderId { get; set; }

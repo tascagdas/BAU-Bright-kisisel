@@ -45,4 +45,15 @@ public class ShoppingCartController : Controller
 
         return View(shoppingCartItemViewModel);
     }
+
+    public async Task<IActionResult> DeleteItem(int id)
+    {
+        await _shoppingCartItemManager.DeleteFromShoppingCartAsync(id);
+        return RedirectToAction("Index");
+    }
+    public async Task<IActionResult> ClearCart(int id)
+    {
+        await _shoppingCartItemManager.ClearShoppingCartAsync(id);
+        return RedirectToAction("Index");
+    }
 }

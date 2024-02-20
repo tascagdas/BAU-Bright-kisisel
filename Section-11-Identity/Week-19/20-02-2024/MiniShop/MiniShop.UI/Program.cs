@@ -66,11 +66,14 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartManager>();
 builder.Services.AddScoped<IShoppingCartItemService, ShoppingCartItemManager>();
+builder.Services.AddScoped<IOrderService, OrderManager>();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRespository>();
 builder.Services.AddScoped<IShoppingCartItemRepository, ShoppingCartItemRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
 
 
 

@@ -67,14 +67,4 @@ public class ShoppingCartManager:IShoppingCartService
         return Response<NoContent>.Fail("Bir hata olustu");
     }
     
-
-    public Task<Response<NoContent>> DeleteFromShoppingCartAsync(int shoppingCartId, int productId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Response<NoContent>> ClearShoppingCartAsync(int shoppingCartId)
-    {
-        throw new NotImplementedException();
-    }
 }

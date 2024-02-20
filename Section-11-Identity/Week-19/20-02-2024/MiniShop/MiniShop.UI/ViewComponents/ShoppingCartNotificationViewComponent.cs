@@ -33,7 +33,6 @@ namespace MiniShop.UI.ViewComponents
                 var count = await _shoppingCartItemManager.CountAsync(shoppingCart.Data.Id);
                 return View(count);
             }
-            
             return View(0);
         }
     }
