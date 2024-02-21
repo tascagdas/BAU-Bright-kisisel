@@ -1,0 +1,21 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "[!M]*/**": true,
+        "M[!i]*/**": true,
+        "Mi[!n]*/**": true,
+        "Min[!i]*/**": true,
+        "Mini[!S]*/**": true,
+        "MiniS[!h]*/**": true,
+        "MiniSh[!o]*/**": true,
+        "MiniSho[!p]*/**": true,
+        "MiniShop[!.]*/**": true,
+        "MiniShop.[!U]*/**": true,
+        "MiniShop.U[!I]*/**": true
+    }
+}
