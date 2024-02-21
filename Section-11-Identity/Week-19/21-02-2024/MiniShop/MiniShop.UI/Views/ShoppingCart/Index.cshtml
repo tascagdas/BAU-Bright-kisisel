@@ -120,7 +120,7 @@
                         <li>Ara Toplam <span>@($"{cartSubTotal:C0}")</span></li>
                         <li>Toplam<span>@($"{cartTotal:C0}")</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Satın Al</a>
+                    <a asp-controller="Order" asp-action="Checkout" class="primary-btn">Satın Al</a>
                 </div>
             </div>
         </div>
