@@ -30,6 +30,10 @@ public class OrderManager:IOrderService
     {
         var orders = await _orderRepository.GetAllAsync(x=>x.UserId==userId,
             source => source.Include(x => x.OrderDetails).ThenInclude(y => y.Product));
+        // gelen siparislerin sirasi en ustte olmasi icin 
+        orders = orders.OrderByDescending(x => x.Id).ToList();
+        //bu siralama tercih edilen bir yontem degil
+        //daha sonra bunu degistirecegiz.
         return orders;
     }
 

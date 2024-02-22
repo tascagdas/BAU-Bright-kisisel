@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MiniShop.Business.Abstract;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
 {
@@ -8,8 +9,17 @@ namespace MiniShop.UI.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IOrderService _orderManager;
+
+        public HomeController(IOrderService orderManager)
         {
+            _orderManager = orderManager;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var orders = _orderManager.GetOrdersAsync();
+            
             return View();
         }
     }

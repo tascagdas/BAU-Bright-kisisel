@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MiniShop.Business.Abstract;
 using MiniShop.Entity.Concrete.Identity;
+using MiniShop.Shared.ViewModels;
 using MiniShop.Shared.ViewModels.IdentityModels;
 
 namespace MiniShop.UI.Controllers;
@@ -9,11 +11,13 @@ public class AccountController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
+    private readonly IOrderService _orderManager;
 
-    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _orderManager = orderManager;
     }
 
     [HttpGet]
@@ -97,8 +101,13 @@ public class AccountController : Controller
         return View();
     }
     [HttpGet]
-    public IActionResult Profile()
+    public async Task<IActionResult> Profile()
     {
-        return View();
+        var userId = _userManager.GetUserId(User);
+        var orders = await _orderManager.GetOrdersAsync(userId);
+
+        //simdilik view e bir order listesi yolluyoruz sonraki asamalarda bu liste ile birlikte baska bilgilerde yollanicak.
+        
+        return View(orders);
     }
 }
