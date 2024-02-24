@@ -18,9 +18,11 @@ namespace MiniShop.UI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var orders = _orderManager.GetOrdersAsync();
+            var orders=await _orderManager.GetOrdersAsync();
+            orders = orders.Take(5).ToList();
+
             
-            return View();
+            return View(orders);
         }
     }
 }

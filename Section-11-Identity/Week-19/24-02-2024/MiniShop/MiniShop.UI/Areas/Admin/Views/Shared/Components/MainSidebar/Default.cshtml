@@ -2,10 +2,13 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-link text-center">
-         @* <img src="~/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" *@
-         @*    style="opacity: .8">  *@
         <span class="brand-text font-weight-light">MiniShop Anasayfa</span>
     </a>
+    
+    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="brand-link text-center">
+        <span class="brand-text font-weight-light" >Admin panel Anasayfa</span>
+    </a>
+    
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -23,6 +26,17 @@
                         </p>
                     </a>
                 </li>
+                                <li class="nav-item">
+                                    <a asp-area="Admin"
+                                       asp-controller="Order"
+                                       asp-action="Index"
+                                       class="nav-link">
+                                        <i class="nav-icon fas fa-house-user"></i>
+                                        <p>
+                                            Siparişler
+                                        </p>
+                                    </a>
+                                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>

@@ -1,5 +1,4 @@
-@using MiniShop.Entity.Concrete
-@model List<Order>
+@model List<AdminOrderViewModel>
 <div class="container">
     <h1 class="mt-3 display-4 text-dark">Geçmiş siparişler</h1>
     <hr/>
@@ -24,7 +23,7 @@
                     @order.OrderDate                     
                   </div>                
                   <div class="col-md-4 text-right">
-                    8.500 TL
+                    @($"{order.TotalPrice:C0}")
                   </div>
                 </div>
               </button>

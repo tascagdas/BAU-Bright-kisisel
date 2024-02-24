@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MiniShop.Data.Abstract;
 using MiniShop.Data.Concrete.Contexts;
 using MiniShop.Entity.Concrete;
@@ -17,5 +18,17 @@ public class OrderRepository:GenericRepository<Order>,IOrderRepository
         {
             return _dbContext as MiniShopDbContext;
         }
+    }
+
+    public async Task<List<Order>> GetAllOrdersByProductIdAsync(int productId)
+    {
+        var result = await MiniShopDbContext
+            .Orders
+            .Include(o => o.OrderDetails)
+            .ThenInclude(od => od.Product)
+            .Where(o => o.OrderDetails.Any(od => od.ProductId == productId))
+            .OrderByDescending(x => x.Id)
+            .ToListAsync();
+        return result;
     }
 }

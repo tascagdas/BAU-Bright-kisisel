@@ -182,7 +182,7 @@ public class OrderController : Controller
                     Email = orderViewModel.Email,
                     Note = orderViewModel.Note,
                     PaymentType = PaymentType.CreditCard,
-                    OrderState = OrderState.Waiting,
+                    OrderState = OrderState.Received,
                     ConversationId = payment.ConversationId,
                     PaymentId = payment.PaymentId,
                     OrderDate = DateTime.Now,
