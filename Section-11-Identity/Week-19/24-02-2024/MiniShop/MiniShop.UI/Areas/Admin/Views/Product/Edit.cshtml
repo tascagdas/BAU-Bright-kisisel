@@ -1,0 +1,147 @@
+﻿@model EditProductViewModel
+ <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-2">
+                <div>
+                    <h1>Ürün Güncelleme</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <form
+                        asp-area="Admin"
+                        asp-controller="Product"
+                        asp-action="Edit"
+                        method="post"
+                        enctype="multipart/form-data"
+                    >
+                    <input type="hidden" asp-for="ImageUrl" />
+                    @* <input type="hidden" name="oldImageUrl" value="@Model.ImageUrl" /> *@
+                    <!--Ürün Bilgileri-->
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="card-title">Ürün Bilgileri</h3>
+                                </div>
+                                <div>
+                                    <a asp-area="Admin" asp-controller="Product" asp-action="SoftDelete" asp-route-id="@Model.Id" class="btn btn-warning">Çöp Kutusuna Gönder</a>
+                                </div>
+                            </div>
+     
+                        </div>
+                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label asp-for="Name"></label>
+                                            <input asp-for="Name" type="text" class="form-control" placeholder="Ürün adını giriniz...">
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label asp-for="Price"></label>
+                                            <input asp-for="Price" type="text" class="form-control" placeholder="Ürün fiyatını giriniz...">
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label>Seçenekler</label>
+                                        <div class="form-group d-flex">
+                                            <div class="icheck-primary mr-3">
+                                                <input asp-for="IsHome" type="checkbox" />
+                                                <label asp-for="IsHome" for="IsHome"></label>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input asp-for="IsActive" type="checkbox" />
+                                                <label asp-for="IsActive" for="IsActive"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-9">
+                                        <label asp-for="Properties"></label>
+                                        <textarea asp-for="Properties"></textarea>
+                                        <span asp-validation-for="Properties" class="text-danger"></span>
+                                    </div>
+
+
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>Ürün Resmi</label>
+                                            <input type="hidden" value="@Model.ImageUrl"  id="oldImageUrl" />
+                                            <input id="image" name="image" type="file" class="d-none" accept="image/png, image/jpg, image/jpeg" />
+                                            <div class="mt-2">
+                                                <label class="btn btn-success" for="image">Ürün Resmini Değiştir</label>
+                                            </div>
+                                            <span class="text-danger">@ViewBag.ImageErrorMessage</span>
+                                            <img src="/images/products/@Model.ImageUrl" id="image-viewer" class="img-fluid" style="height:200px;" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                        </div>
+                        <!--Ürün Kategoriler-->
+                        <div class="card card-warning">
+                            <div class="card-header">
+                                <h3 class="card-title">Kategori Seç(En az bir kategori seçmelisiniz!)</h3>
+                            </div>
+                            <div class="card-body">
+                                @foreach (var c in Model.Categories)
+                                {
+                                    <div class="icheck-primary d-inline mr-3">
+                                        <input name="categoryIds" value="@c.Id" id="category_checkbox_@c.Id" type="checkbox" 
+                                        @(Model.CategoryIds.Any(catId=>catId==c.Id) ? "checked" : "")
+                                        />
+                                        <label for="category_checkbox_@c.Id">@c.Name</label>
+                                    </div>
+                                }
+                                <div class="text-danger mt-2">@ViewBag.CategoryErrorMessage</div>
+                            </div>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Değişiklikleri Kaydet</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+@section Styles{
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/admin/plugins/summernote/summernote-bs4.min.css">
+}
+
+@section Scripts{
+    @await Html.PartialAsync("_SummerNotePartial")
+    <script>
+
+        $("#image").on("change", function (e) {
+            const selectedFiles = e.target.files;
+            if (selectedFiles.length > 0) {
+                $("#image-viewer").attr("src", window.URL.createObjectURL(selectedFiles[0]));
+            } else {
+                $("#image-viewer").attr("src", "http://localhost:7700/images/products/" + $("#oldImageUrl").val());
+            }
+        });
+    </script>
+}
