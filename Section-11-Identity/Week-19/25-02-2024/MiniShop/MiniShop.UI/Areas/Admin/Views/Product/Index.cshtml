@@ -66,42 +66,29 @@
                                                        class="btn btn-link">@p.Name</a>
                                                 }
                                             </td>
-                                            <td>@p.Price</td>
+                                            <td>@($"{p.Price:C0}")</td>
                                             <td>
-                                                <form 
-                                                    id="isHomeForm_@p.Id"
-                                                    asp-area="Admin"
-                                                    asp-controller="Product"
-                                                    asp-action="UpdateIsHome"
-                                                    asp-route-id="@p.Id"
-                                                    method="post"
-                                                >
-                                                    <div class="custom-control custom-switch">
-                                                        <input onchange="document.getElementById('isHomeForm_@p.Id').submit();"
-                                                            type="checkbox" class="custom-control-input" id="isHome_@p.Id"
-                                                        @(p.IsHome ? "checked" : "") />
-                                                        <label class="custom-control-label" for="isHome_@p.Id"></label>
-                                                    </div>
-                                                </form>
+                                                <div class="custom-control custom-switch">
+                                                    <input 
+                                                        onchange="changeIsHome(this,'@p.Id');"
+                                                        type="checkbox"
+                                                        class="custom-control-input" 
+                                                        asp-for="@p.IsHome"
+                                                        id="isHome_@p.Id" />
+                                                    <label class="custom-control-label" for="isHome_@p.Id"></label>
+                                                </div>
 
                                             </td>
                                             <td>
-                                                <form
-                                                    id="isActiveForm_@p.Id"
-                                                    asp-area="Admin"
-                                                    asp-controller="Product"
-                                                    asp-action="UpdateIsActive"
-                                                    asp-route-id="@p.Id"
-                                                    method="post"
-                                                >
-                                                    <div class="custom-control custom-switch">
-                                                        <input
-                                                            onchange="document.getElementById('isActiveForm_@p.Id').submit();"
-                                                            type="checkbox" class="custom-control-input" id="isActive_@p.Id"
-                                                        @(p.IsActive ? "checked" : "") />
-                                                        <label class="custom-control-label" for="isActive_@p.Id"></label>
-                                                    </div>
-                                                </form>
+                                                <div class="custom-control custom-switch">
+                                                    <input 
+                                                        onchange="changeIsActive(this,'@p.Id');"
+                                                        type="checkbox"
+                                                        class="custom-control-input" 
+                                                        asp-for="@p.IsActive"
+                                                        id="isActive_@p.Id" />
+                                                    <label class="custom-control-label" for="isActive_@p.Id"></label>
+                                                </div>
 
                                             </td>
                                             <td class="text-center">
@@ -160,6 +147,33 @@
 
 @section Styles{
     @await Html.PartialAsync("_DataTablesCssPartial")
+        <script>
+            const changeIsHome = function (element, id) {
+                $.ajax({
+                    url: `/Admin/Product/UpdateIsHome/${id}`,
+                    type: 'GET',
+                    success: function (response) {
+                        $(element.id).attr("checked", response ? "checked" : "");
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            };
+    
+            const changeIsActive = function (element, id) {
+                $.ajax({
+                    url: `/Admin/Product/UpdateIsActive/${id}`,
+                    type: 'GET',
+                    success: function (response) {
+                        $(element.id).attr("checked", response ? "checked" : "");
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            };
+        </script>
 }
 
 @section Scripts{

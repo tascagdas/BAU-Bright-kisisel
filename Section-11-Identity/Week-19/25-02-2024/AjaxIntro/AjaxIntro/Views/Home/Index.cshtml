@@ -1,8 +1,75 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Student>
+<div class="container w-50">
+    <h1 class="display-4 text-primary">Ogrenci ekle</h1>
+    <hr/>
+    <div class="">
+        <form id="add-student-form" >
+            <input class="form-control mb-2 " type="text" id="first-name" placeholder="Ogrenci adini giriniz"/>
+            <input class="form-control mb-2 " type="text" id="last-name" placeholder="Ogrenci soyadini giriniz"/>
+            <input class="form-control mb-2 " type="text" id="student-number" placeholder="Ogrenci numarasini giriniz"/>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success">Kaydet</button>
+            </div>
+        </form>
+    </div>
+    <hr/>
+    <div id="student-list">
+    @await Html.PartialAsync("_StudentListPartial",Model)
+    </div>
+</div>
+
+
+
+
+@section BottomScripts
+{
+    <script >
+        $(document).ready(function() {
+          $('#add-student-form').submit(function(e) {
+            e.preventDefault();
+            
+            let firstName=$("#first-name").val();
+            let lastName=$("#last-name").val();
+            let studentNumber=$("#student-number").val();
+            
+            $.ajax({
+                url:'/Home/AddStudent',
+                type:'POST',
+                data:{
+                    FirstName:firstName,
+                    lastName:lastName,
+                    studentNumber:studentNumber
+                },
+                success:function(response) {
+                  $("#student-list").html(response);
+                  $("#first-name").val('');
+                  $("#last-name").val('');
+                  $("#student-number").val('');
+                },
+                error:function(err) {
+                  console.log(err);
+                }
+            });
+          })
+        })
+    </script>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@section TopScripts
+{
+    <script>
+        const changeIsActive=function(studentId) {
+          const isActiveElement=$(`#is-active${studentId}`);
+          $.ajax({
+          url:`/Home/ChangeIsActive/${studentId}`,
+          type:'GET',
+          success:function(response) {
+            isActiveElement.attr("checked",response==true?"checked":"");
+          },
+          error:function(err) {
+            console.log(err);
+          }
+          })
+        };
+    </script>
+}

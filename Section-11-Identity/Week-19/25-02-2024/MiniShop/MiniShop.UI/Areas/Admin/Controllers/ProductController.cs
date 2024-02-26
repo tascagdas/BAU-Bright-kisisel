@@ -41,13 +41,15 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateIsHome(int id)
         {
             var result = await _productManager.UpdateIsHomeAsync(id);
-            return RedirectToAction("Index");
+            var product = await _productManager.GetByIdAsync(id);
+            return Json(product.Data.IsHome);
         }
         
         public async Task<IActionResult> UpdateIsActive(int id)
         {
             var result = await _productManager.UpdateIsActiveAsync(id);
-            return RedirectToAction("Index");
+            var product = await _productManager.GetByIdAsync(id);
+            return Json(product.Data.IsHome);
         }
 
         
