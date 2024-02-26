@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjaxIntro", "AjaxIntro\AjaxIntro.csproj", "{3A07BEB4-8A8B-4A77-92CB-170A24951EF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A07BEB4-8A8B-4A77-92CB-170A24951EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A07BEB4-8A8B-4A77-92CB-170A24951EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A07BEB4-8A8B-4A77-92CB-170A24951EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A07BEB4-8A8B-4A77-92CB-170A24951EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
