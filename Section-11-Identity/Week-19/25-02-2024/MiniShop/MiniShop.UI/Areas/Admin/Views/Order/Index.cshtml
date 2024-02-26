@@ -12,7 +12,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6 d-flex align-items-center justify-content-end">
                     <label class="mr-3 pt-2">Ürüne Göre Siparişler</label>
-                    <select asp-items="Model.ProductListItems" class="form-control">
+                    <select onchange="filterByProduct(this)" asp-items="Model.ProductListItems" class="form-control">
                         <option>Seçiniz</option>
                     </select>
                 </div>
@@ -41,26 +41,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach (var order in Model.Orders)
-                            {
-                                <tr>
-                                    <td>@order.Id</td>
-                                    <td>
-                                        @order.OrderDate
-                                    </td>
-                                    <td>
-                                        @order.UserName
-                                    </td>
-                                    <td>@($"{order.TotalPrice:C0}")</td>
-                                    <td>
-                                        @order.OrderState
-                                    </td>
-                                    <td>
-                                        İşlemler
-                                    </td>
-                                </tr>
-                            }
-
+@await Html.PartialAsync("_OrderListPartial",Model.Orders)
                             </tbody>
                         </table>
                     </div>
@@ -76,6 +57,21 @@
 
 @section Styles{
     @await Html.PartialAsync("_DataTablesCssPartial")
+    <script>
+        const filterByProduct=(element)=>{
+            const tBody=$("#myDataTable tbody");
+            $.ajax({
+            url:`/Admin/Order/FilterByProduct/${element.value}`,
+            type:'GET',
+            success:(response)=>{
+                tBody.html(response);
+            },
+            error:(err)=>{
+            console.log(err);
+            }
+            });
+        }
+    </script>
 }
 
 @section Scripts{

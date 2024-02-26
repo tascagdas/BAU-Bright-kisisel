@@ -42,4 +42,11 @@ public class OrderController : Controller
         };
         return View(model);
     }
+
+    public async Task<IActionResult> FilterByProduct(int id)
+    {
+        var orders = await _orderManager.GetOrdersAsync(id);
+        
+        return PartialView("_OrderListPartial",orders);
+    }
 }
