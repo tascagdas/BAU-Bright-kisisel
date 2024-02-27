@@ -1,0 +1,21 @@
+@model List<AdminOrderViewModel>
+
+@foreach (var order in Model)
+{
+    <tr>
+        <td>@order.Id</td>
+        <td>
+            @order.OrderDate
+        </td>
+        <td>
+            @order.UserName
+        </td>
+        <td>@($"{order.TotalPrice:C0}")</td>
+        <td>
+            @order.OrderState
+        </td>
+        <td>
+            İşlemler
+        </td>
+    </tr>
+}
