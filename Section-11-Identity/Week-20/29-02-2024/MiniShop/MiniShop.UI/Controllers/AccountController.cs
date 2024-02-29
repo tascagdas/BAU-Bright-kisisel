@@ -43,6 +43,7 @@ public class AccountController : Controller
                 Email = registerViewModel.Email,
                 FirstName = registerViewModel.FirstName,
                 LastName = registerViewModel.LastName
+                ,EmailConfirmed = true
             };
             var result = await _userManager.CreateAsync(user,registerViewModel.Password);
             if (result.Succeeded)
@@ -57,10 +58,18 @@ public class AccountController : Controller
                     token = tokenCode
                 });
                 
-                //Mail gonderme kismi
-                await _emailSender.SendEmailAsync(user.Email, "MiniShopApp uyelik onayi",
-                    $"<p>MinishopApp uygulamasina uyeliginizi onaylamak icin asagidaki linke tiklayiniz.</p><a href='https://localhost:59079{backUrl}'>Onay Linki</a>");
                 
+                
+                //Gecici olarak devre disi birakildi.
+                
+                //
+                // //Mail gonderme kismi
+                // await _emailSender.SendEmailAsync(user.Email, "MiniShopApp uyelik onayi",
+                //     $"<p>MinishopApp uygulamasina uyeliginizi onaylamak icin asagidaki linke tiklayiniz.</p><a href='https://localhost:59079{backUrl}'>Onay Linki</a>");
+                //
+                //
+                //
+                //
                 
                 
                 // return RedirectToAction("Index","Home");
@@ -253,6 +262,11 @@ public class AccountController : Controller
             return View("ConfirmEmail","Hesabiniz basariyla onaylanmistir Hos geldiniz.");
         }
         
+        return View();
+    }
+
+    public IActionResult ForgotPassword()
+    {
         return View();
     }
 }

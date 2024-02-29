@@ -1,5 +1,5 @@
 @model LoginViewModel
-<div class="container w-25 mt-5">
+<div class="container w-50 mt-5">
     <h6 class="display-4">Giriş Yap</h6>
     <hr>
     <form asp-area="" asp-controller="Account" asp-action="Login" method="post">
@@ -21,7 +21,10 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
-            <div class="col-md-12 mt-4">
+            <div class="col-md-6 mt-4">
+                <a asp-area="" asp-controller="Account" asp-action="ForgotPassword" class="btn btn-link">Sifremi unuttum</a>
+            </div>
+            <div class="col-md-6 mt-4">
                 <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
             </div>
         </div>
