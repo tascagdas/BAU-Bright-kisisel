@@ -5,6 +5,7 @@ using MiniShop.Business.Abstract;
 using MiniShop.Entity.Concrete.Identity;
 using MiniShop.Shared.ViewModels;
 using MiniShop.Shared.ViewModels.IdentityModels;
+using MiniShop.UI.EmailServices.Abstract;
 
 namespace MiniShop.UI.Controllers;
 
@@ -13,12 +14,16 @@ public class AccountController : Controller
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IOrderService _orderManager;
-
-    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager)
+    
+    private readonly IEmailSender _emailSender;
+    private readonly IShoppingCartService _shoppingCartManager;
+    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager, IEmailSender emailSender, IShoppingCartService shoppingCartManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _orderManager = orderManager;
+        _emailSender = emailSender;
+        _shoppingCartManager = shoppingCartManager;
     }
 
     [HttpGet]
@@ -30,7 +35,6 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
     {
-        
         if (ModelState.IsValid)
         {
             User user = new User
@@ -43,6 +47,20 @@ public class AccountController : Controller
             var result = await _userManager.CreateAsync(user,registerViewModel.Password);
             if (result.Succeeded)
             {
+                //Mail gonderme islemi basliyor
+                
+                //Token olusturma
+                var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var backUrl = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userId = user.Id,
+                    token = tokenCode
+                });
+                await _emailSender.SendEmailAsync(user.Email, "MiniShopApp uyelik onayi",
+                    $"<p>MinishopApp uygulamasina uyeliginizi onaylamak icin asagidaki linke tiklayiniz.</p><a href='https://localhost:59079{backUrl}'>Onay Linki</a>");
+                
+                
+                
                 // return RedirectToAction("Index","Home");
                 return Redirect("~/");
             }
@@ -200,5 +218,31 @@ public class AccountController : Controller
             return View(changePasswordViewModel);
         }
         return View(changePasswordViewModel);
+    }
+
+    public async Task<IActionResult> ConfirmEmail(string userId,string token)
+    {
+        if (userId==null||token==null)
+        {
+            ModelState.AddModelError("","bilgilerde sorun var yonetici ile gorusunuz.");
+            return View();
+        }
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user==null)
+        {
+            ModelState.AddModelError("","kullanici bilgilerinize ulasilamadi");
+            return View();
+        }
+
+        var result = await _userManager.ConfirmEmailAsync(user, token);
+        if (result.Succeeded)
+        {
+            //buraya kadar gelen user artik onayli olacagi icin shopping cartini olusturabiliriz.
+            await _shoppingCartManager.InitializeShoppingCartAsync(userId);
+            return View();
+        }
+        
+        return View();
     }
 }
