@@ -19,9 +19,10 @@ public class ShoppingCartManager:IShoppingCartService
         _mapper = mapper;
     }
 
-    public Task<Response<NoContent>> InitializeShoppingCartAsync(string userId)
+    public async Task<Response<NoContent>> InitializeShoppingCartAsync(string userId)
     {
-        throw new NotImplementedException();
+        await _shoppingCartRepository.CreateAsync(new ShoppingCart { UserId = userId });
+        return Response<NoContent>.Success();
     }
 
     public async Task<Response<ShoppingCartViewModel>> GetShoppingCartByUserIdAsync(string userId)

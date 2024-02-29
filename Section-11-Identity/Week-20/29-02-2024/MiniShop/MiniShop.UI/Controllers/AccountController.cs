@@ -56,6 +56,8 @@ public class AccountController : Controller
                     userId = user.Id,
                     token = tokenCode
                 });
+                
+                //Mail gonderme kismi
                 await _emailSender.SendEmailAsync(user.Email, "MiniShopApp uyelik onayi",
                     $"<p>MinishopApp uygulamasina uyeliginizi onaylamak icin asagidaki linke tiklayiniz.</p><a href='https://localhost:59079{backUrl}'>Onay Linki</a>");
                 
@@ -92,6 +94,13 @@ public class AccountController : Controller
             return View(loginViewModel);
         }
 
+        var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+        if (!isConfirmed)
+        {
+            ModelState.AddModelError("","Lutfen mailinizi onaylayiniz.");
+            return View(loginViewModel);
+        }
+        
         var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
         if (!result.Succeeded)
         {
@@ -240,7 +249,8 @@ public class AccountController : Controller
         {
             //buraya kadar gelen user artik onayli olacagi icin shopping cartini olusturabiliriz.
             await _shoppingCartManager.InitializeShoppingCartAsync(userId);
-            return View();
+            
+            return View("ConfirmEmail","Hesabiniz basariyla onaylanmistir Hos geldiniz.");
         }
         
         return View();
