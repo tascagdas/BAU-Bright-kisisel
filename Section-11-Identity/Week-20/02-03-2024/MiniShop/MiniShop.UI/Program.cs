@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MiniShop.Business.Abstract;
@@ -88,6 +89,13 @@ builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options=>new SmtpEmail
     builder.Configuration["EmailSender:UserName"],
     builder.Configuration["EmailSender:Password"]
     ));
+
+builder.Services.AddNotyf(options =>
+{
+    options.DurationInSeconds = 3;
+    options.IsDismissable = true;
+    options.Position = NotyfPosition.TopRight;
+});
 
 var app = builder.Build();
 

@@ -9,6 +9,7 @@ using MiniShop.UI.Helpers;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -21,12 +22,14 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         private readonly IProductService _productManager;
         private readonly ICategoryService _categoryManager;
         private readonly IImageHelper _imageHelper;
+        private readonly INotyfService _notyfService;
 
-        public ProductController(IProductService productManager, ICategoryService categoryManager, IImageHelper imageHelper)
+        public ProductController(IProductService productManager, ICategoryService categoryManager, IImageHelper imageHelper, INotyfService notyfService)
         {
             _productManager = productManager;
             _categoryManager = categoryManager;
             _imageHelper = imageHelper;
+            _notyfService = notyfService;
         }
 
         [AllowAnonymous]
@@ -71,10 +74,23 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             {
                 model.ImageUrl = await _imageHelper.UploadImage(image, "products");
                 model.Url = Jobs.GetUrl(model.Name);
-                await _productManager.CreateAsync(model);
+                var result=await _productManager.CreateAsync(model);
+                if (result.IsSucceeded)
+                {
+                    _notyfService.Success("Urun basariyla olusturulmustur.");
+                }
+                else
+                {
+                    _notyfService.Error(result.Error);
+
+                }
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
+            // ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
+            if (model.CategoryIds.Count==0)
+            {
+                _notyfService.Error("En az bir kategori secmelisiniz");
+            }
             ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim hatalı!" : null;
             var categories = await _categoryManager.GetActiveCategories();
             model.Categories = categories.Data;
@@ -114,7 +130,15 @@ namespace MiniShop.UI.Areas.Admin.Controllers
                     model.ImageUrl = await _imageHelper.UploadImage(image, "products");
                 }
                 model.Url = Jobs.GetUrl(model.Name);
-                await _productManager.UpdateAsync(model);
+                var result=await _productManager.UpdateAsync(model);
+                if (result.IsSucceeded)
+                {
+                    _notyfService.Success("urun basariyla guncellenmistir.");
+                }
+                else
+                {
+                    _notyfService.Error(result.Error);
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
@@ -145,6 +169,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         public async Task<IActionResult> HardDelete(int id)
         {
             await _productManager.HardDeleteAsync(id);
+            _notyfService.Success("urun KALICI olarak silinmistir.");
             return RedirectToAction("Index");
         }
 
@@ -153,6 +178,15 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         {
             await _productManager.SoftDeleteAsync(id);
             var productViewModel = await _productManager.GetByIdAsync(id);
+            if (productViewModel.Data.IsDeleted)
+            {
+                _notyfService.Success("urun cop kutusuna gonderilmistir.");
+            }
+            else
+            {
+                _notyfService.Success("urun cop kutusundan basariyla cikarilmistir.");
+            }
+
             return Redirect($"/Admin/Product/Index/{!productViewModel.Data.IsDeleted}");
         }
     }

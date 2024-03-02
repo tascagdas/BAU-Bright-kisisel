@@ -37,17 +37,20 @@
                                 <li>
                                     <a href="#"><span class="icon_heart_alt"></span></a>
                                 </li>
-                                <li>
-                                    <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCart">
-                                        <input type="hidden" value="@p.Id" name="productId">
-                                        <input type="hidden" value="1" name="quantity">
-                                        <button type="submit" style="background-color: transparent; border: none">
-                                            <a>
-                                            <span class="icon_bag_alt"></span>
-                                            </a>
-                                        </button>
-                                    </form>
-                                </li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCart">
+                                            <input type="hidden" value="@p.Id" name="productId">
+                                            <input type="hidden" value="1" name="quantity">
+                                            <button type="submit" style="background-color: transparent; border: none">
+                                                <a>
+                                                    <span class="icon_bag_alt"></span>
+                                                </a>
+                                            </button>
+                                        </form>
+                                    </li>
+                                }
                             </ul>
                         </div>
                         <div class="product__item__text">

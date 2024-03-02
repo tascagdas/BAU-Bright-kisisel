@@ -22,7 +22,11 @@
     @await Html.PartialAsync("_FooterSectionPartial")
     @await Html.PartialAsync("_SearchPartial")
 
+    
     @await Html.PartialAsync("_ScriptsPartial")
+    
+    @await Component.InvokeAsync("Notyf")
+    
     @await RenderSectionAsync("Scripts", false)
 </body>
 

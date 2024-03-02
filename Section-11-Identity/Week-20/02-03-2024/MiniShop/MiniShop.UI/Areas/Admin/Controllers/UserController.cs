@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,14 @@ public class UserController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly RoleManager<Role> _roleManager;
+    private readonly INotyfService _notyfService;
+    
 
-    public UserController(UserManager<User> userManager, RoleManager<Role> roleManager)
+    public UserController(UserManager<User> userManager, RoleManager<Role> roleManager, INotyfService notyfService)
     {
         _userManager = userManager;
         _roleManager = roleManager;
+        _notyfService = notyfService;
     }
 
     // public async Task<IActionResult> Index()
@@ -74,6 +78,8 @@ public class UserController : Controller
                     await _userManager.RemoveFromRoleAsync(user, role.RoleName);
                 }
             }
+            _notyfService.Success($"{user.FirstName} {user.LastName} ({user.UserName}) rolleri basariyla degistirilmistir.");
+
             return RedirectToAction("Index");
         }
         return View(userRolesViewModel);

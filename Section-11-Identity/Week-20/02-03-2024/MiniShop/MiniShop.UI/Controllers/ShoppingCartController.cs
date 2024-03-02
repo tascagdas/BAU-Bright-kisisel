@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MiniShop.Business.Abstract;
@@ -27,6 +28,7 @@ public class ShoppingCartController : Controller
         return View(shoppingCart.Data);
     }
 
+    [Authorize]
     public async Task<IActionResult> AddToCartAsync(int productId,int quantity=1)
     {
         var userId = _userManager.GetUserId(User);

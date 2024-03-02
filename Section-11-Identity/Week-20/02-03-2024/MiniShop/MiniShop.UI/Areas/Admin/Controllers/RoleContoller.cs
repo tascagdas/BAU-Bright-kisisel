@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,13 @@ public class RoleController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly RoleManager<Role> _roleManager;
+    private readonly INotyfService _notyfService;
 
-    public RoleController(UserManager<User> userManager, RoleManager<Role> roleManager)
+    public RoleController(UserManager<User> userManager, RoleManager<Role> roleManager, INotyfService notyfService)
     {
         _userManager = userManager;
         _roleManager = roleManager;
+        _notyfService = notyfService;
     }
 
     

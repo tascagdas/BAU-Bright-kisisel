@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -14,16 +15,17 @@ public class AccountController : Controller
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
     private readonly IOrderService _orderManager;
-    
     private readonly IEmailSender _emailSender;
     private readonly IShoppingCartService _shoppingCartManager;
-    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager, IEmailSender emailSender, IShoppingCartService shoppingCartManager)
+    private readonly INotyfService _notyfService;
+    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager, IEmailSender emailSender, IShoppingCartService shoppingCartManager, INotyfService notyfService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _orderManager = orderManager;
         _emailSender = emailSender;
         _shoppingCartManager = shoppingCartManager;
+        _notyfService = notyfService;
     }
 
     [HttpGet]
@@ -60,19 +62,27 @@ public class AccountController : Controller
                 
                 
                 
+                
+                
                 //Gecici olarak devre disi birakildi.
+                
+                
+                
+                
                 
                 //
                 // //Mail gonderme kismi
                 // await _emailSender.SendEmailAsync(user.Email, "MiniShopApp uyelik onayi",
                 //     $"<p>MinishopApp uygulamasina uyeliginizi onaylamak icin asagidaki linke tiklayiniz.</p><a href='https://localhost:59079{backUrl}'>Onay Linki</a>");
                 //
-                //
-                //
-                //
+               
                 
+                await _shoppingCartManager.InitializeShoppingCartAsync(user.Id);
+
                 
-                // return RedirectToAction("Index","Home");
+                _notyfService.Success("Uyeliginiz basariyla olusturulmustur. Mailinizi kontrol ederek mailinizi onaylayabilirsiniz.",10);
+                
+
                 return Redirect("~/");
             }
         }
@@ -99,25 +109,26 @@ public class AccountController : Controller
         User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
         if (user==null)
         {
-            ModelState.AddModelError("","kullaniıcı bulunamadı");
-            return View(loginViewModel);
+            _notyfService.Error("kullanici bulunamadi");
         }
 
         var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
         if (!isConfirmed)
         {
-            ModelState.AddModelError("","Lutfen mailinizi onaylayiniz.");
+            _notyfService.Warning("hesabiniz onayli degil. mailinize gelen onay linkine tiklayarak onaylayabilirsiniz");
             return View(loginViewModel);
         }
         
         var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
         if (!result.Succeeded)
         {
-            ModelState.AddModelError("","şifre hatalı");
-            return View(loginViewModel);
+_notyfService.Error("sifreniz hatalidir.");
+return View(loginViewModel);
         }
 
         var returnUrl = TempData["ReturnUrl"]?.ToString();
+        _notyfService.Information("Hosgeldiniz!");
+
         if (!string.IsNullOrEmpty(returnUrl))
         {
             return Redirect(returnUrl);
@@ -130,6 +141,7 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         TempData["ReturnUrl"] = null;
+        _notyfService.Information("Basariyla cikis yapilmistir.");
         return Redirect("~/");
     }
 
@@ -267,6 +279,96 @@ public class AccountController : Controller
 
     public IActionResult ForgotPassword()
     {
+        
         return View();
     }
+    [HttpPost]
+    public async Task<IActionResult> ForgotPassword(string email)
+    {
+        if (email==null)
+        {
+            ModelState.AddModelError("","email adresinizi yaziniz.");
+            return View();
+        }
+
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user==null)
+        {
+            ModelState.AddModelError("","email adresi bulunamadi.");
+            return View();
+        }
+
+        var tokenCode = await _userManager.GeneratePasswordResetTokenAsync(user);
+        var backUrl = Url.Action("ResetPassword", "Account", new
+        {
+            userId = user.Id,
+            tokenCode = tokenCode
+        });
+        var subject = "MiniShopApp Sifre Sifirlama";
+        var htmlMessage = $"<h1>MiniShop sifre sifirlama islemi</h1>" +
+                          $"<p>" +
+                          $"Lutfen sifrenizi sfirlamak icin asagidaki linke tiklayiniz." +
+                          $"</p>" +
+                          $"<a href='https://localhost:59079{backUrl}'>" +
+                          $"Sifre sifirla" +
+                          $"</a>";
+        await _emailSender.SendEmailAsync(email, subject, htmlMessage);
+        return RedirectToAction("Login");
+    }
+
+    public async Task<IActionResult> ResetPassword(string userId, string tokenCode)
+    {
+        if (userId==null||tokenCode==null)
+        {
+            ModelState.AddModelError("","Bir sorun olustu.");
+            return View();
+        }
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user==null)
+        {
+            
+            ModelState.AddModelError("","kullanici bulunamadi.");
+            return View();
+        }
+
+        ResetPasswordViewModel resetPasswordViewModel = new ResetPasswordViewModel
+        {
+            UserId = userId,
+            TokenCode = tokenCode
+        };
+        return View(resetPasswordViewModel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+
+        var user = await _userManager.FindByIdAsync(resetPasswordViewModel.UserId);
+        if (user==null)
+        {
+            ModelState.AddModelError("","Boyle kullanici bulunamadi");
+            return View();
+        }
+
+        var result =
+            await _userManager.ResetPasswordAsync(user, resetPasswordViewModel.TokenCode,
+                resetPasswordViewModel.Password);
+        if (result.Succeeded)
+        {
+            return RedirectToAction("Login");
+        }
+
+        foreach (var error in result.Errors)
+        {
+            ModelState.AddModelError("",error.Description);
+        }
+
+        return View(resetPasswordViewModel);
+    }
+
 }
