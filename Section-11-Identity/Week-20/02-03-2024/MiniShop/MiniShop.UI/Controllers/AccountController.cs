@@ -101,40 +101,60 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel loginViewModel)
     {
-        if (!ModelState.IsValid)
+        if (ModelState.IsValid)
         {
-            return View(loginViewModel);
-        }
+            User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
+            if (user==null)
+            {
+                _notyfService.Error("kullanici bulunamadi");
+                return View(loginViewModel);
+            }
+            var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+            if (!isConfirmed)
+            {
+                _notyfService.Warning("hesabiniz onayli degil. mailinize gelen onay linkine tiklayarak onaylayabilirsiniz");
+                return View(loginViewModel);
+            }
+            var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, true);
+            if (result.Succeeded && !result.IsLockedOut)
+            {
+                await _userManager.SetLockoutEnabledAsync(user, false);
 
-        User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
-        if (user==null)
-        {
-            _notyfService.Error("kullanici bulunamadi");
-        }
+                var returnUrl = TempData["ReturnUrl"]?.ToString();
+                _notyfService.Information("Giriş başarılı. Hoş geldiniz.");
+                if (!String.IsNullOrEmpty(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+                return RedirectToAction("Index", "Home");
+            }
+            else if (result.IsLockedOut)
+            {
+                //Program.cs dosyasında ayarladığımız yeniden deneme için geçmesi gereken süreyi alıyoruz.
+                var duration =  _signInManager.Options.Lockout.DefaultLockoutTimeSpan.TotalSeconds;
 
-        var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
-        if (!isConfirmed)
-        {
-            _notyfService.Warning("hesabiniz onayli degil. mailinize gelen onay linkine tiklayarak onaylayabilirsiniz");
-            return View(loginViewModel);
+                //await _userManager.GetLockoutEndDateAsync(user);
+                _notyfService.Information($"Hesabınız kilitli. Lütfen {duration} sn sonra yeniden deneyiniz.");
+                return View(loginViewModel);
+            }
+            else
+            {
+                var attempCount = _signInManager.Options.Lockout.MaxFailedAccessAttempts;
+                var failedAttempCount = await _userManager.GetAccessFailedCountAsync(user);
+                if ( failedAttempCount == 0)
+                {
+                    await _userManager.SetLockoutEnabledAsync(user, true);
+                        
+                    _notyfService.Information("Hesabınız kilitlendi.");
+                }
+                else
+                {
+                    var accessFailedCount = attempCount - failedAttempCount;
+                    _notyfService.Information($"Kalan hakkınız: {accessFailedCount}");
+                }
+            }
         }
-        
-        var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, false);
-        if (!result.Succeeded)
-        {
-_notyfService.Error("sifreniz hatalidir.");
-return View(loginViewModel);
-        }
-
-        var returnUrl = TempData["ReturnUrl"]?.ToString();
-        _notyfService.Information("Hosgeldiniz!");
-
-        if (!string.IsNullOrEmpty(returnUrl))
-        {
-            return Redirect(returnUrl);
-        }
-        return RedirectToAction("Index","Home");
-        
+        return View(loginViewModel);
     }
 
     public async Task<IActionResult> Logout()
