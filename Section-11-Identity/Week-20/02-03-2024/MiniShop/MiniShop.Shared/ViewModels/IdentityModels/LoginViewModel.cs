@@ -13,4 +13,6 @@ public class LoginViewModel
     [DisplayName("Parola")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
+[DisplayName("Beni Hatırla")]
+    public bool RememberMe { get; set; }
 }

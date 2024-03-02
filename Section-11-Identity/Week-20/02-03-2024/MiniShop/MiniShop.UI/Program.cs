@@ -92,7 +92,7 @@ builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options=>new SmtpEmail
 
 builder.Services.AddNotyf(options =>
 {
-    options.DurationInSeconds = 3;
+    options.DurationInSeconds = 5;
     options.IsDismissable = true;
     options.Position = NotyfPosition.TopRight;
 });

@@ -119,7 +119,7 @@ public class AccountController : Controller
             return View(loginViewModel);
         }
         
-        var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
+        var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, false);
         if (!result.Succeeded)
         {
 _notyfService.Error("sifreniz hatalidir.");
@@ -201,6 +201,7 @@ return View(loginViewModel);
                 await _userManager.UpdateSecurityStampAsync(user);
                 await _signInManager.SignOutAsync();
                 await _signInManager.SignInAsync(user, false);
+                _notyfService.Success("profiliniz basariyla guncellenmistir.");
                 return Redirect("~/");
             }
 
@@ -234,19 +235,22 @@ return View(loginViewModel);
                     var updateSecurityStampResult = await _userManager.UpdateSecurityStampAsync(user);
                     await _signInManager.SignOutAsync();
                     await _signInManager.PasswordSignInAsync(user, changePasswordViewModel.NewPassword, false, false);
+                    _notyfService.Success("sifreniz basariyla degistirilmistir.");
                     return RedirectToAction("Profile");
                 }
 
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError("",error.Description);
+                    ModelState.AddModelError("", error.Description);
                 }
 
                 return View(changePasswordViewModel);
             }
-            ModelState.AddModelError("","gecerli sifreniz hatalidir!");
+
+            _notyfService.Warning("gecerli sifreniz hatali.");
             return View(changePasswordViewModel);
         }
+
         return View(changePasswordViewModel);
     }
 
@@ -254,14 +258,14 @@ return View(loginViewModel);
     {
         if (userId==null||token==null)
         {
-            ModelState.AddModelError("","bilgilerde sorun var yonetici ile gorusunuz.");
+            _notyfService.Warning("bilgilerde sorun var yonetici ile gorusunuz.");
             return View();
         }
 
         var user = await _userManager.FindByIdAsync(userId);
         if (user==null)
         {
-            ModelState.AddModelError("","kullanici bilgilerinize ulasilamadi");
+            _notyfService.Warning("Kullanici bilgilerinize ulasilamadi.");
             return View();
         }
 
@@ -270,10 +274,10 @@ return View(loginViewModel);
         {
             //buraya kadar gelen user artik onayli olacagi icin shopping cartini olusturabiliriz.
             await _shoppingCartManager.InitializeShoppingCartAsync(userId);
-            
-            return View("ConfirmEmail","Hesabiniz basariyla onaylanmistir Hos geldiniz.");
+            _notyfService.Information("hesabiniz basariyla onaylanmistir.");
+            return RedirectToAction("Login");
         }
-        
+        _notyfService.Error("Hesabiniz onaylanirken bir sorun olustu daha sonra tekrar deneyiniz.");
         return View();
     }
 
