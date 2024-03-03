@@ -99,70 +99,67 @@ public class AccountController : Controller
         return View();
     }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+    {
+        if (ModelState.IsValid)
         {
-            if(ModelState.IsValid)
+            var user = await _userManager.FindByNameAsync(loginViewModel.UserName);
+            if (user != null)
             {
-                User user = await _userManager.FindByNameAsync(loginViewModel.UserName);
-                if (user != null)
+                //Olası daha önceden kalmış olan cookieyi temizliyoruz.
+                await _signInManager.SignOutAsync();
+                //Mail onayını kontrol ediyoruz.
+                var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+                if (!isConfirmed)
                 {
-                    //Olası daha önceden kalmış olan cookieyi temizliyoruz.
-                    await _signInManager.SignOutAsync();
-                    //Mail onayını kontrol ediyoruz.
-                    var isConfirmed = await _userManager.IsEmailConfirmedAsync(user);
-                    if (!isConfirmed)
-                    {
-                        _notyfService.Warning("Hesabınız onaylı değildir. Mailinize gelen onay linkini tıklayarak, onaylayabilirsiniz.");
-                        return View(loginViewModel);
-                    }
-                    //Login olmayı deniyoruz.
-                    var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, loginViewModel.RememberMe, true);
-                    if (result.Succeeded)
-                    {
-                        await _userManager.ResetAccessFailedCountAsync(user);
-                        await _userManager.SetLockoutEndDateAsync(user, null);
+                    _notyfService.Warning(
+                        "Hesabınız onaylı değildir. Mailinize gelen onay linkini tıklayarak, onaylayabilirsiniz.");
+                    return View(loginViewModel);
+                }
 
-                        var returnUrl = TempData["ReturnUrl"]?.ToString();
-                        _notyfService.Information("Giriş başarılı. Hoş geldiniz.");
-                        if (!String.IsNullOrEmpty(returnUrl))
-                        {
-                            return Redirect(returnUrl);
-                        }
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else if (result.IsLockedOut)    
+                //Login olmayı deniyoruz.
+                var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password,
+                    loginViewModel.RememberMe, true);
+                if (result.Succeeded)
+                {
+                    await _userManager.ResetAccessFailedCountAsync(user);
+                    await _userManager.SetLockoutEndDateAsync(user, null);
+
+                    var returnUrl = TempData["ReturnUrl"]?.ToString();
+                    _notyfService.Information("Giriş başarılı. Hoş geldiniz.");
+                    if (!string.IsNullOrEmpty(returnUrl)) return Redirect(returnUrl);
+                    return RedirectToAction("Index", "Home");
+                }
+
+                if (result.IsLockedOut)
+                {
+                    var lockoutEndDate = await _userManager.GetLockoutEndDateAsync(user);
+                    if (lockoutEndDate > DateTime.Now)
                     {
-
-                        var lockoutEndDate = await _userManager.GetLockoutEndDateAsync(user);
-                        if (lockoutEndDate>DateTime.Now)
-                        {
-                            
-                            _notyfService.Information($"Hesabınız {lockoutEndDate.Value.ToString("f")} zamanına kadar kilitlendi.");
-                        }
-                        else
-                        {
-                            var timeLeft = (lockoutEndDate.Value - DateTime.Now).Seconds;
-                            _notyfService.Information($"Hesabınız kilitli. Lütfen {timeLeft} sn sonra yeniden deneyiniz.");
-                        }
-
-                        return View(loginViewModel);
+                        _notyfService.Information(
+                            $"Hesabınız {lockoutEndDate.Value.ToString("f")} zamanına kadar kilitlendi.");
                     }
                     else
                     {
-                        var attempCount = _signInManager.Options.Lockout.MaxFailedAccessAttempts;
-                        var failedAttempCount = await _userManager.GetAccessFailedCountAsync(user);
-                        var lockountEndDate= await _userManager.GetLockoutEndDateAsync(user);   
- 
-                            var accessFailedCount = attempCount - failedAttempCount;
-                            _notyfService.Information($"Kalan deneme hakkınız: {accessFailedCount}");
-                        
+                        var timeLeft = (lockoutEndDate.Value - DateTime.Now).Seconds;
+                        _notyfService.Information($"Hesabınız kilitli. Lütfen {timeLeft} sn sonra yeniden deneyiniz.");
                     }
+
+                    return View(loginViewModel);
                 }
 
+                var attempCount = _signInManager.Options.Lockout.MaxFailedAccessAttempts;
+                var failedAttempCount = await _userManager.GetAccessFailedCountAsync(user);
+                var lockountEndDate = await _userManager.GetLockoutEndDateAsync(user);
+
+                var accessFailedCount = attempCount - failedAttempCount;
+                _notyfService.Information($"Kalan deneme hakkınız: {accessFailedCount}");
             }
-            return View(loginViewModel);
         }
+
+        return View(loginViewModel);
+    }
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
