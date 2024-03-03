@@ -36,7 +36,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
     #region Hesap Kilitleme Ayarları
     options.Lockout.MaxFailedAccessAttempts = 3;
-    options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromSeconds(15);
+    options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromDays(10);
     // options.Lockout.AllowedForNewUsers = true;//yeniuden kayit olmaya imkan ver
     #endregion
 

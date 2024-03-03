@@ -29,23 +29,24 @@ public class ShoppingCartController : Controller
     }
 
     [Authorize]
-    public async Task<IActionResult> AddToCartAsync(int productId,int quantity=1)
+    public async Task<IActionResult> AddToCartAsync(int productId, int quantity = 1)
     {
         var userId = _userManager.GetUserId(User);
         await _shoppingCartManager.AddToCartAsync(userId, productId, quantity);
         return RedirectToAction("Index");
     }
 
-    public async Task<IActionResult> ChangeQuantity(ShoppingCartItemViewModel shoppingCartItemViewModel)
+    [HttpPost]
+    public async Task<IActionResult> ChangeQuantity(int itemId, int quantity)
     {
-        if (ModelState.IsValid)
-        {
-            await _shoppingCartItemManager.ChangeQuantityAsync(shoppingCartItemViewModel.Id,
-                shoppingCartItemViewModel.Quantity);
-            return RedirectToAction("Index");
-        }
-
-        return View(shoppingCartItemViewModel);
+        await _shoppingCartItemManager.ChangeQuantityAsync(itemId, quantity);
+        var result = await _shoppingCartItemManager.GetShoppingCartItemAsync(itemId);
+        var cartItemTotal = $"{(result.ProductPrice * quantity):C0}";
+        var userId = _userManager.GetUserId(User);
+        var shoppingCart = await _shoppingCartManager.GetShoppingCartByUserIdAsync(userId);
+        var cartTotal = $"{shoppingCart.Data.TotalPrice():C0}";
+        var cartSubTotal=$"{shoppingCart.Data.TotalPrice()/1.2m:C0}";
+        return Json(new{cartItemTotal=cartItemTotal,cartTotal=cartTotal,cartSubTotal=cartSubTotal});
     }
 
     public async Task<IActionResult> DeleteItem(int id)
@@ -53,9 +54,8 @@ public class ShoppingCartController : Controller
         await _shoppingCartItemManager.DeleteFromShoppingCartAsync(id);
         return RedirectToAction("Index");
     }
-    public async Task<IActionResult> ClearCart(int id)
+    public async Task ClearCart(int id)
     {
         await _shoppingCartItemManager.ClearShoppingCartAsync(id);
-        return RedirectToAction("Index");
     }
 }

@@ -3,6 +3,7 @@ using MiniShop.Business.Abstract;
 using MiniShop.Data.Abstract;
 using MiniShop.Entity.Concrete;
 using MiniShop.Shared.ResponseViewModels;
+using MiniShop.Shared.ViewModels;
 
 namespace MiniShop.Business.Concrete;
 
@@ -44,5 +45,19 @@ public class ShoppingCartItemManager:IShoppingCartItemService
         await _shoppingCartRepository.UpdateAsync(cart);
         return Response<NoContent>.Success();
 
+    }
+
+    public async Task<ShoppingCartItemViewModel> GetShoppingCartItemAsync(int shoppingCartItemId)
+    {
+        var shoppingCartItem = await _shoppingCartItemRepository.GetByIdAsync(x => x.Id == shoppingCartItemId,source=>source.Include(x=>x.Product));
+        return new ShoppingCartItemViewModel
+        {
+            Id = shoppingCartItemId,
+            ProductId = shoppingCartItem.ProductId,
+            ProductImageUrl = shoppingCartItem.Product.ImageUrl,
+            ProductName = shoppingCartItem.Product.Name,     
+            ProductPrice = shoppingCartItem.Product.Price,
+            Quantity = shoppingCartItem.Quantity
+        };
     }
 }
