@@ -32,7 +32,7 @@ public class RoleController : Controller
     }
     public async Task<IActionResult> Delete()
     {
-        return View();
+        return Ok();
     }
     
     public async Task<IActionResult> AssignUsers()
