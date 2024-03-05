@@ -32,12 +32,15 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = true; // Parola buyuk harf icermeli
     options.Password.RequireLowercase = true; // parola kucuk harf icermeli
     // options.Password.RequiredUniqueChars // Parola Tekrar etmemesi istenen karakterleri bu ozellik ile verilir.
+
     #endregion
 
     #region Hesap Kilitleme Ayarları
+
     options.Lockout.MaxFailedAccessAttempts = 3;
-    options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromDays(10);
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(10);
     // options.Lockout.AllowedForNewUsers = true;//yeniuden kayit olmaya imkan ver
+
     #endregion
 
     #region user ve signin ayarlari
@@ -53,7 +56,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Account/Login";
     options.LogoutPath = "/";
     options.AccessDeniedPath = "/Account/AccessDenied";
-    options.ExpireTimeSpan=TimeSpan.FromDays(45);
+    options.ExpireTimeSpan = TimeSpan.FromDays(45);
     options.SlidingExpiration = true; //true ile sure her istekte sifirlanir.
     options.Cookie = new CookieBuilder
     {
@@ -78,17 +81,15 @@ builder.Services.AddScoped<IShoppingCartItemRepository, ShoppingCartItemReposito
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 
-
-
 builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
-builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options=>new SmtpEmailSender(
+builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(options => new SmtpEmailSender(
     builder.Configuration["EmailSender:Host"],
     builder.Configuration.GetValue<int>("EmailSender:Port"),
     builder.Configuration.GetValue<bool>("EmailSender:EnableSSL"),
     builder.Configuration["EmailSender:UserName"],
     builder.Configuration["EmailSender:Password"]
-    ));
+));
 
 builder.Services.AddNotyf(options =>
 {

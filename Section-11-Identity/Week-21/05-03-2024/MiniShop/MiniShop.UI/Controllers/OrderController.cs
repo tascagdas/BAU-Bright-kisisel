@@ -21,7 +21,8 @@ public class OrderController : Controller
     private readonly IOrderService _orderManager;
     private readonly IShoppingCartItemService _shoppingCartItemManager;
 
-    public OrderController(UserManager<User> userManager, IShoppingCartService shoppingCartManager, IOrderService orderManager, IShoppingCartItemService shoppingCartItemManager)
+    public OrderController(UserManager<User> userManager, IShoppingCartService shoppingCartManager,
+        IOrderService orderManager, IShoppingCartItemService shoppingCartItemManager)
     {
         _userManager = userManager;
         _shoppingCartManager = shoppingCartManager;
@@ -34,13 +35,14 @@ public class OrderController : Controller
     {
         return View();
     }
+
     [HttpGet]
     public async Task<IActionResult> Checkout()
     {
         var userId = _userManager.GetUserId(User);
-        var user =await _userManager.FindByIdAsync(userId);
+        var user = await _userManager.FindByIdAsync(userId);
         var shoppingCart = await _shoppingCartManager.GetShoppingCartByUserIdAsync(userId);
-        
+
         OrderViewModel orderViewModel = new OrderViewModel
         {
             FirstName = user.FirstName,
@@ -67,21 +69,17 @@ public class OrderController : Controller
         var userId = _userManager.GetUserId(User);
         var shoppingCart = await _shoppingCartManager.GetShoppingCartByUserIdAsync(userId);
         orderViewModel.ShoppingCart = shoppingCart.Data;
-        
+
         //Odeme islemi basliyor. (iyzico)
 
         if (ModelState.IsValid)
         {
-
-
-
             // yapilacak odeme isteginin authorization secenekleri icin nesne yaratiliyor.
 
             Options options = new Options();
             options.ApiKey = "sandbox-UlaILFwQQUCQA648QP1e4xzwppazrJge";
             options.SecretKey = "sandbox-nj7t2SyzWlCzvOupNbwNm9U6nK4ipLRe";
             options.BaseUrl = "https://sandbox-api.iyzipay.com";
-
 
 
             //yapilacak odeme icin nesne yaratiliyor.
@@ -200,6 +198,7 @@ public class OrderController : Controller
 
             ModelState.AddModelError("", payment.ErrorMessage);
         }
+
         return View(orderViewModel);
     }
 }

@@ -16,9 +16,8 @@ public class ProductController : Controller
         _categoryManager = categoryManager;
     }
 
-    public async Task<IActionResult> Index(int? id=null)
+    public async Task<IActionResult> Index(int? id = null)
     {
-        
         var products = id == null
             ? await _productManager.GetAllNonDeletedAsync()
             : await _productManager.GetProductsByCategoryIdAsync(Convert.ToInt32(id));

@@ -13,7 +13,8 @@ public class ShoppingCartController : Controller
     private readonly IShoppingCartService _shoppingCartManager;
     private readonly IShoppingCartItemService _shoppingCartItemManager;
 
-    public ShoppingCartController(UserManager<User> userManager, IShoppingCartService shoppingCartManager, IShoppingCartItemService shoppingCartItemManager)
+    public ShoppingCartController(UserManager<User> userManager, IShoppingCartService shoppingCartManager,
+        IShoppingCartItemService shoppingCartItemManager)
     {
         _userManager = userManager;
         _shoppingCartManager = shoppingCartManager;
@@ -45,8 +46,8 @@ public class ShoppingCartController : Controller
         var userId = _userManager.GetUserId(User);
         var shoppingCart = await _shoppingCartManager.GetShoppingCartByUserIdAsync(userId);
         var cartTotal = $"{shoppingCart.Data.TotalPrice():C0}";
-        var cartSubTotal=$"{shoppingCart.Data.TotalPrice()/1.2m:C0}";
-        return Json(new{cartItemTotal=cartItemTotal,cartTotal=cartTotal,cartSubTotal=cartSubTotal});
+        var cartSubTotal = $"{shoppingCart.Data.TotalPrice() / 1.2m:C0}";
+        return Json(new { cartItemTotal = cartItemTotal, cartTotal = cartTotal, cartSubTotal = cartSubTotal });
     }
 
     public async Task<IActionResult> DeleteItem(int id)
@@ -54,6 +55,7 @@ public class ShoppingCartController : Controller
         await _shoppingCartItemManager.DeleteFromShoppingCartAsync(id);
         return RedirectToAction("Index");
     }
+
     public async Task ClearCart(int id)
     {
         await _shoppingCartItemManager.ClearShoppingCartAsync(id);

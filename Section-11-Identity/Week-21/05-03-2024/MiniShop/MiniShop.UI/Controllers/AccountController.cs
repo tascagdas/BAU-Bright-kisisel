@@ -18,7 +18,10 @@ public class AccountController : Controller
     private readonly IEmailSender _emailSender;
     private readonly IShoppingCartService _shoppingCartManager;
     private readonly INotyfService _notyfService;
-    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IOrderService orderManager, IEmailSender emailSender, IShoppingCartService shoppingCartManager, INotyfService notyfService)
+
+    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager,
+        IOrderService orderManager, IEmailSender emailSender, IShoppingCartService shoppingCartManager,
+        INotyfService notyfService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -33,7 +36,7 @@ public class AccountController : Controller
     {
         return View();
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
     {
@@ -44,14 +47,13 @@ public class AccountController : Controller
                 UserName = registerViewModel.UserName,
                 Email = registerViewModel.Email,
                 FirstName = registerViewModel.FirstName,
-                LastName = registerViewModel.LastName
-                ,EmailConfirmed = true
+                LastName = registerViewModel.LastName, EmailConfirmed = true
             };
-            var result = await _userManager.CreateAsync(user,registerViewModel.Password);
+            var result = await _userManager.CreateAsync(user, registerViewModel.Password);
             if (result.Succeeded)
             {
                 //Mail gonderme islemi basliyor
-                
+
                 //Token olusturma
                 var tokenCode = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var backUrl = Url.Action("ConfirmEmail", "Account", new
@@ -59,43 +61,40 @@ public class AccountController : Controller
                     userId = user.Id,
                     token = tokenCode
                 });
-                
-                
-                
-                
-                
+
+
                 //Gecici olarak devre disi birakildi.
-                
-                
-                
-                
-                
+
+
                 //
                 // //Mail gonderme kismi
                 // await _emailSender.SendEmailAsync(user.Email, "MiniShopApp uyelik onayi",
                 //     $"<p>MinishopApp uygulamasina uyeliginizi onaylamak icin asagidaki linke tiklayiniz.</p><a href='https://localhost:59079{backUrl}'>Onay Linki</a>");
                 //
-               
-                
+
+
                 await _shoppingCartManager.InitializeShoppingCartAsync(user.Id);
 
-                
-                _notyfService.Success("Uyeliginiz basariyla olusturulmustur. Mailinizi kontrol ederek mailinizi onaylayabilirsiniz.",10);
-                
+
+                _notyfService.Success(
+                    "Uyeliginiz basariyla olusturulmustur. Mailinizi kontrol ederek mailinizi onaylayabilirsiniz.", 10);
+
 
                 return Redirect("~/");
             }
         }
+
         return View(registerViewModel);
     }
 
     [HttpGet]
-    public IActionResult Login(string returnUrl=null)
+    public IActionResult Login(string returnUrl = null)
     {
-        if (returnUrl!=null)
+        if (returnUrl != null)
         {
             TempData["ReturnUrl"] = returnUrl;
         }
+
         return View();
     }
 
@@ -160,6 +159,7 @@ public class AccountController : Controller
 
         return View(loginViewModel);
     }
+
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
@@ -172,6 +172,7 @@ public class AccountController : Controller
     {
         return View();
     }
+
     [HttpGet]
     public async Task<IActionResult> Profile()
     {
@@ -198,7 +199,7 @@ public class AccountController : Controller
             },
             Orders = orders
         };
-        
+
         return View(userProfileViewModel);
     }
 
@@ -217,7 +218,7 @@ public class AccountController : Controller
             user.PhoneNumber = userProfileViewModel.User.PhoneNumber;
             user.DateOfBirth = userProfileViewModel.User.DateOfBirth;
             user.Gender = userProfileViewModel.User.Gender;
-            
+
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
@@ -230,11 +231,11 @@ public class AccountController : Controller
 
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("",error.Description);
+                ModelState.AddModelError("", error.Description);
             }
-            
         }
-        userProfileViewModel.Orders=await _orderManager.GetOrdersAsync(userId);
+
+        userProfileViewModel.Orders = await _orderManager.GetOrdersAsync(userId);
         return View(userProfileViewModel);
     }
 
@@ -242,12 +243,13 @@ public class AccountController : Controller
     {
         return View();
     }
+
     [HttpPost]
     public async Task<IActionResult> ChangePassword(ChangePasswordViewModel changePasswordViewModel)
     {
         if (ModelState.IsValid)
         {
-            var user =await _userManager.FindByIdAsync(_userManager.GetUserId(User));
+            var user = await _userManager.FindByIdAsync(_userManager.GetUserId(User));
             var isVerified = await _userManager.CheckPasswordAsync(user, changePasswordViewModel.OldPassword);
             if (isVerified)
             {
@@ -277,16 +279,16 @@ public class AccountController : Controller
         return View(changePasswordViewModel);
     }
 
-    public async Task<IActionResult> ConfirmEmail(string userId,string token)
+    public async Task<IActionResult> ConfirmEmail(string userId, string token)
     {
-        if (userId==null||token==null)
+        if (userId == null || token == null)
         {
             _notyfService.Warning("bilgilerde sorun var yonetici ile gorusunuz.");
             return View();
         }
 
         var user = await _userManager.FindByIdAsync(userId);
-        if (user==null)
+        if (user == null)
         {
             _notyfService.Warning("Kullanici bilgilerinize ulasilamadi.");
             return View();
@@ -300,28 +302,29 @@ public class AccountController : Controller
             _notyfService.Information("hesabiniz basariyla onaylanmistir.");
             return RedirectToAction("Login");
         }
+
         _notyfService.Error("Hesabiniz onaylanirken bir sorun olustu daha sonra tekrar deneyiniz.");
         return View();
     }
 
     public IActionResult ForgotPassword()
     {
-        
         return View();
     }
+
     [HttpPost]
     public async Task<IActionResult> ForgotPassword(string email)
     {
-        if (email==null)
+        if (email == null)
         {
-            ModelState.AddModelError("","email adresinizi yaziniz.");
+            ModelState.AddModelError("", "email adresinizi yaziniz.");
             return View();
         }
 
         var user = await _userManager.FindByEmailAsync(email);
-        if (user==null)
+        if (user == null)
         {
-            ModelState.AddModelError("","email adresi bulunamadi.");
+            ModelState.AddModelError("", "email adresi bulunamadi.");
             return View();
         }
 
@@ -345,17 +348,16 @@ public class AccountController : Controller
 
     public async Task<IActionResult> ResetPassword(string userId, string tokenCode)
     {
-        if (userId==null||tokenCode==null)
+        if (userId == null || tokenCode == null)
         {
-            ModelState.AddModelError("","Bir sorun olustu.");
+            ModelState.AddModelError("", "Bir sorun olustu.");
             return View();
         }
 
         var user = await _userManager.FindByIdAsync(userId);
-        if (user==null)
+        if (user == null)
         {
-            
-            ModelState.AddModelError("","kullanici bulunamadi.");
+            ModelState.AddModelError("", "kullanici bulunamadi.");
             return View();
         }
 
@@ -376,9 +378,9 @@ public class AccountController : Controller
         }
 
         var user = await _userManager.FindByIdAsync(resetPasswordViewModel.UserId);
-        if (user==null)
+        if (user == null)
         {
-            ModelState.AddModelError("","Boyle kullanici bulunamadi");
+            ModelState.AddModelError("", "Boyle kullanici bulunamadi");
             return View();
         }
 
@@ -392,10 +394,9 @@ public class AccountController : Controller
 
         foreach (var error in result.Errors)
         {
-            ModelState.AddModelError("",error.Description);
+            ModelState.AddModelError("", error.Description);
         }
 
         return View(resetPasswordViewModel);
     }
-
 }
