@@ -11,7 +11,7 @@ using MiniShop.Data.Concrete.Contexts;
 namespace MiniShop.Data.Migrations
 {
     [DbContext(typeof(MiniShopDbContext))]
-    [Migration("20240220173715_InitialDb")]
+    [Migration("20240306070916_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -105,28 +105,28 @@ namespace MiniShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "9557098f-1632-4c3f-ac63-238e95d11e0d",
-                            RoleId = "6c568d5a-cbd2-4e30-bac9-6604fa4e3815"
+                            UserId = "cc798110-bce3-4e05-b380-ce9addd82dfd",
+                            RoleId = "e533f32e-b9bf-4188-af7d-bb01fe0409bc"
                         },
                         new
                         {
-                            UserId = "c26ae30a-ff0e-41aa-95da-a02b72202f3b",
-                            RoleId = "4740fbb8-8d9b-4267-b77a-657672873a0f"
+                            UserId = "b345f723-ed10-41c7-afa9-d20d922a1327",
+                            RoleId = "6f385a10-7cb3-461b-94cc-8a95c538d4ef"
                         },
                         new
                         {
-                            UserId = "a15ecc2c-fd60-4ff4-923d-04c7dccfe71e",
-                            RoleId = "4740fbb8-8d9b-4267-b77a-657672873a0f"
+                            UserId = "98e3ac6f-37b7-4bbd-86d2-25d643bcea8e",
+                            RoleId = "6f385a10-7cb3-461b-94cc-8a95c538d4ef"
                         },
                         new
                         {
-                            UserId = "ad7449dd-f16c-4976-8220-968513c3d6b2",
-                            RoleId = "cb47fd5d-cb85-48c8-a6eb-d0975064b64e"
+                            UserId = "aa152d18-2136-42c2-ad5f-eac358cbdefd",
+                            RoleId = "8bdb4836-aa0e-48b7-9e5a-90ce22f8018e"
                         },
                         new
                         {
-                            UserId = "c0859d5b-409c-4b7d-b008-94032a5a8df3",
-                            RoleId = "6c568d5a-cbd2-4e30-bac9-6604fa4e3815"
+                            UserId = "75f339b7-0836-46aa-b931-274cbfbfdc28",
+                            RoleId = "e533f32e-b9bf-4188-af7d-bb01fe0409bc"
                         });
                 });
 
@@ -190,55 +190,55 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2700),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1610),
                             Description = "Son model TV'leirn bulunduğu kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2700),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1620),
                             Name = "Televizyon",
                             Url = "televizyon"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1620),
                             Description = "Süper hızlı Bilgisayarı bulabileceğiniz kategori",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1620),
                             Name = "Bilgisayar",
                             Url = "bilgisayar"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1630),
                             Description = "Elektronik Eşyaların bulunduğu kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1630),
                             Name = "Elektronik Eşya",
                             Url = "elektronik-esya"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1630),
                             Description = "Beyaz Eşya kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1630),
                             Name = "Beyaz Eşya",
                             Url = "beyaz-esya"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1630),
                             Description = "Telefon kategorisi",
                             IsActive = true,
                             IsDeleted = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(2710),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(1630),
                             Name = "Telefon",
                             Url = "telefon"
                         });
@@ -275,21 +275,21 @@ namespace MiniShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6c568d5a-cbd2-4e30-bac9-6604fa4e3815",
+                            Id = "e533f32e-b9bf-4188-af7d-bb01fe0409bc",
                             Description = "Süper Yönetici haklarını taşıyan rol",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
-                            Id = "4740fbb8-8d9b-4267-b77a-657672873a0f",
+                            Id = "6f385a10-7cb3-461b-94cc-8a95c538d4ef",
                             Description = "Yönetici haklarını taşıyan rol",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "cb47fd5d-cb85-48c8-a6eb-d0975064b64e",
+                            Id = "8bdb4836-aa0e-48b7-9e5a-90ce22f8018e",
                             Description = "Müşteri haklarını taşıyan rol",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
@@ -380,11 +380,11 @@ namespace MiniShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9557098f-1632-4c3f-ac63-238e95d11e0d",
+                            Id = "cc798110-bce3-4e05-b380-ce9addd82dfd",
                             AccessFailedCount = 0,
                             Address = "Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                             City = "İstanbul",
-                            ConcurrencyStamp = "34cc1aea-9fe4-4a41-a455-cb901ea448d2",
+                            ConcurrencyStamp = "1b06fac8-8e79-4ecc-b2b5-ffc0aab884f4",
                             DateOfBirth = new DateTime(1990, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "denizfoca@gmail.com",
                             EmailConfirmed = true,
@@ -394,20 +394,20 @@ namespace MiniShop.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DENIZFOCA@GMAIL.COM",
                             NormalizedUserName = "DENIZFOCA",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHNNU6nLT7zV6wlhqP/GS05Jh6eguX/V+Hr8KmQAJrA+NOiMJOrHwC9Gak7WSAcDKw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC9U5dlDJ0EmpGAiM96ajLiZ0y1pxmNQgXjCQq10QpCaF9ejmB2w9NTWbttdrEjbvA==",
                             PhoneNumber = "5558779966",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "768c28ff-cb1b-48ba-8dde-6161f71d6869",
+                            SecurityStamp = "62091145-526f-4925-aa90-7c3088e94efd",
                             TwoFactorEnabled = false,
                             UserName = "denizfoca"
                         },
                         new
                         {
-                            Id = "c26ae30a-ff0e-41aa-95da-a02b72202f3b",
+                            Id = "b345f723-ed10-41c7-afa9-d20d922a1327",
                             AccessFailedCount = 0,
                             Address = "Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                             City = "İstanbul",
-                            ConcurrencyStamp = "ce4026ae-2289-4514-8cf6-04537dbf054e",
+                            ConcurrencyStamp = "fb525eb6-3e74-4cd8-aab2-73d9f68eff34",
                             DateOfBirth = new DateTime(1993, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "selinmete@gmail.com",
                             EmailConfirmed = true,
@@ -417,20 +417,20 @@ namespace MiniShop.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SELINMETE@GMAIL.COM",
                             NormalizedUserName = "SELINMETE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGQ1bLaIsR898tnk2NUHLeWL2q4eNt22nt5UZVGn1G88m3hexPFPzCP51+03WxHNIw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAED67dEqOVDwXKDMP50JtrRdVpx4/wgSqkweUuBEAOWs0I43qDd9ZRJN7adVr4O855Q==",
                             PhoneNumber = "538996655",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "775eb2c8-ffc0-42b4-834a-974752e5e7c4",
+                            SecurityStamp = "5893fec7-631a-4431-b815-cd59badae9b0",
                             TwoFactorEnabled = false,
                             UserName = "selinmete"
                         },
                         new
                         {
-                            Id = "a15ecc2c-fd60-4ff4-923d-04c7dccfe71e",
+                            Id = "98e3ac6f-37b7-4bbd-86d2-25d643bcea8e",
                             AccessFailedCount = 0,
                             Address = "Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                             City = "İstanbul",
-                            ConcurrencyStamp = "f6d09ec4-2eb0-44af-9eee-350b23683bf3",
+                            ConcurrencyStamp = "c2aaa2f6-2fd1-4a98-995b-34716c6cfbc4",
                             DateOfBirth = new DateTime(1993, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kemaldurukan@gmail.com",
                             EmailConfirmed = true,
@@ -440,20 +440,20 @@ namespace MiniShop.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "KEMALDURUKAN@GMAIL.COM",
                             NormalizedUserName = "KEMALDURUKAN",
-                            PasswordHash = "AQAAAAIAAYagAAAAELnL9Rk+JGU8Ab1/DKTimpOoFbF/cVRxO+zNjAhkBCAzi9rGcgfV+pP57WGgWHXIXQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJedfw+FtAsMthDRjcKxAPgNgIvOrYRB7t0RaUg5nzyAb2XBWDu5TXa9ZvVZzEtbNQ==",
                             PhoneNumber = "538996655",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "457dc744-a285-42ff-9fd1-845284e50867",
+                            SecurityStamp = "4bc8ebe0-e718-45d7-acd4-2f0637ef779d",
                             TwoFactorEnabled = false,
                             UserName = "kemaldurukan"
                         },
                         new
                         {
-                            Id = "ad7449dd-f16c-4976-8220-968513c3d6b2",
+                            Id = "aa152d18-2136-42c2-ad5f-eac358cbdefd",
                             AccessFailedCount = 0,
                             Address = "Halilpaşa Konağı Caddesi Kemeraltı Sokak No:4 D:2 Üsküdar",
                             City = "İstanbul",
-                            ConcurrencyStamp = "e7355ac6-9609-45ce-89f0-3827d5424809",
+                            ConcurrencyStamp = "9e90a913-1d56-47b6-8cf9-ed3dcb1223a9",
                             DateOfBirth = new DateTime(1993, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "aysenumay@gmail.com",
                             EmailConfirmed = true,
@@ -463,20 +463,20 @@ namespace MiniShop.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "AYSENUMAY@GMAIL.COM",
                             NormalizedUserName = "AYSENUMAY",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGLKz6gggItpe4jbmOeiL5NIMNs2cuAPXTrgz43KMScO/OkRigiDTqfMTnQF8ld8XA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHRyoYfygQUS1+WTcLhIAcxwI4NAXH1NVpYBO1AxwoZJUzUuZU/gJkBlotDDts267g==",
                             PhoneNumber = "538996655",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "22e0afb2-434c-4b9f-9daf-bd8a7dae80b0",
+                            SecurityStamp = "9cf39e2e-37d6-4d2a-aa5c-433c22beea98",
                             TwoFactorEnabled = false,
                             UserName = "aysenumay"
                         },
                         new
                         {
-                            Id = "c0859d5b-409c-4b7d-b008-94032a5a8df3",
+                            Id = "75f339b7-0836-46aa-b931-274cbfbfdc28",
                             AccessFailedCount = 0,
                             Address = "Sevda Caddesi Çırçır Sokak No:4 D:2 Eyüp",
                             City = "İstanbul",
-                            ConcurrencyStamp = "26ed337a-35be-4b1f-9204-94b1c10c108d",
+                            ConcurrencyStamp = "b21ef59e-60d0-4535-85bf-0a54466ee7ec",
                             DateOfBirth = new DateTime(1995, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tascagdas@gmail.com",
                             EmailConfirmed = true,
@@ -486,10 +486,10 @@ namespace MiniShop.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TASCAGDAS@GMAIL.COM",
                             NormalizedUserName = "TASCAGDAS",
-                            PasswordHash = "AQAAAAIAAYagAAAAED7FfsVpLfya8+GUAAcSPna9sMH5qbOx3iFYzaJ/I4Xboxr7vcZDj4SRPM6x5JqmQQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJHkGSEiEv0+8WmLB7wmv09c7TDevn3RZKxyRaZyeipeZcRxj74jTqZNoYGi/itnnw==",
                             PhoneNumber = "5397166827",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8a92fef-dfdb-49cf-b69b-45223ff3aa8b",
+                            SecurityStamp = "c846e597-127c-4bf8-bcec-6ace25d8a691",
                             TwoFactorEnabled = false,
                             UserName = "tascagdas"
                         });
@@ -544,6 +544,8 @@ namespace MiniShop.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -631,12 +633,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5250),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4170),
                             ImageUrl = "1.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5260),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4180),
                             Name = "IPhone 14",
                             Price = 59000m,
                             Properties = "Harika bir telefon",
@@ -645,12 +647,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5260),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4180),
                             ImageUrl = "2.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5260),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             Name = "IPhone 14 Pro",
                             Price = 69000m,
                             Properties = "Bu da harika bir telefon",
@@ -659,12 +661,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5260),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             ImageUrl = "3.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5260),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             Name = "Samsung S23",
                             Price = 49000m,
                             Properties = "İdare eder",
@@ -673,12 +675,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5270),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             ImageUrl = "4.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5270),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             Name = "Xaomi Note 4",
                             Price = 39000m,
                             Properties = "Harika bir telefon",
@@ -687,12 +689,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5270),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             ImageUrl = "5.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5270),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4190),
                             Name = "MacBook Air M2",
                             Price = 52000m,
                             Properties = "M2nin gücü",
@@ -701,12 +703,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5270),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4200),
                             ImageUrl = "6.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5270),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4200),
                             Name = "MacBook Pro M3",
                             Price = 79000m,
                             Properties = "16 Gb ram",
@@ -715,12 +717,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5280),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4200),
                             ImageUrl = "7.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5280),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4200),
                             Name = "Vestel Çamaşır Makinesi X65",
                             Price = 19000m,
                             Properties = "Akıllı makine",
@@ -729,12 +731,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5280),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4200),
                             ImageUrl = "8.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = false,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5290),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4220),
                             Name = "Arçelik Çamaşır Makinesi A-4",
                             Price = 21000m,
                             Properties = "Süper hızlı makine",
@@ -743,12 +745,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5290),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4220),
                             ImageUrl = "9.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5290),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4220),
                             Name = "Hoop Dijital Radyo X96",
                             Price = 1250m,
                             Properties = "Klasik radyo keyfi",
@@ -757,12 +759,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5300),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4220),
                             ImageUrl = "10.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5300),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4230),
                             Name = "Xaomi Dijital Baskül",
                             Price = 2100m,
                             Properties = "Kilonuzu kontrol edin",
@@ -771,12 +773,12 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5300),
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4230),
                             ImageUrl = "11.png",
                             IsActive = true,
                             IsDeleted = false,
                             IsHome = true,
-                            ModifiedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(5300),
+                            ModifiedDate = new DateTime(2024, 3, 6, 10, 9, 16, 252, DateTimeKind.Local).AddTicks(4230),
                             Name = "Blaupunkt AC69 Led TV",
                             Price = 9800m,
                             Properties = "Android tv",
@@ -931,32 +933,32 @@ namespace MiniShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(740),
-                            UserId = "9557098f-1632-4c3f-ac63-238e95d11e0d"
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 251, DateTimeKind.Local).AddTicks(9510),
+                            UserId = "cc798110-bce3-4e05-b380-ce9addd82dfd"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(780),
-                            UserId = "c26ae30a-ff0e-41aa-95da-a02b72202f3b"
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 251, DateTimeKind.Local).AddTicks(9560),
+                            UserId = "b345f723-ed10-41c7-afa9-d20d922a1327"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(780),
-                            UserId = "a15ecc2c-fd60-4ff4-923d-04c7dccfe71e"
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 251, DateTimeKind.Local).AddTicks(9560),
+                            UserId = "98e3ac6f-37b7-4bbd-86d2-25d643bcea8e"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(790),
-                            UserId = "ad7449dd-f16c-4976-8220-968513c3d6b2"
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 251, DateTimeKind.Local).AddTicks(9560),
+                            UserId = "aa152d18-2136-42c2-ad5f-eac358cbdefd"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 2, 20, 20, 37, 15, 249, DateTimeKind.Local).AddTicks(790),
-                            UserId = "c0859d5b-409c-4b7d-b008-94032a5a8df3"
+                            CreatedDate = new DateTime(2024, 3, 6, 10, 9, 16, 251, DateTimeKind.Local).AddTicks(9560),
+                            UserId = "75f339b7-0836-46aa-b931-274cbfbfdc28"
                         });
                 });
 
@@ -1036,6 +1038,15 @@ namespace MiniShop.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MiniShop.Entity.Concrete.Order", b =>
+                {
+                    b.HasOne("MiniShop.Entity.Concrete.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MiniShop.Entity.Concrete.OrderDetail", b =>
