@@ -2,12 +2,12 @@
 <header class="header">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-3 col-lg-2">
+            <div class="col-lg-2">
                 <div class="header__menu">
                     <a class="text-dark font-weight-bold" href="/">Tascagdas shop</a>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-7">
+            <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
                         <li class="active">
@@ -36,7 +36,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="header__right">
                     <div class="header__right__auth">
                         @if (!User.Identity.IsAuthenticated)
@@ -50,6 +50,7 @@
                             {
                                 <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Panel</a>
                             }
+                            <a asp-area="" asp-controller="Message" asp-action="Index">Mesajlar</a>
                             <a asp-area="" asp-controller="Account" asp-action="Profile">@User.Identity.Name</a>
                             <a asp-area="" asp-controller="Account" asp-action="Logout">Çıkış</a>
                         }

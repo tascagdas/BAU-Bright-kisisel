@@ -1,0 +1,16 @@
+@model MessageViewModel
+
+<div class="container p-3">
+    <h1 class="display-4 text-primary">Gelen Mesaj</h1>
+    <hr/>
+    
+    <label asp-for="FromName"></label>
+    <label >@Model.FromName</label>
+    
+    <label asp-for="Text"></label>
+    <label >@Model.Text</label>
+    
+    <label asp-for="SendTime"></label>
+    <label >@Model.SendTime</label>
+    <a asp-controller="Message" asp-action="Index" class="btn btn-warning btn-sm">Geri Dön</a>
+</div>

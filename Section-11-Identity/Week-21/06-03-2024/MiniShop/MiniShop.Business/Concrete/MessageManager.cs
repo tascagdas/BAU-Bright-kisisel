@@ -18,17 +18,17 @@ public class MessageManager : IMessageService
         _repository = messageRepository;
     }
 
-    public async Task<Response<MessageDetailsViewModel>> CreateAsync(MessageDetailsViewModel messageDetailsViewModel)
+    public async Task<Response<MessageViewModel>> CreateAsync(MessageViewModel messageViewModel)
     {
-        var message = _mapper.Map<Message>(messageDetailsViewModel);
+        var message = _mapper.Map<Message>(messageViewModel);
         var createdMessage = await _repository.CreateAsync(message);
         if (createdMessage == null)
         {
-            return Response<MessageDetailsViewModel>.Fail("Mesaj Gönderilemedi.");
+            return Response<MessageViewModel>.Fail("Mesaj Gönderilemedi.");
         }
 
-        var createdMessageDetailsViewModel = _mapper.Map<MessageDetailsViewModel>(createdMessage);
-        return Response<MessageDetailsViewModel>.Success(messageDetailsViewModel);
+        var createdMessageDetailsViewModel = _mapper.Map<MessageViewModel>(createdMessage);
+        return Response<MessageViewModel>.Success(messageViewModel);
     }
 
     public async Task<Response<NoContent>> HardDeleteAsync(int id)
@@ -43,47 +43,55 @@ public class MessageManager : IMessageService
         return Response<NoContent>.Success();
     }
 
-    public async Task<Response<List<MessageDetailsViewModel>>> GetAllSentMessageAsync(string userId)
+    public async Task<Response<List<MessageViewModel>>> GetAllSentMessageAsync(string fromUserId)
     {
-        var messageList = await _repository.GetAllAsync(x => x.FromId == userId);
+        var messageList = await _repository.GetAllAsync(x => x.FromId == fromUserId);
         if (messageList.Count == 0)
         {
-            return Response<List<MessageDetailsViewModel>>.Fail("Giden kutusu boş.");
+            return Response<List<MessageViewModel>>.Fail("Giden kutusu boş.");
         }
 
-        var messageViewModelList = _mapper.Map<List<MessageDetailsViewModel>>(messageList);
-        return Response<List<MessageDetailsViewModel>>.Success(messageViewModelList);
+        var messageViewModelList = _mapper.Map<List<MessageViewModel>>(messageList);
+        return Response<List<MessageViewModel>>.Success(messageViewModelList);
     }
 
-    public async Task<Response<List<MessageDetailsViewModel>>> GetAllReceivedMessageAsync(string userId,
+    public async Task<Response<List<MessageViewModel>>> GetAllReceivedMessageAsync(string toUserId,
         bool isRead = false)
     {
-        var messageList = await _repository.GetAllAsync(x => x.FromId == userId && x.IsRead == isRead);
+        var messageList = await _repository.GetAllAsync(x => x.ToId == toUserId && x.IsRead == isRead);
         if (messageList.Count == 0)
         {
             var infoText = isRead ? "Okunmuş" : "Okunmamış";
-            return Response<List<MessageDetailsViewModel>>.Fail($"{infoText} Mesaj Bulunamadı.");
+            return Response<List<MessageViewModel>>.Fail($"{infoText} Mesaj Bulunamadı.");
         }
 
-        var messageViewModelList = _mapper.Map<List<MessageDetailsViewModel>>(messageList);
-        return Response<List<MessageDetailsViewModel>>.Success(messageViewModelList);
+        var messageViewModelList = _mapper.Map<List<MessageViewModel>>(messageList);
+        return Response<List<MessageViewModel>>.Success(messageViewModelList);
     }
 
-    public async Task<Response<MessageDetailsViewModel>> GetByIdAsync(int id)
+    public async Task<Response<MessageViewModel>> GetByIdAsync(int id)
     {
         var message = await _repository.GetByIdAsync(x => x.Id == id);
         if (message == null)
         {
-            return Response<MessageDetailsViewModel>.Fail("Böyle bir mesaj bulunamadı");
+            return Response<MessageViewModel>.Fail("Böyle bir mesaj bulunamadı");
         }
 
-        var messageDetailsViewModel = _mapper.Map<MessageDetailsViewModel>(message);
-        return Response<MessageDetailsViewModel>.Success(messageDetailsViewModel);
+        var messageViewModel = _mapper.Map<MessageViewModel>(message);
+        return Response<MessageViewModel>.Success(messageViewModel);
     }
 
-    public async Task<Response<int>> GetMessageCount(string userId, bool isRead = false)
+    public async Task<Response<int>> GetMessageCountAsync(string userId, bool isRead = false)
     {
         var count = await _repository.GetCount(x => x.FromId == userId && x.IsRead == isRead);
         return Response<int>.Success(count);
+    }
+
+    public async Task<Response<NoContent>> MakeRead(int id)
+    {
+        var message = await _repository.GetByIdAsync(x=>x.Id==id);
+        message.IsRead = true;
+        await _repository.UpdateAsync(message);
+        return Response<NoContent>.Success();
     }
 }

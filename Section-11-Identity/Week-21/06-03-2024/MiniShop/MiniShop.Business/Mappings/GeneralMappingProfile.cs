@@ -37,7 +37,7 @@ namespace MiniShop.Business.Mappings
                     { Price = v.ProductPrice, Name = v.ProductName, ImageUrl = v.ProductImageUrl })).ReverseMap();
 
             CreateMap<ShoppingCart, ShoppingCartViewModel>().ReverseMap();
-            CreateMap<Message, MessageDetailsViewModel>().ReverseMap();
+            CreateMap<Message, MessageViewModel>().ReverseMap();
         }
     }
 }
