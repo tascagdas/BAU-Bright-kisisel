@@ -26,17 +26,17 @@ public class MessageController : Controller
 
     public async Task<IActionResult> Index()
     {
-        
         var userId = _userManager.GetUserId(User);
         var response = await _messageManager.GetAllReceivedMessageAsync(userId);
         var messages = response.Data ?? new List<MessageViewModel>();
-        
+
         return View(messages);
     }
-[HttpGet]
+
+    [HttpGet]
     public async Task<IActionResult> NewMessage()
     {
-        var users =await _userManager.Users.ToListAsync();
+        var users = await _userManager.Users.ToListAsync();
         List<SelectListItem> userSelectList = users.Select(x => new SelectListItem
         {
             Text = x.UserName,
@@ -48,7 +48,8 @@ public class MessageController : Controller
         };
         return View(model);
     }
-[HttpPost]
+
+    [HttpPost]
     public async Task<IActionResult> NewMessage(MessageViewModel model)
     {
         var toUser = await _userManager.FindByIdAsync(model.ToId);
@@ -57,7 +58,7 @@ public class MessageController : Controller
         var fromUser = await _userManager.FindByIdAsync(_userManager.GetUserId(User));
         model.FromId = fromUser.Id;
         model.FromName = fromUser.UserName;
-        var result=await _messageManager.CreateAsync(model);
+        var result = await _messageManager.CreateAsync(model);
         if (result.IsSucceeded)
         {
             _notyfService.Success("Mesaj Başarıyla Gönderildi.");
@@ -66,7 +67,7 @@ public class MessageController : Controller
         {
             _notyfService.Error("Mesaj Gönderilemedi.");
         }
-        
+
         return RedirectToAction("Index");
     }
 

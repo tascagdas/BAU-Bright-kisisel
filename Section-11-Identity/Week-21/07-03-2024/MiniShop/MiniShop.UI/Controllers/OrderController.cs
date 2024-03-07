@@ -15,9 +15,7 @@ namespace MiniShop.UI.Controllers;
 public class OrderController : Controller
 {
     private readonly UserManager<User> _userManager;
-
     private readonly IShoppingCartService _shoppingCartManager;
-
     private readonly IOrderService _orderManager;
     private readonly IShoppingCartItemService _shoppingCartItemManager;
 

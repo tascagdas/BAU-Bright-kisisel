@@ -7,14 +7,14 @@ public static class HostServiceExtension
 {
     public static IHost UpdateDatabase(this IHost host)
     {
-        using (var scope=host.Services.CreateScope())
+        using (var scope = host.Services.CreateScope())
         {
-            using (var miniShopDbContext=scope.ServiceProvider.GetRequiredService<MiniShopDbContext>())
+            using (var miniShopDbContext = scope.ServiceProvider.GetRequiredService<MiniShopDbContext>())
             {
                 try
                 {
                     var pendingMigrationCount = miniShopDbContext.Database.GetPendingMigrations().Count();
-                    if (pendingMigrationCount>0)
+                    if (pendingMigrationCount > 0)
                     {
                         miniShopDbContext.Database.Migrate();
                     }
