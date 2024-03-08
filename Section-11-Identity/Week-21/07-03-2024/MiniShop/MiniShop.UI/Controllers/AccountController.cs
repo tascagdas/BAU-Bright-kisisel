@@ -78,7 +78,7 @@ public class AccountController : Controller
 
 
                 _notyfService.Success(
-                    "Uyeliginiz basariyla olusturulmustur. Mailinizi kontrol ederek mailinizi onaylayabilirsiniz.", 10);
+                    "Üyeliğiniz başarıyla oluşturulmuştur. Mailinizi kontrol ederek alışverişe devam edebilirisiniz.", 10);
 
 
                 return Redirect("~/");
@@ -166,7 +166,7 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         TempData["ReturnUrl"] = null;
-        _notyfService.Information("Basariyla cikis yapilmistir.");
+        _notyfService.Information("Başarıyla çıkış yapıldı.");
         return Redirect("~/");
     }
 
@@ -227,7 +227,7 @@ public class AccountController : Controller
                 await _userManager.UpdateSecurityStampAsync(user);
                 await _signInManager.SignOutAsync();
                 await _signInManager.SignInAsync(user, false);
-                _notyfService.Success("profiliniz basariyla guncellenmistir.");
+                _notyfService.Success("profiliniz başarıyla güncellenmiştir.");
                 return Redirect("~/");
             }
 
@@ -262,7 +262,7 @@ public class AccountController : Controller
                     var updateSecurityStampResult = await _userManager.UpdateSecurityStampAsync(user);
                     await _signInManager.SignOutAsync();
                     await _signInManager.PasswordSignInAsync(user, changePasswordViewModel.NewPassword, false, false);
-                    _notyfService.Success("sifreniz basariyla degistirilmistir.");
+                    _notyfService.Success("sifreniz başarıyla değiştirilmiştir.");
                     return RedirectToAction("Profile");
                 }
 
@@ -274,7 +274,7 @@ public class AccountController : Controller
                 return View(changePasswordViewModel);
             }
 
-            _notyfService.Warning("gecerli sifreniz hatali.");
+            _notyfService.Warning("geçerli şifreniz hatalı.");
             return View(changePasswordViewModel);
         }
 
@@ -285,14 +285,14 @@ public class AccountController : Controller
     {
         if (userId == null || token == null)
         {
-            _notyfService.Warning("bilgilerde sorun var yonetici ile gorusunuz.");
+            _notyfService.Warning("bilgilerde sorun var yönetici ile görüşünüz.");
             return View();
         }
 
         var user = await _userManager.FindByIdAsync(userId);
         if (user == null)
         {
-            _notyfService.Warning("Kullanici bilgilerinize ulasilamadi.");
+            _notyfService.Warning("Kullanıcı bilgilerinize ulaşılamadı.");
             return View();
         }
 
@@ -301,11 +301,11 @@ public class AccountController : Controller
         {
             //buraya kadar gelen user artik onayli olacagi icin shopping cartini olusturabiliriz.
             await _shoppingCartManager.InitializeShoppingCartAsync(userId);
-            _notyfService.Information("hesabiniz basariyla onaylanmistir.");
+            _notyfService.Information("Hesabınız başarıyla onaylanmıştır.");
             return RedirectToAction("Login");
         }
 
-        _notyfService.Error("Hesabiniz onaylanirken bir sorun olustu daha sonra tekrar deneyiniz.");
+        _notyfService.Error("Hesabınız onaylanırken bir sorun oluştu daha sonra tekrar deneyiniz.");
         return View();
     }
 
@@ -319,14 +319,14 @@ public class AccountController : Controller
     {
         if (email == null)
         {
-            ModelState.AddModelError("", "email adresinizi yaziniz.");
+            ModelState.AddModelError("", "email adresinizi yazınız.");
             return View();
         }
 
         var user = await _userManager.FindByEmailAsync(email);
         if (user == null)
         {
-            ModelState.AddModelError("", "email adresi bulunamadi.");
+            ModelState.AddModelError("", "email adresi bulunamadı.");
             return View();
         }
 
@@ -337,12 +337,12 @@ public class AccountController : Controller
             tokenCode = tokenCode
         });
         var subject = "MiniShopApp Sifre Sifirlama";
-        var htmlMessage = $"<h1>MiniShop sifre sifirlama islemi</h1>" +
+        var htmlMessage = $"<h1>MiniShop şifre sıfırlama işlemi</h1>" +
                           $"<p>" +
-                          $"Lutfen sifrenizi sfirlamak icin asagidaki linke tiklayiniz." +
+                          $"Lütfen şifrenizi sıfırlamak için aşağıdaki linke tıklayınız." +
                           $"</p>" +
                           $"<a href='https://localhost:59079{backUrl}'>" +
-                          $"Sifre sifirla" +
+                          $"Şifre sıfırla" +
                           $"</a>";
         await _emailSender.SendEmailAsync(email, subject, htmlMessage);
         return RedirectToAction("Login");
