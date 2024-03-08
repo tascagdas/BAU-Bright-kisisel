@@ -10,4 +10,5 @@ public class Message
     public string FromId { get; set; }
     public string FromName { get; set; }
     public bool IsRead { get; set; }
+    public int RelatedId { get; set; } = 0;
 }

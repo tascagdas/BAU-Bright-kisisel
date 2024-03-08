@@ -31,6 +31,7 @@ public class AccountController : Controller
         _notyfService = notyfService;
     }
 
+    [Route("register")]
     [HttpGet]
     public IActionResult Register()
     {
@@ -87,6 +88,7 @@ public class AccountController : Controller
         return View(registerViewModel);
     }
 
+    [Route("Login")]
     [HttpGet]
     public IActionResult Login(string returnUrl = null)
     {

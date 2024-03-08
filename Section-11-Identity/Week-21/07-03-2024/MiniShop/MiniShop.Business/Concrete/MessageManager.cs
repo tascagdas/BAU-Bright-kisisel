@@ -56,7 +56,7 @@ public class MessageManager : IMessageService
     }
 
     public async Task<Response<List<MessageViewModel>>> GetAllReceivedMessageAsync(string toUserId,
-        bool isRead = false)
+        bool isRead)
     {
         var messageList = await _repository.GetAllAsync(x => x.ToId == toUserId && x.IsRead == isRead);
         if (messageList.Count == 0)
@@ -64,6 +64,21 @@ public class MessageManager : IMessageService
             var infoText = isRead ? "Okunmuş" : "Okunmamış";
             return Response<List<MessageViewModel>>.Fail($"{infoText} Mesaj Bulunamadı.");
         }
+        messageList=messageList.OrderByDescending(x => x.SendTime).ToList();
+        
+        var messageViewModelList = _mapper.Map<List<MessageViewModel>>(messageList);
+        return Response<List<MessageViewModel>>.Success(messageViewModelList);
+    }
+
+    public async Task<Response<List<MessageViewModel>>> GetAllReceivedMessageAsync(string toUserId)
+    {
+        var messageList = await _repository.GetAllAsync(x => x.ToId == toUserId);
+        if (messageList.Count == 0)
+        {
+            return Response<List<MessageViewModel>>.Fail($"Hiç Mesaj Bulunamadı.");
+        }
+
+        messageList=messageList.OrderByDescending(x => x.SendTime).ToList();
 
         var messageViewModelList = _mapper.Map<List<MessageViewModel>>(messageList);
         return Response<List<MessageViewModel>>.Success(messageViewModelList);
@@ -83,7 +98,7 @@ public class MessageManager : IMessageService
 
     public async Task<Response<int>> GetMessageCountAsync(string userId, bool isRead = false)
     {
-        var count = await _repository.GetCount(x => x.FromId == userId && x.IsRead == isRead);
+        var count = await _repository.GetCount(x => x.ToId == userId && x.IsRead == isRead);
         return Response<int>.Success(count);
     }
 

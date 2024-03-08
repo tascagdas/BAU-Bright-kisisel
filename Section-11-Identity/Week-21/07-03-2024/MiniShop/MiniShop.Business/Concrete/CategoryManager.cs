@@ -103,6 +103,17 @@ namespace MiniShop.Business.Concrete
             return Response<CategoryViewModel>.Success(categoryViewModel);
         }
 
+        public async Task<Response<CategoryViewModel>> GetByUrlAsync(string Url)
+        {
+            var category = await _repository.GetByIdAsync(c => c.Url == Url);
+            if (category == null)
+            {
+                return Response<CategoryViewModel>.Fail("Böyle bir kategori bulunamadı");
+            }
+            var categoryViewModel = _mapper.Map<CategoryViewModel>(category);
+            return Response<CategoryViewModel>.Success(categoryViewModel);
+        }
+
         public async Task<Response<List<CategoryViewModel>>> GetActiveCategories(bool isActive = true)
         {
             var categoryList = await _repository.GetAllAsync(c => c.IsActive == isActive && c.IsDeleted==!isActive);

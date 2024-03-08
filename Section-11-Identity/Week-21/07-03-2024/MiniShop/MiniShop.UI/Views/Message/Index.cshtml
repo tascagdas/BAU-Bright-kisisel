@@ -36,7 +36,8 @@
                     <td class="d-flex justify-content-between">
                         <div>@message.Text.Substring(0, length)</div>
                         <div>
-                            <a asp-controller="Message" asp-action="ReadMessage" asp-route-id="@message.Id" class="btn btn-info btn-sm text-white" class="">Oku</a>
+                            @{var style=message.IsRead?"btn-danger":"btn-success";}
+                            <a asp-controller="Message" asp-action="ReadMessage" asp-route-id="@message.Id" class="btn @style btn-sm text-white" class="">Oku</a>
                         </div>
                     </td>
                 </tr>

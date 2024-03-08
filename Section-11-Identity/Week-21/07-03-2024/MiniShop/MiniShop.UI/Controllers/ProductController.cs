@@ -16,13 +16,15 @@ public class ProductController : Controller
         _categoryManager = categoryManager;
     }
 
-    public async Task<IActionResult> Index(int? id = null)
+    [Route("cagdas/{categoryUrl?}")]
+    public async Task<IActionResult> Index(string categoryUrl=null)
     {
-        var products = id == null
+        var products = 
+            String.IsNullOrEmpty(categoryUrl)
             ? await _productManager.GetAllNonDeletedAsync()
-            : await _productManager.GetProductsByCategoryIdAsync(Convert.ToInt32(id));
-        var category = id != null ? await _categoryManager.GetByIdAsync(Convert.ToInt32(id)) : null;
-        ViewBag.CategoryName = category.Data != null ? category.Data.Name : null;
+            : await _productManager.GetProductsByCategoryUrlAsync(categoryUrl);
+        var category = categoryUrl != "" ? await _categoryManager.GetByUrlAsync(categoryUrl) : null;
+        ViewBag.CategoryName = category.IsSucceeded ? category.Data.Name : null;
         return View(products.Data);
     }
 

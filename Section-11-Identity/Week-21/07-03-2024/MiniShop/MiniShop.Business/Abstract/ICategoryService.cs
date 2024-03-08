@@ -18,6 +18,7 @@ namespace MiniShop.Business.Abstract
         Task<Response<NoContent>> SoftDeleteAsync(int id);
         Task<Response<List<CategoryViewModel>>> GetAllAsync();
         Task<Response<CategoryViewModel>> GetByIdAsync(int id);
+        Task<Response<CategoryViewModel>> GetByUrlAsync(string Url);
         Task<Response<List<CategoryViewModel>>> GetActiveCategories(bool isActive = true);
         Task<Response<List<CategoryViewModel>>> GetNonDeletedCategories(bool isDeleted = false);
         Task<Response<int>> GetActiveCategoryCount();

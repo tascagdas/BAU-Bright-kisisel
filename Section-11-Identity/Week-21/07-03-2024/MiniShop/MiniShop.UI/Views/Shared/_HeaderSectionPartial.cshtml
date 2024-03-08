@@ -59,11 +59,8 @@
                         <li><span class="icon_search search-switch"></span></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                        <li>
-                            <a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a>
-                        </li>
+                            @await Component.InvokeAsync("MessageNotification")
+
                             @await Component.InvokeAsync("ShoppingCartNotification",User.Identity.Name??null)
                         }
                     </ul>
