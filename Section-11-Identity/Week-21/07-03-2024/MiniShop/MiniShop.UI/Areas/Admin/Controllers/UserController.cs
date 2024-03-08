@@ -15,7 +15,7 @@ public class UserController : Controller
     private readonly UserManager<User> _userManager;
     private readonly RoleManager<Role> _roleManager;
     private readonly INotyfService _notyfService;
-    
+
 
     public UserController(UserManager<User> userManager, RoleManager<Role> roleManager, INotyfService notyfService)
     {
@@ -37,10 +37,10 @@ public class UserController : Controller
     {
         //idsi gonderilen rol aramasi yapilacak useri buluyoruz
         var user = await _userManager.FindByIdAsync(id);
-        
+
         //buldugumuz userin var olan rollerini aliyoruz.
         var userRoles = await _userManager.GetRolesAsync(user);
-        
+
         //ilgili userin rollerinide icerecek sekilde rol listesini yaratiyoruz.
         var roles = await _roleManager.Roles.Select(r => new AssignRoleViewModel
         {
@@ -48,16 +48,16 @@ public class UserController : Controller
             RoleName = r.Name,
             IsAssigned = userRoles.Any(x => x == r.Name)
         }).ToListAsync();
-        
+
         //Viewin ihtiyaci olan user id ve rol listesini iceren modeli yaratiyoruz.
         var userRolesViewModel = new UserRolesViewModel
         {
             Id = user.Id,
-            Name =$"{user.FirstName} {user.LastName}",
+            Name = $"{user.FirstName} {user.LastName}",
             UserName = user.UserName,
             Roles = roles
         };
-        
+
         return View(userRolesViewModel);
     }
 
@@ -67,7 +67,7 @@ public class UserController : Controller
         if (ModelState.IsValid)
         {
             var user = await _userManager.FindByIdAsync(userRolesViewModel.Id);
-            foreach (var role in userRolesViewModel.Roles)  
+            foreach (var role in userRolesViewModel.Roles)
             {
                 if (role.IsAssigned)
                 {
@@ -78,10 +78,13 @@ public class UserController : Controller
                     await _userManager.RemoveFromRoleAsync(user, role.RoleName);
                 }
             }
-            _notyfService.Success($"{user.FirstName} {user.LastName} ({user.UserName}) rolleri basariyla degistirilmistir.");
+
+            _notyfService.Success(
+                $"{user.FirstName} {user.LastName} ({user.UserName}) rolleri basariyla degistirilmistir.");
 
             return RedirectToAction("Index");
         }
+
         return View(userRolesViewModel);
     }
 
@@ -89,14 +92,17 @@ public class UserController : Controller
     {
         return View();
     }
+
     public IActionResult GetCustomerUsers()
     {
         return View();
     }
+
     public IActionResult Create()
     {
         return View();
     }
+
     public IActionResult Delete()
     {
         return View();

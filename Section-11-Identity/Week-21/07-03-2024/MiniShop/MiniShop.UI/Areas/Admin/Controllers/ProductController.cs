@@ -24,7 +24,8 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         private readonly IImageHelper _imageHelper;
         private readonly INotyfService _notyfService;
 
-        public ProductController(IProductService productManager, ICategoryService categoryManager, IImageHelper imageHelper, INotyfService notyfService)
+        public ProductController(IProductService productManager, ICategoryService categoryManager,
+            IImageHelper imageHelper, INotyfService notyfService)
         {
             _productManager = productManager;
             _categoryManager = categoryManager;
@@ -38,16 +39,15 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             Response<List<ProductViewModel>> result = await _productManager.GetAllNonDeletedAsync(id);
             ViewBag.ShowDeleted = id;
             return View(result.Data);
-
         }
-        
+
         public async Task<IActionResult> UpdateIsHome(int id)
         {
             var result = await _productManager.UpdateIsHomeAsync(id);
             var product = await _productManager.GetByIdAsync(id);
             return Json(product.Data.IsHome);
         }
-        
+
         public async Task<IActionResult> UpdateIsActive(int id)
         {
             var result = await _productManager.UpdateIsActiveAsync(id);
@@ -55,7 +55,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             return Json(product.Data.IsHome);
         }
 
-        
+
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -74,7 +74,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
             {
                 model.ImageUrl = await _imageHelper.UploadImage(image, "products");
                 model.Url = Jobs.GetUrl(model.Name);
-                var result=await _productManager.CreateAsync(model);
+                var result = await _productManager.CreateAsync(model);
                 if (result.IsSucceeded)
                 {
                     _notyfService.Success("Urun basariyla olusturulmustur.");
@@ -82,15 +82,17 @@ namespace MiniShop.UI.Areas.Admin.Controllers
                 else
                 {
                     _notyfService.Error(result.Error);
-
                 }
+
                 return RedirectToAction("Index");
             }
+
             // ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
-            if (model.CategoryIds.Count==0)
+            if (model.CategoryIds.Count == 0)
             {
                 _notyfService.Error("En az bir kategori secmelisiniz");
             }
+
             ViewBag.ImageErrorMessage = model.ImageUrl == null || model.ImageUrl == "" ? "Resim hatalı!" : null;
             var categories = await _categoryManager.GetActiveCategories();
             model.Categories = categories.Data;
@@ -129,8 +131,9 @@ namespace MiniShop.UI.Areas.Admin.Controllers
                 {
                     model.ImageUrl = await _imageHelper.UploadImage(image, "products");
                 }
+
                 model.Url = Jobs.GetUrl(model.Name);
-                var result=await _productManager.UpdateAsync(model);
+                var result = await _productManager.UpdateAsync(model);
                 if (result.IsSucceeded)
                 {
                     _notyfService.Success("urun basariyla guncellenmistir.");
@@ -139,9 +142,13 @@ namespace MiniShop.UI.Areas.Admin.Controllers
                 {
                     _notyfService.Error(result.Error);
                 }
+
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0 ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz" : null;
+
+            ViewBag.CategoryErrorMessage = model.CategoryIds.Count == 0
+                ? "Herhangi bir kategori seçmeden, ürün kaydı yapılamaz"
+                : null;
             var categories = await _categoryManager.GetActiveCategories();
             model.Categories = categories.Data;
             return View(model);
@@ -160,7 +167,7 @@ namespace MiniShop.UI.Areas.Admin.Controllers
                 CreatedDate = productViewModel.CreatedDate,
                 ModifiedDate = productViewModel.ModifiedDate,
                 IsDeleted = productViewModel.IsDeleted,
-                ImageUrl= productViewModel.ImageUrl
+                ImageUrl = productViewModel.ImageUrl
             };
             return View(model);
         }

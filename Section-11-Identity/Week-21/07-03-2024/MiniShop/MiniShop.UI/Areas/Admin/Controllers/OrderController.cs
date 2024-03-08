@@ -12,7 +12,6 @@ namespace MiniShop.UI.Areas.Admin.Controllers;
 
 [Authorize(Roles = "SuperAdmin, Admin")]
 [Area("Admin")]
-
 public class OrderController : Controller
 {
     private readonly IOrderService _orderManager;
@@ -35,9 +34,8 @@ public class OrderController : Controller
                 Text = x.Name,
                 Value = x.Id.ToString()
             }).ToList();
-        
-        
-        
+
+
         OrderFilterViewModel model = new OrderFilterViewModel
         {
             Orders = orders,
@@ -55,7 +53,7 @@ public class OrderController : Controller
 
     public async Task<IActionResult> UpdateOrderStatus(int id)
     {
-        var orderState = await _orderManager.UpdateOrderStatus(id,OrderState.Preparing);
+        var orderState = await _orderManager.UpdateOrderStatus(id, OrderState.Preparing);
         return Json(orderState.GetDisplayName());
     }
 }

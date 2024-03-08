@@ -22,23 +22,22 @@ public class RoleController : Controller
         _notyfService = notyfService;
     }
 
-    
+
     public async Task<IActionResult> Index() => View(await _roleManager.Roles.ToListAsync());
 
-    
+
     public async Task<IActionResult> Create()
     {
         return View();
     }
+
     public async Task<IActionResult> Delete()
     {
         return Ok();
     }
-    
+
     public async Task<IActionResult> AssignUsers()
     {
         return View();
     }
-    
-    
 }
