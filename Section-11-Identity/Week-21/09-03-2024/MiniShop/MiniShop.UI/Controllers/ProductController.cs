@@ -16,7 +16,7 @@ public class ProductController : Controller
         _categoryManager = categoryManager;
     }
 
-    [Route("cagdas/{categoryUrl?}")]
+    // [Route("cagdas/{categoryUrl?}")]
     public async Task<IActionResult> Index(string categoryUrl=null)
     {
         var products = 

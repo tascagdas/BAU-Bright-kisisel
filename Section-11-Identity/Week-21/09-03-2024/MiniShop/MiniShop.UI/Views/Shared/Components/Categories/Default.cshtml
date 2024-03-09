@@ -9,7 +9,7 @@
                     <div class="categories__text">
                         <h1>@Model[0].Name</h1>
                         <p>@Model[0].Description</p>
-                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-id="@Model[0].Id">Alışveriş Yap</a>
+                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-categoryUrl="@Model[0].Id">Alışveriş Yap</a>
                     </div>
                 </div>
             </div>

@@ -116,6 +116,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
+
 app.MapAreaControllerRoute(
     name: "Admin",
     areaName: "Admin",
