@@ -1,5 +1,3 @@
-using MiniShop.Shared.ComplexTypes;
-
 namespace MiniShop.Shared.ViewModels;
 
 public class AdminOrderViewModel

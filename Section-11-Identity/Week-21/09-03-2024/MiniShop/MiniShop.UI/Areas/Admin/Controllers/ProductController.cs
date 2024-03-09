@@ -1,17 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniShop.Business.Abstract;
-using MiniShop.Business.Concrete;
 using MiniShop.Shared.Helpers.Abstract;
 using MiniShop.Shared.ResponseViewModels;
 using MiniShop.Shared.ViewModels;
-using MiniShop.UI.Extensions;
 using MiniShop.UI.Helpers;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MiniShop.UI.Areas.Admin.Controllers
 {
@@ -34,10 +28,19 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index(bool id = false)
+        public async Task<IActionResult> Index(string isdeleted = "tumurunler")
         {
-            Response<List<ProductViewModel>> result = await _productManager.GetAllNonDeletedAsync(id);
-            ViewBag.ShowDeleted = id;
+            bool isdeletednew = false;
+            if (isdeleted=="tumurunler")
+            {
+                 isdeletednew = false;
+            }
+            else
+            {
+                isdeletednew = true;
+            }
+            Response<List<ProductViewModel>> result = await _productManager.GetAllNonDeletedAsync(isdeletednew);
+            ViewBag.ShowDeleted = isdeletednew;
             return View(result.Data);
         }
 

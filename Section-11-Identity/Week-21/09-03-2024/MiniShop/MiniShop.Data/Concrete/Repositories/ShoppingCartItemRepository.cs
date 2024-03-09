@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using MiniShop.Data.Abstract;
 using MiniShop.Data.Concrete.Contexts;
 using MiniShop.Entity.Concrete;

@@ -1,6 +1,5 @@
 using MiniShop.Entity.Concrete;
 using MiniShop.Shared.ComplexTypes;
-using MiniShop.Shared.ResponseViewModels;
 using MiniShop.Shared.ViewModels;
 
 namespace MiniShop.Business.Abstract;

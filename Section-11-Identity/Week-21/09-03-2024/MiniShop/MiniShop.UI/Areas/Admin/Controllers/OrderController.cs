@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MiniShop.Business.Abstract;
-using MiniShop.Business.Concrete;
 using MiniShop.Shared.ComplexTypes;
 using MiniShop.Shared.Extensions;
 using MiniShop.UI.Areas.Admin.Models;

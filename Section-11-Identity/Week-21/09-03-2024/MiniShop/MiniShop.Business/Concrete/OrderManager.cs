@@ -1,13 +1,10 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using MiniShop.Business.Abstract;
 using MiniShop.Data.Abstract;
 using MiniShop.Entity.Concrete;
 using MiniShop.Shared.ComplexTypes;
 using MiniShop.Shared.Extensions;
-using MiniShop.Shared.ResponseViewModels;
 using MiniShop.Shared.ViewModels;
-using NoContent = MiniShop.Shared.ResponseViewModels.NoContent;
 
 namespace MiniShop.Business.Concrete;
 

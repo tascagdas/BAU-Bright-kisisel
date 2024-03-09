@@ -47,7 +47,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-id="false" class="nav-link">
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-isdeleted="tumurunler" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Ürün Listesi</p>
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-id="true" class="nav-link">
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-isdeleted="silinenler" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Çöp Kutusu</p>
                             </a>

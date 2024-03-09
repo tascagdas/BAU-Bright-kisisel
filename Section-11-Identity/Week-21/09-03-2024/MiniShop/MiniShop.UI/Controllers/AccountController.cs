@@ -1,10 +1,8 @@
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using MiniShop.Business.Abstract;
 using MiniShop.Entity.Concrete.Identity;
-using MiniShop.Shared.ViewModels;
 using MiniShop.Shared.ViewModels.IdentityModels;
 using MiniShop.UI.EmailServices.Abstract;
 
@@ -31,7 +29,7 @@ public class AccountController : Controller
         _notyfService = notyfService;
     }
 
-    [Route("register")]
+    // [Route("register")]
     [HttpGet]
     public IActionResult Register()
     {
@@ -88,7 +86,7 @@ public class AccountController : Controller
         return View(registerViewModel);
     }
 
-    [Route("Login")]
+    // [Route("Login")]
     [HttpGet]
     public IActionResult Login(string returnUrl = null)
     {

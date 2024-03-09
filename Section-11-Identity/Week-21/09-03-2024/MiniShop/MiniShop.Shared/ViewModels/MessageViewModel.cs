@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using MiniShop.Shared.ViewModels.IdentityModels;
 
 namespace MiniShop.Shared.ViewModels;
 

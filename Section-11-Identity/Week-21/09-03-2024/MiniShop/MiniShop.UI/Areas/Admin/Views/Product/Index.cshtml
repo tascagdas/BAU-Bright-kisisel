@@ -9,10 +9,11 @@
                     <h1>Ürün Listesi @(ViewBag.ShowDeleted ? "Çöp Kutusu": "")</h1>
                 </div>
                 <div>
-                    <a asp-area="Admin"
-                       asp-controller="Product"
-                       asp-action="Index"
-                       asp-route-id="@(!ViewBag.ShowDeleted)"
+                    <a href="yonetici/urunler/@(!ViewBag.ShowDeleted)"
+                       @*  asp-area="Admin" *@
+                       @* asp-controller="Product" *@
+                       @* asp-action="Index" *@
+                       @* asp-route-isdeleted="@(!ViewBag.ShowDeleted)" *@
                     class="btn btn-sm @(ViewBag.ShowDeleted ? "btn-info" : "btn-danger")">@(ViewBag.ShowDeleted ? "Ürün Listesine Geri Dön" : "Çöp Kutusu" )</a>
 
                     <a asp-area="Admin"

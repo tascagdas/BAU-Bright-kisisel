@@ -23,8 +23,8 @@ public class ProductController : Controller
             String.IsNullOrEmpty(categoryUrl)
             ? await _productManager.GetAllNonDeletedAsync()
             : await _productManager.GetProductsByCategoryUrlAsync(categoryUrl);
-        var category = categoryUrl != "" ? await _categoryManager.GetByUrlAsync(categoryUrl) : null;
-        ViewBag.CategoryName = category.IsSucceeded ? category.Data.Name : null;
+        var category =  !String.IsNullOrEmpty(categoryUrl) ? await _categoryManager.GetByUrlAsync(categoryUrl) : null;
+        ViewBag.CategoryName = category!=null ? category.Data.Name : null;
         return View(products.Data);
     }
 

@@ -3,11 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using MiniShop.Data.Concrete.Configs;
 using MiniShop.Entity.Concrete;
 using MiniShop.Entity.Concrete.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MiniShop.Data.Extensions;
 
 namespace MiniShop.Data.Concrete.Contexts
