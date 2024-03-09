@@ -28,18 +28,22 @@ namespace MiniShop.UI.Areas.Admin.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index(string isdeleted = "tumurunler")
+        public async Task<IActionResult> Index(string isdeleted = "silinmemis-urunler")
         {
             bool isdeletednew = false;
-            if (isdeleted=="tumurunler")
+            if (isdeleted=="silinmemis-urunler")
             {
                  isdeletednew = false;
+                 ViewBag.WhatIsShowing = "silinmis-urunler";
             }
             else
             {
                 isdeletednew = true;
+                ViewBag.WhatIsShowing = "silinmemis-urunler";
+
             }
             Response<List<ProductViewModel>> result = await _productManager.GetAllNonDeletedAsync(isdeletednew);
+            
             ViewBag.ShowDeleted = isdeletednew;
             return View(result.Data);
         }
