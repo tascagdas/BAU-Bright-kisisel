@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Template</title>
+    @await Html.PartialAsync("_StylesPartial")
+    @await RenderSectionAsync("Styles",false)
+</head>
+
+<body>
+    @await Html.PartialAsync("_PagePreloaderPartial")
+    @await Html.PartialAsync("_OffcanvasMenuPartial")
+    @await Html.PartialAsync("_HeaderSectionPartial")
+    @RenderBody()
+    @await Html.PartialAsync("_FooterSectionPartial")
+    @await Html.PartialAsync("_SearchPartial")
+    @await Html.PartialAsync("_ScriptsPartial")
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts",false)
+</body>
+
+</html>

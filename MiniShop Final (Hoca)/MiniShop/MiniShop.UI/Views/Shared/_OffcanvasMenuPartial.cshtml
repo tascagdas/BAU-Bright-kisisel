@@ -1,0 +1,23 @@
+﻿ <!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__close">+</div>
+    <ul class="offcanvas__widget">
+        <li><span class="icon_search search-switch"></span></li>
+        @await Component.InvokeAsync("MessageNotification")
+        @await Component.InvokeAsync("ShoppingCartNotification")
+    </ul>
+    <div class="offcanvas__logo">
+        <a href="./index.html"><img src="/ui/img/logo.png" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__auth">
+        <a asp-area=""
+           asp-controller="Account"
+           asp-action="Login">Giriş Yap</a>
+        <a asp-area=""
+           asp-controller="Account"
+           asp-action="Register">Kayıt Ol</a>
+    </div>
+</div>
+<!-- Offcanvas Menu End -->

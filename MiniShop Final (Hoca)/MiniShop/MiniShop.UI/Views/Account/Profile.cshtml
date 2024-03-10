@@ -1,0 +1,152 @@
+﻿@model UserProfileViewModel
+<div class="container">
+    <hr />
+    <div class="row">
+         <div class="col-md-8">
+            <form asp-area="" asp-controller="Account" asp-action="Profile" method="post">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h6 class="display-4 text-primary mt-1 mb-2" style="font-size:30px;">Kullanıcı Bilgileri</h6>
+                    <div>
+                        <a asp-area="" asp-controller="Account" asp-action="ChangePassword" class="btn btn-primary btn-sm">Şifre Değiştir</a>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-md-12 text-danger" asp-validation-summary="All"></div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.FirstName"></label>
+                            <input class="form-control" asp-for="User.FirstName" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.LastName"></label>
+                            <input class="form-control" asp-for="User.LastName" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.Address"></label>
+                            <textarea class="form-control" asp-for="User.Address"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.City"></label>
+                            <input class="form-control" asp-for="User.City" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.Gender"></label>
+                            <select class="form-control" asp-for="User.Gender">
+                                <option value="Kadın">Kadın</option>
+                                <option value="Erkek">Erkek</option>
+                                <option value="Belirtilmedi">Belirtmek istemiyorum</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.UserName"></label>
+                            <input class="form-control" asp-for="User.UserName" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.Email"></label>
+                            <input class="form-control" asp-for="User.Email" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.PhoneNumber"></label>
+                            <input class="form-control" asp-for="User.PhoneNumber" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group mb-2">
+                            <label asp-for="User.DateOfBirth"></label>
+                            @{
+                                var year = DateTime.Today.Year - 18;
+                                var month = DateTime.Today.Month;
+                                string monthString = month < 10 ? "0" + month : month.ToString();
+                                var day = DateTime.Today.Day;
+                                string dayString = day < 10 ? "0" + day : day.ToString();
+                                var maxDate = $"{year}-{monthString}-{dayString}";
+                            }
+                            <input type="date" min="1950-01-01" max="@maxDate" class="form-control" asp-for="User.DateOfBirth" />
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success mt-3 btn-block">Değişiklikleri Kaydet ve Anasayfaya Dön</button> 
+            </form>
+        </div>
+         <div class="col-md-4">
+            <h6 class="display-4 text-primary mt-1 mb-2" style="font-size:30px;">Geçmiş Şiparişler</h6>
+            <div class="accordion" id="orderAccordion">
+                @foreach (var order in Model.Orders)
+                {
+                    <div class="card">
+                        <div class="card-header"
+                             id="title-order-@order.Id">
+                            <h2 class="mb-0">
+                                <button class="btn btn-block text-left"
+                                        type="button"
+                                        data-toggle="collapse"
+                                        data-target="#order-details-@order.Id"
+                                        aria-expanded="true"
+                                        aria-controls="order-details-@order.Id">
+                                    <div class="row">
+                                        <div class="col-md-4">@order.Id</div>
+                                        <div class="col-md-4">@order.OrderDate</div>
+                                        <div class="col-md-4 text-right">@($"{order.TotalPrice:C0}")</div>
+                                    </div>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="order-details-@order.Id"
+                             class="collapse"
+                             aria-labelledby="title-order-@order.Id"
+                             data-parent="#orderAccordion">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ürün</th>
+                                            <th>Birim Fiyat</th>
+                                            <th>Adet</th>
+                                            <th>Tutar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var orderDetail in order.OrderDetails)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <img src="/images/products/@orderDetail.Product.ImageUrl" width="30" />
+                                                    <span>@orderDetail.Product.Name</span>
+                                                </td>
+                                                <td>@($"{orderDetail.Price:C0}")</td>
+                                                <td>@orderDetail.Quantity</td>
+                                                <td>
+                                                    @($"{(orderDetail.Price * orderDetail.Quantity):C0}")
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+         </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,88 @@
+﻿@model List<User>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-2">
+                <div>
+                    <h1>Kullanıcı Listesi</h1>
+                </div>
+                <div>
+                    <a asp-area="Admin"
+                       asp-controller="User"
+                       asp-action="Create"
+                       class="btn btn-success btn-sm">Yeni Kullanıcı</a>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="myDataTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Ad Soyad</th>
+                                        <th>Kullanıcı Adı</th>
+                                        <th>Email</th>
+                                        <th width="55">#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var u in Model)
+                                    {
+                                        <tr>
+                                            <td>@u.Id</td>
+                                            <td>@u.FirstName @u.LastName</td>
+                                            <td>@u.UserName</td>
+                                            <td>@u.Email</td>
+                                            <td class="text-center">
+                                                <a asp-area="Admin"
+                                                    asp-controller="User"
+                                                    asp-action="AssignRoles"
+                                                    asp-route-id="@u.Id"
+                                                    class="btn btn-warning btn-sm">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                <a asp-area="Admin"
+                                                    asp-controller="User"
+                                                    asp-action="Delete"
+                                                    asp-route-id="@u.Id"
+                                                    class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section Styles {
+    @await Html.PartialAsync("_DataTablesCssPartial")
+}
+
+@section Scripts {
+    @await Html.PartialAsync("_DataTablesJsPartial")
+}

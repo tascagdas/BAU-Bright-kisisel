@@ -1,0 +1,33 @@
+﻿@model MessageViewModel
+<div class="container w-25 mt-5">
+    <h6 class="display-4">Mesaj Gönder</h6>
+    <hr />
+    <form asp-area=""
+          asp-controller="Message"
+          asp-action="NewMessage"
+          method="post">
+        <div class="row">
+            <div class="col-md-12 text-danger" asp-validation-summary="All"></div>
+
+            <div class="col-md-12">
+                <div class="form-group mb-2">
+                    <label asp-for="ToName"></label>
+                    <select name="ToId" class="form-control" asp-items="@Model.UserList">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group mb-2">
+                    <label asp-for="Text"></label>
+                    <textarea class="form-control" asp-for="Text"></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <button type="submit" class="btn btn-primary w-100">Gönder</button>
+            </div>
+        </div>
+    </form>
+</div>

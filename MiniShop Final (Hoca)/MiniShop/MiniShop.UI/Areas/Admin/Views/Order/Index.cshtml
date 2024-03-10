@@ -1,0 +1,102 @@
+﻿@model OrderFilterViewModel
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Sipariş Takibi</h1>
+                </div>
+                <div class="col-sm-6 d-flex align-items-center justify-content-end">
+                    <label class="mr-3 pt-2">Ürüne Göre Siparişler:</label>
+                    <select onchange="filterByProduct(this)" asp-items="Model.ProductListItems" class="form-control w-50">
+                        <option>Seçiniz</option>
+                    </select>
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="myDataTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Tarih</th>
+                                        <th>Kullanıcı</th>
+                                        <th>Tutar</th>
+                                        <th>Durum</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @await Html.PartialAsync("_OrderListPartial", Model.Orders)
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section Styles {
+    @await Html.PartialAsync("_DataTablesCssPartial")
+    <script>
+        const filterByProduct = (element) => {
+            const tBody = $("tbody");
+            $.ajax({
+                url: `/Admin/Order/FilterByProduct/${element.value}`,
+                type: 'GET',
+                success: (response) => {
+                    tBody.html(response);
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        };
+
+        const changeStatus = (element, orderId) => {
+            $.ajax({
+                url: `/Admin/Order/ChangeStatus/${orderId}`,
+                type: 'GET',
+                success: (response) => {
+                    $(element).next().text(response);
+                    $(element).attr('disabled', 'disabled');
+                },
+                error: (err) => {
+                    console.log(err.statusText);
+                }
+            });
+        };
+    </script>
+}
+
+@section Scripts {
+    @await Html.PartialAsync("_DataTablesJsPartial")
+    <script>
+
+    </script>
+}
+
+
+
+
+

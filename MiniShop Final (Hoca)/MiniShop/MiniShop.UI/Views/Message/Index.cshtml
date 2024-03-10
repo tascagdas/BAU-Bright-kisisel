@@ -1,0 +1,57 @@
+﻿@model List<MessageViewModel>
+<div class="container p-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="display-4 text-primary">Gelen Kutusu</h1>
+        <div>
+            <a asp-area="" asp-controller="Message" asp-action="NewMessage"
+                class="btn btn-primary btn-sm text-white">Yeni Mesaj</a>
+        </div>
+    </div>
+    
+    <hr />
+    @if (Model.Count==0)
+    {
+        <div class="alert alert-warning">
+            Gelen kutunuzda mesaj yoktur.
+        </div>
+    }
+    else
+    {
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Gönderen</th>
+                    <th>Tarih/Saat</th>
+                    <th>Mesaj</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in Model)
+                {
+                    <tr>
+                        <td>@message.FromName</td>
+                        <td>@message.SendingDate</td>
+                        @{
+                            int length = message.Text.Length >= 10 ? 10 : message.Text.Length;
+                        }
+                        <td class="d-flex justify-content-between">
+                            <div>@message.Text.Substring(0, length)</div>
+                            <div>
+                                @{
+                                    var style = message.IsRead ? "btn-danger" : "btn-info";
+                                }
+                                <a
+                                    asp-area=""
+                                    asp-controller="Message"
+                                    asp-action="ReadMessage"
+                                    asp-route-id="@message.Id"
+                                    class="btn btn-sm text-white @style">Oku</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+</div>

@@ -1,0 +1,23 @@
+﻿@model List<AdminOrderViewModel>
+
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.OrderDate</td>
+            <td>@order.UserName</td>
+            <td>@($"{order.TotalPrice:C0}")</td>
+            <td>
+            <div class="custom-control custom-switch">
+                <input onchange="changeStatus(this,'@order.Id');"
+                       type="checkbox"
+                       class="custom-control-input"
+                       name="orderState"
+                       @(order.OrderState=="Hazırlanıyor" ? "checked disabled" :"" )
+                       id="order-state-@order.Id" />
+                <label class="custom-control-label" for="order-state-@order.Id">@order.OrderState</label>
+            </div>
+            </td>
+        </tr>
+    }
+

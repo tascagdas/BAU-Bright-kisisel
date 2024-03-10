@@ -1,0 +1,57 @@
+﻿@model UserRolesViewModel
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-2">
+                <div>
+                    <h1>Kullanıcı/Rol Atama</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="display-6">@Model.Name</h1>
+                            <label>Kullanıcı Adı: </label>
+                            <span>@Model.UserName</span>
+                            <h4>Roller</h4>
+                            <form asp-area="Admin"
+                                  asp-controller="User"
+                                  asp-action="AssignRoles"
+                                  method="post">
+                                <div class="text-danger" asp-validation-summary="All"></div>
+                                <input type="hidden" asp-for="Id" />
+                                @for (int i = 0; i < Model.Roles.Count; i++)
+                                {
+                                    <div class="icheck-primary">
+                                        <input asp-for="@Model.Roles[i].IsAssigned" />
+                                        <label asp-for="@Model.Roles[i].IsAssigned">@Model.Roles[i].RoleName</label>
+                                        <input type="hidden" asp-for="@Model.Roles[i].RoleId" />
+                                        <input type="hidden" asp-for="@Model.Roles[i].RoleName" />
+                                    </div>
+                                }
+                                <button type="submit" class="btn btn-primary">Kullanıcı/Rol Değişikliklerini Kaydet</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+@section Styles {
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="~/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/admin/plugins/summernote/summernote-bs4.min.css">
+}
+

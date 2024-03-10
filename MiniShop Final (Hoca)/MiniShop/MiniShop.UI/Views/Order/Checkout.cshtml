@@ -1,0 +1,129 @@
+﻿@model OrderViewModel
+<!-- Checkout Section Begin -->
+<section class="checkout spad pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="display-4 text-primary text-center">
+                    ÖDEME SAYFASI
+                </h1>
+            </div>
+        </div>
+        <hr />
+        <form 
+            asp-area="" asp-controller="Order" asp-action="Checkout" method="post"
+            class="checkout__form">
+
+            <div class="row">
+                <div class="col-lg-12 text-danger mb-3" asp-validation-summary="All"></div>
+                <div class="col-lg-7">
+                    <h5>Fatura Bilgileri</h5>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Ad: <span>*</span></p>
+                                <input asp-for="FirstName">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Soyad: <span>*</span></p>
+                                <input asp-for="LastName">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Adres: <span>*</span></p>
+                                <input asp-for="Address">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Şehir: <span>*</span></p>
+                                <input asp-for="City">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Email: <span>*</span></p>
+                                <input asp-for="Email">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Telefon: <span>*</span></p>
+                                <input asp-for="PhoneNumber">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="checkout__form__input">
+                                <p>Not: <span>*</span></p>
+                                <input asp-for="Note">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5>Ödeme Bilgileri</h5>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Kart Sahibinin Adı Soyadı: <span>*</span></p>
+                                <input asp-for="CardName">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Kart Numarası: <span>*</span></p>
+                                <input asp-for="CardNumber">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="checkout__form__input">
+                                <p>Geçerlilik Tarihi Ay: <span>*</span></p>
+                                <input asp-for="ExpirationMonth">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="checkout__form__input">
+                                <p>Geçerlilik Tarihi Yıl: <span>*</span></p>
+                                <input asp-for="ExpirationYear">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="checkout__form__input">
+                                <p>Cvc Güvenlik Kodu: <span>*</span></p>
+                                <input asp-for="Cvc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="checkout__order">
+                        <h5>Ödeme Özeti</h5>
+                        <div class="checkout__order__product">
+                            <ul>
+                                <li>
+                                    <span class="top__text">Ürün</span>
+                                    <span class="top__text__right">Tutar</span>
+                                </li>
+                                @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+                                {
+                                    <li>@item.ProductName (@item.Quantity) <span>@($"{(item.ProductPrice*item.Quantity):C0}")</span></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="checkout__order__total">
+                            <ul>
+                                <li>Toplam Tutar: <span>@($"{Model.ShoppingCart.TotalPrice():C0}")</span></li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="site-btn">Ödemeyi Tamamla</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- Checkout Section End -->

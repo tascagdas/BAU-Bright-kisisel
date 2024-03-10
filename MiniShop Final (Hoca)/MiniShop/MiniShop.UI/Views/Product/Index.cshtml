@@ -1,0 +1,58 @@
+﻿@model List<ProductViewModel>
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>@ViewBag.CategoryName</h4>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                @* <ul class="filter__controls">
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".women">Women’s</li>
+                    <li data-filter=".men">Men’s</li>
+                    <li data-filter=".kid">Kid’s</li>
+                    <li data-filter=".accessories">Accessories</li>
+                    <li data-filter=".cosmetic">Cosmetics</li>
+                </ul> *@
+            </div>
+        </div>
+        <div class="row property__gallery">
+            @foreach (var p in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg img-fluid"  data-setbg="/images/products/@p.ImageUrl">
+                            <a
+                                asp-area=""
+                                asp-controller="Product"
+                                asp-action="Details"
+                                asp-route-id="@p.Id"
+                                class="label new ml-3 mt-1">Detay</a>
+                            <ul class="product__hover">
+                                <li><a href="/images/products/@p.ImageUrl" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">@p.Name</a></h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product__price">@p.Price TL</div>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
