@@ -1,0 +1,51 @@
+@model List<MessageViewModel>
+
+<div class="container p-3">
+    <div class="d-flex justify-content-between align-items-center">
+    <h1 class="display-4 text-primary">Gelen Mesajlar</h1>
+    <div>
+        <a class="btn btn-primary btn-sm text-white" asp-controller="Message" asp-action="NewMessage">Yeni Mesaj</a>
+    </div>
+    </div>
+    <hr/>
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-warning">
+            Gelen kutunuzda mesaj yoktur.
+        </div>
+    }
+    else
+    {
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th>Gönderen</th>
+                <th>Tarih/Saat</th>
+                <th>Mesaj</th>
+            </tr>
+            </thead>
+            <tbody class="">
+            @foreach (var message in Model)
+            {
+                <tr>
+                    <td>@message.FromName</td>
+                    <td>@message.SendTime</td>
+                    @{
+                        var length = message.Text.Length >= 20 ? 20 : message.Text.Length;
+                    }
+                    <td class="d-flex justify-content-between">
+                        <div>@message.Text.Substring(0, length)</div>
+                        <div>
+                            @{var style=message.IsRead?"btn-danger":"btn-success";}
+                            <a asp-controller="Message" asp-action="ReadMessage" asp-route-id="@message.Id" class="btn @style btn-sm text-white" class="">Oku</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+
+</div>
+
+
